@@ -1,0 +1,5 @@
+{
+  "targetProtocol": "docker:",
+  "dockerImageId": "sha256:73ecc691a965db6492971e92d1f6ee95a586450d25eee5deaf9dcf9ed07118c7",
+  "targetHardware": "amd64"
+}
