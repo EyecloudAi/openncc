@@ -1,0 +1,99 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: GEOS
+Upstream-Contact: GEOS Developers <geos-devel@lists.osgeo.org>
+Source: https://download.osgeo.org/geos/
+
+Files: *
+Copyright:      2018, Vicky Vergara
+                2017, Mateusz Loskot <mateusz@loskot.net>
+                2016, Daniel Baston
+                2016, Shinichi SUGIYAMA <shin.sugi@gmail.com>
+                2015, Nyall Dawson <nyall.dawson@gmail.com>
+                2014, Mika Heiskanen <mika.heiskanen@fmi.fi>
+           2009-2013, Sandro Santilli <strk@kbt.io>
+                2012, Excensus LLC
+           2005-2011, Refractions Research Inc
+           2008-2010, Safe Software Inc
+           2001-2009, Vivid Solutions Inc
+                2009, Ragi Y. Burhum <ragi@burhum.com>
+          2004, 2008, Sean Gillies
+                1995, INRIA Prisme Project
+                1995, Olivier Devillers <Olivier.Devillers@sophia.inria.fr>
+License: LGPL-2.1+
+Comment: The upstream contributors are listed in the AUTHORS file.
+
+Files: ltmain.sh
+Copyright: 1996-2015, Free Software Foundation, Inc
+License: GPL-2+ with Libtool exception
+
+Files: tests/xmltester/tinyxml/*
+Copyright: 2000-2006, Lee Thomason (www.grinninglizard.com)
+License: zlib
+
+Files: include/geos/timeval.h
+Copyright: 2006, Wu Yongwei
+License: public-domain
+ All code here is considered in the public domain though I do wish
+ my name could be retained if anyone uses them. :-)
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ On Debian systems, the full text of the GNU Lesser General Public
+ License version 2.1 can be found in the file
+ `/usr/share/common-licenses/LGPL-2.1'.
+
+License: GPL-2+ with Libtool exception
+ GNU Libtool is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ As a special exception to the GNU General Public License,
+ if you distribute this file as part of a program or library that
+ is built using GNU Libtool, you may include this file under the
+ same distribution terms that you use for the rest of that program.
+ .
+ GNU Libtool is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with GNU Libtool; see the file COPYING.  If not, a copy
+ can be downloaded from http://www.gnu.org/licenses/gpl.html,
+ or obtained by writing to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: zlib
+ This software is provided 'as-is', without any express or implied
+ warranty. In no event will the authors be held liable for any
+ damages arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any
+ purpose, including commercial applications, and to alter it and
+ redistribute it freely, subject to the following restrictions:
+ .
+ 1. The origin of this software must not be misrepresented; you must
+ not claim that you wrote the original software. If you use this
+ software in a product, an acknowledgment in the product documentation
+ would be appreciated but is not required.
+ .
+ 2. Altered source versions must be plainly marked as such, and
+ must not be misrepresented as being the original software.
+ .
+ 3. This notice may not be removed or altered from any source
+ distribution.
+

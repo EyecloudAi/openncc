@@ -1,0 +1,459 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gdcm
+Upstream-Contact: malat@users.sf.net
+Source: http://gdcm.sf.net
+
+Files: *
+Copyright: 2006-2011 Mathieu Malaterre
+ 1993-2005 CREATIS
+License: BSD-3-clause-alike-CREATIS
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+  * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+ .
+  * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+ .
+  * Neither name of Mathieu Malaterre, or CREATIS, nor the names of any
+    contributors (CNRS, INSERM, UCB, Universite Lyon I), may be used to
+    endorse or promote products derived from this software without specific
+    prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS IS''
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR
+ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: Source/MediaStorageAndFileFormat/gdcmStreamImageReader.cxx
+ Source/MediaStorageAndFileFormat/gdcmStreamImageReader.h
+ Source/MediaStorageAndFileFormat/gdcmStreamImageWriter.h
+ Source/MediaStorageAndFileFormat/gdcmStreamImageWriter.cxx
+ Source/MessageExchangeDefinition/gdcmULActionAE.cxx
+ Source/MessageExchangeDefinition/gdcmQueryImage.h
+ Source/MessageExchangeDefinition/gdcmCFindMessages.h
+ Source/MessageExchangeDefinition/gdcmULEvent.h
+ Source/MessageExchangeDefinition/gdcmCompositeNetworkFunctions.h
+ Source/MessageExchangeDefinition/gdcmQuerySeries.cxx
+ Source/MessageExchangeDefinition/gdcmARTIMTimer.h
+ Source/MessageExchangeDefinition/gdcmULConnectionInfo.cxx
+ Source/MessageExchangeDefinition/gdcmNetworkStateID.h
+ Source/MessageExchangeDefinition/gdcmQueryStudy.h
+ Source/MessageExchangeDefinition/gdcmCEchoMessages.cxx
+ Source/MessageExchangeDefinition/gdcmCEchoMessages.h
+ Source/MessageExchangeDefinition/gdcmULBasicCallback.h
+ Source/MessageExchangeDefinition/gdcmULActionAE.h
+ Source/MessageExchangeDefinition/gdcmULConnectionManager.h
+ Source/MessageExchangeDefinition/gdcmULWritingCallback.h
+ Source/MessageExchangeDefinition/gdcmQueryImage.cxx
+ Source/MessageExchangeDefinition/gdcmULActionDT.h
+ Source/MessageExchangeDefinition/gdcmBaseRootQuery.h
+ Source/MessageExchangeDefinition/gdcmCompositeMessageFactory.cxx
+ Source/MessageExchangeDefinition/gdcmQueryFactory.cxx
+ Source/MessageExchangeDefinition/gdcmULConnection.h
+ Source/MessageExchangeDefinition/gdcmBaseRootQuery.cxx
+ Source/MessageExchangeDefinition/gdcmULWritingCallback.cxx
+ Source/MessageExchangeDefinition/gdcmULConnectionInfo.h
+ Source/MessageExchangeDefinition/gdcmULActionAA.h
+ Source/MessageExchangeDefinition/gdcmPDUFactory.cxx
+ Source/MessageExchangeDefinition/gdcmULTransitionTable.h
+ Source/MessageExchangeDefinition/gdcmARTIMTimer.cxx
+ Source/MessageExchangeDefinition/gdcmULBasicCallback.cxx
+ Source/MessageExchangeDefinition/gdcmCMoveMessages.h
+ Source/MessageExchangeDefinition/gdcmULActionDT.cxx
+ Source/MessageExchangeDefinition/gdcmULActionAR.h
+ Source/MessageExchangeDefinition/gdcmQueryPatient.cxx
+ Source/MessageExchangeDefinition/gdcmCMoveMessages.cxx
+ Source/MessageExchangeDefinition/gdcmULConnectionManager.cxx
+ Source/MessageExchangeDefinition/gdcmBasePDU.h
+ Source/MessageExchangeDefinition/gdcmULActionAA.cxx
+ Source/MessageExchangeDefinition/gdcmULAction.h
+ Source/MessageExchangeDefinition/gdcmULTransitionTable.cxx
+ Source/MessageExchangeDefinition/gdcmQuerySeries.h
+ Source/MessageExchangeDefinition/gdcmULConnection.cxx
+ Source/MessageExchangeDefinition/gdcmBaseQuery.h
+ Source/MessageExchangeDefinition/gdcmBaseQuery.cxx
+ Source/MessageExchangeDefinition/gdcmQueryStudy.cxx
+ Source/MessageExchangeDefinition/gdcmULActionAR.cxx
+ Source/MessageExchangeDefinition/gdcmPDUFactory.h
+ Source/MessageExchangeDefinition/gdcmCFindMessages.cxx
+ Source/MessageExchangeDefinition/gdcmBaseCompositeMessage.h
+ Source/MessageExchangeDefinition/gdcmNetworkEvents.h
+ Source/MessageExchangeDefinition/gdcmULConnectionCallback.h
+ Source/MessageExchangeDefinition/gdcmQueryFactory.h
+ Source/MessageExchangeDefinition/gdcmCStoreMessages.h
+ Source/MessageExchangeDefinition/gdcmCStoreMessages.cxx
+ Source/MessageExchangeDefinition/gdcmQueryPatient.h
+ Source/MessageExchangeDefinition/gdcmCompositeNetworkFunctions.cxx
+ Source/MessageExchangeDefinition/gdcmQueryBase.h
+ Source/MessageExchangeDefinition/gdcmCompositeMessageFactory.h
+ Testing/Source/MessageExchangeDefinition/Cxx/TestEcho.cxx
+ Testing/Source/MessageExchangeDefinition/Cxx/TestFind.cxx
+ Testing/Source/MessageExchangeDefinition/Cxx/TestULConnectionManager.cxx
+ Testing/Source/MessageExchangeDefinition/Cxx/TestQueryFactory.cxx
+ Testing/Source/MessageExchangeDefinition/Cxx/TestPresentationContextRQ.cxx
+ Testing/Source/MessageExchangeDefinition/Cxx/TestSCUFunctions.cxx
+Copyright: Insight Software Consortium
+License: Apache-2.0
+
+Files: Applications/Python/*
+Copyright: 2008 Emanuele Rocca <ema@galliera.it>
+ 2008 Marco De Benedetto <debe@galliera.it>
+ 2006-2011 Mathieu Malaterre
+License: Apache-2.0
+
+Files: Examples/Csharp/MpegVideoInfo.cs
+Copyright: 2007 Chris Anderson >chrisa@wordpress.com>
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 2 can be found in
+ "/usr/share/common-licenses/LGPL-2".
+
+Files: CMake/*.cmake
+Copyright: 2006-2011 Mathieu Malaterre <mathieu.malaterre@gmail.com>
+License: BSD-3-clause-alike-Mathieu-Malaterre
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ . 
+ 1. Redistributions of source code must retain the copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: Utilities/C99/*
+Copyright: 2006 Alexander Chemeris
+License: BSD-3-clause-alike-Alexander-Chemeris
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+ .
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+ .
+   3. The name of the author may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: Utilities/gdcmcharls/jpegimagedatasegment.h
+ Utilities/gdcmcharls/jpegmarkersegment.cpp
+ Utilities/gdcmcharls/jpegmarkersegment.h
+ Utilities/gdcmcharls/jpegsegment.h
+ Utilities/gdcmcharls/jpegstreamwriter.cpp
+ Utilities/gdcmcharls/jpegstreamwriter.h
+Copyright: (C) CharLS Team 2014
+License: BSD-3-clause-alike-Jan-de-Vaan
+
+Files: Utilities/gdcmcharls/*
+Copyright: 2007-2010, Jan de Vaan
+License: BSD-3-clause-alike-Jan-de-Vaan
+
+Files: Utilities/gdcmexpat/*
+Copyright: 1998, 1999, 2000 Thai Open Source Software Center Ltd
+                               and Clark Cooper
+ 2001, 2002, 2003, 2004, 2005, 2006 Expat maintainers.
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Files: Utilities/gdcmjpeg/*
+Copyright: 1991-1998, Thomas G. Lane.
+License: gdcmjpeg
+ Permission is hereby granted to use, copy, modify, and distribute this
+ software (or portions thereof) for any purpose, without fee, subject to these
+ conditions:
+ (1) If any part of the source code for this software is distributed, then this
+ README file must be included, with this copyright and no-warranty notice
+ unaltered and any additions, deletions, or changes to the original files
+ must be clearly indicated in accompanying documentation.
+ (2) If only executable code is distributed, then the accompanying
+ documentation must state that "this software is based in part on the work of
+ the Independent JPEG Group".
+ (3) Permission for use of this software is granted only if the user accepts
+ full responsibility for any undesirable consequences the authors accept
+ NO LIABILITY for damages of any kind.
+ .
+ These conditions apply to any software derived from or based on the IJG code,
+ not just to the unmodified library.  If you use our work, you ought to
+ acknowledge us.
+ .
+ Permission is NOT granted for the use of any IJG author's name or company name
+ in advertising or publicity relating to this software or products derived from
+ it.  This software may be referred to only as "the Independent JPEG Group's
+ software".
+ .
+ We specifically permit and encourage the use of this software as the basis of
+ commercial products, provided that all warranty or liability claims are
+ assumed by the product vendor.
+
+Files: Utilities/gdcmmd5/md5main.c
+ Utilities/gdcmmd5/md5.c
+ Utilities/gdcmmd5/md5.h
+Copyright: 1999, 2002 Aladdin Enterprises.  All rights reserved.
+License: zlib/libpng
+ This software is provided 'as-is', without any express or implied
+ warranty.  In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+ 1. The origin of this software must not be misrepresented; you must not
+    claim that you wrote the original software. If you use this software
+    in a product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
+ 2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+
+Files: Utilities/gdcmopenjpeg/*
+Copyright: 2002-2014, Universite catholique de Louvain (UCL), Belgium
+ 2002-2014, Professor Benoit Macq
+ 2003-2014, Antonin Descampe
+ 2003-2009, Francois-Olivier Devaux
+ 2005, Herve Drolon, FreeImage Team
+ 2002-2003, Yannick Verschueren
+ 2001-2003, David Janssens
+ 2011-2012, Centre National d'Etudes Spatiales (CNES), France 
+ 2012, CS Systemes d'Information, France
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+  1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS `AS IS'
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+Files: Utilities/gdcmutfcpp/*
+Copyright: 2006 Nemanja Trifunovic
+License: BSL
+ Permission is hereby granted, free of charge, to any person or organization
+ obtaining a copy of the software and accompanying documentation covered by
+ this license (the "Software") to use, reproduce, display, distribute,
+ execute, and transmit the Software, and to prepare derivative works of the
+ Software, and to permit third-parties to whom the Software is furnished to
+ do so, all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including
+ the above license grant, this restriction and the following disclaimer,
+ must be included in all copies of the Software, in whole or in part, and
+ all derivative works of the Software, unless such copies or derivative
+ works are solely in the form of machine-executable object code generated by
+ a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+ FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+Files: Utilities/gdcmuuid/*
+Copyright: 1996, 1997 Theodore Ts'o.
+License: BSD-3-clause-alike-Theodore-Ts
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, and the entire permission notice in its entirety,
+    including the disclaimer of warranties.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote
+    products derived from this software without specific prior
+    written permission.
+ .
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, ALL OF
+ WHICH ARE HEREBY DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+ OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+ USE OF THIS SOFTWARE, EVEN IF NOT ADVISED OF THE POSSIBILITY OF SUCH
+ DAMAGE.
+
+Files: Utilities/gdcmzlib/*
+Copyright: 1995-2005 Jean-loup Gailly and Mark Adler
+License: Zlib
+ This software is provided 'as-is', without any express or implied
+ warranty.  In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+ 1. The origin of this software must not be misrepresented; you must not
+    claim that you wrote the original software. If you use this software
+    in a product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
+ 2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+
+Files: Utilities/getopt/*
+Copyright: 2000 The NetBSD Foundation, Inc.
+License: BSD-4-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. All advertising materials mentioning features or use of this software
+    must display the following acknowledgement:
+        This product includes software developed by the NetBSD
+        Foundation, Inc. and its contributors.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE NETBSD FOUNDATION, INC. AND CONTRIBUTORS
+ ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+Files: Utilities/pvrg/*
+Copyright: Copyright (C) 1990, 1991, 1993 Andy C. Hung, all rights reserved.
+License: public-domain
+ PUBLIC DOMAIN LICENSE: Stanford University Portable Video Research
+ Group. If you use this software, you agree to the following: This
+ program package is purely experimental, and is licensed "as is".
+ Permission is granted to use, modify, and distribute this program
+ q without charge for any purpose, provided this license/ disclaimer
+ notice appears in the copies.  No warranty or maintenance is given,
+ either expressed or implied.  In no event shall the author(s) be
+ liable to you or a third party for any special, incidental,
+ consequential, or other damages, arising out of the use or inability
+ to use the program for any purpose (or the loss of data), even if we
+ have been advised of such possibilities.  Any public reference or
+ advertisement of this source code should refer to it as the Portable
+ Video Research Group (PVRG) code, and not by any author(s) (or
+ Stanford University) name.
+
+Files: Utilities/socketxx/*
+Copyright: 1992-1996 Gnanasekaran Swaminathan <gs4t@virginia.edu>
+ 2002-2004 Herbert Straub <herbert@linuxhacker.at>
+License: socketxx
+ Permission is granted to use at your own risk and distribute this software
+ in source and  binary forms provided  the above copyright notice and  this
+ paragraph are  preserved on all copies.  This software is provided "as is"
+ with no express or implied warranty
+
+License: Apache-2.0
+ On Debian GNU/Linux system you can find the complete text of the
+ Apache 2.0 license in '/usr/share/common-licenses/Apache-2.0'.
+
+License: BSD-3-clause-alike-Jan-de-Vaan
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+ .
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ .
+ * Neither the name of my employer, nor the names of its contributors may be
+   used to endorse or promote products derived from this software without
+   specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

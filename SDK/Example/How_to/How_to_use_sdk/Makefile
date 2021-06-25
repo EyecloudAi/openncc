@@ -6,8 +6,8 @@ CXX = $(CROSS_COMPILE)g++ -std=c++11
 AR = $(CROSS_COMPILE)ar 
 LINK=$(CROSS_COMPILE)g++
 
-OPENCV = `pkg-config opencv4 --cflags --libs`
-INCS =  -I./inc  -I/usr/local/include/opencv4
+OPENCV = `pkg-config opencv --cflags --libs`
+INCS =  -I./inc  -I/usr/include/opencv2
 
 COMMFLAG=  -DUSE_WD
 

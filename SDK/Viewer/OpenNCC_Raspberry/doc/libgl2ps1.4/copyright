@@ -1,0 +1,63 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gl2ps
+Upstream-Contact: Christophe Geuzaine <cgeuzaine@ulg.ac.be>
+Source: http://www.geuz.org/gl2ps
+Files-Excluded:
+ *.pdf
+
+Files: *
+Copyright: 1999 - 2017 Christophe Geuzaine
+License: GPL-2+ or GL2PS-2+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of either:
+ *
+ * a) the GNU Library General Public License as published by the Free
+ * Software Foundation, either version 2 of the License, or (at your
+ * option) any later version; or
+ *
+ * b) the GL2PS License as published by Christophe Geuzaine, either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See either
+ * the GNU Library General Public License or the GL2PS License for
+ * more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library in the file named "COPYING.LGPL";
+ * if not, write to the Free Software Foundation, Inc., 51 Franklin St,
+ *  Fifth Floor, Boston, MA 02110-1301, USA.
+ * You should have received a copy of the GL2PS License with this
+ * library in the file named "COPYING.GL2PS"; if not, I will be glad
+ * to provide one.
+ .
+  The full text of the LGPL 2.1 can be found in
+  `/usr/share/common-licenses/LGPL-2.1'.
+ .
+  The full text of the GL2PS license is:
+ .
+                           GL2PS LICENSE
+                      Version 2, November 2003
+ .
+              Copyright (C) 2003, Christophe Geuzaine
+ .
+  Permission to use, copy, and distribute this software and its
+  documentation for any purpose with or without fee is hereby granted,
+  provided that the copyright notice appear in all copies and that both
+  that copyright notice and this permission notice appear in supporting
+  documentation.
+ .
+  Permission to modify and distribute modified versions of this software
+  is granted, provided that:
+ .
+  1) the modifications are licensed under the same terms as this
+  software;
+ .
+  2) you make available the source code of any modifications that you
+  distribute, either on the same media as you distribute any executable
+  or other form of this software, or via a mechanism generally accepted
+  in the software development community for the electronic transfer of
+  data.
+ .
+  This software is provided "as is" without express or implied warranty.

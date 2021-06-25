@@ -1,0 +1,355 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: http://www.vtk.org/
+Upstream-Name: Visualization Toolkit
+Files-Excluded:
+  Web/*
+  Examples/GUI/Win32
+  ThirdParty/xdmf3
+  IO/Xdmf3
+  ThirdParty/expat/vtkexpat
+  ThirdParty/freetype/vtkfreetype
+  ThirdParty/gl2ps/vtkgl2ps
+  ThirdParty/hdf5/vtkhdf5
+  ThirdParty/jpeg/vtkjpeg
+  ThirdParty/jsoncpp/vtkjsoncpp
+  ThirdParty/libxml2/vtklibxml2
+  ThirdParty/netcdf/vtknetcdf
+  ThirdParty/oggtheora/vtkoggtheora
+  ThirdParty/png/vtkpng
+  ThirdParty/sqlite/vtksqlite
+  ThirdParty/tiff/vtktiff
+  ThirdParty/zlib/vtkzlib
+  ThirdParty/glew/vtkglew
+  ThirdParty/utf8
+  ThirdParty/AutobahnPython
+  ThirdParty/SixPython
+  ThirdParty/ZopeInterface
+  ThirdParty/mpi4py
+  ThirdParty/Twisted
+  Rendering/VolumeOpenGL/vtkHAVSVolumeMapper*.asm
+  Rendering/VolumeOpenGL/vtkOpenGLHAVSVolumeMapper.*
+
+Files: *
+Copyright: 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen
+License: BSD-3-clause
+
+Files: ThirdParty/xdmf2/vtkxdmf2/libsrc/*
+Copyright: 2002 US Army Research Laboratory
+License: other
+ This software is distributed WITHOUT ANY WARRANTY; without
+ even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE.  See the above copyright notice
+ for more information.
+
+Files: Examples/GUI/Qt/ImageViewer/main.cxx
+ Examples/GUI/Qt/Events/main.cxx
+ Examples/GUI/Qt/Events/GUI4.h
+Copyright: 2004 Sandia Corporation
+License: Sandia-2004
+ Redistribution and use in source and binary forms, with or without 
+ modification, are permitted provided that this Notice and any
+ statement of authorship are reproduced on all copies.
+
+Files: Examples/GUI/Qt/Events/GUI4.cxx
+Copyright: 2004 Sandia Corporation, 
+ Ken Martin, Will Schroeder, Bill Lorensen
+License: Sandia-2004+BSD-3-clause
+ Sandia-2004: Redistribution and use in source and binary forms, with
+ or without modification, are permitted provided that this Notice and any
+ statement of authorship are reproduced on all copies.
+
+Files: Examples/GUI/Qt/SimpleView/SimpleView.cxx
+ Examples/GUI/Qt/SimpleView/main.cxx
+ Examples/Infoviz/Cxx/CustomLinkView/CustomLinkView.*
+ Examples/Infoviz/Cxx/CustomLinkView/main.cxx
+ Examples/Infoviz/Cxx/EasyView/EasyView.h
+ Examples/Infoviz/Cxx/EasyView/main.cxx
+ Examples/Infoviz/Cxx/StatsView/Stats.*
+ Examples/Infoviz/Cxx/StatsView/main.cxx
+Copyright: 2007 Sandia Corporation
+License: Sandia-2007
+ Redistribution and use in source and binary forms, with or without 
+ modification, are permitted provided that this Notice and any
+ statement of authorship are reproduced on all copies.
+
+Files: Infovis/Layout/vtkCosmicTreeLayoutStrategy.h
+ Infovis/Layout/vtkTreeOrbitLayoutStrategy.h
+Copyright: 2005-2008 Sandia Corporation, Kitware Inc.
+ Sandia National Laboratories, New Mexico PO Box 5800 Albuquerque, NM 87185
+ Kitware Inc., 28 Corporate Drive, Clifton Park, NY 12065, USA
+License: BSD-3-clause
+
+Files: Common/Core/CaseFolding.txt
+Copyright: 1991-2008 Unicode, Inc.
+License: Unicode
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of the Unicode data files and any associated documentation
+ (the "Data Files") or Unicode software and any associated documentation
+ (the "Software") to deal in the Data Files or Software
+ without restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, and/or sell copies of
+ the Data Files or Software, and to permit persons to whom the Data Files
+ or Software are furnished to do so, provided that either
+ (a) this copyright and permission notice appear with all copies
+ of the Data Files or Software, or
+ (b) this copyright and permission notice appear in associated
+ Documentation.
+ .
+ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF
+ ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS
+ NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL
+ DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+ .
+ Except as contained in this notice, the name of a copyright holder
+ shall not be used in advertising or otherwise to promote the sale,
+ use or other dealings in these Data Files or Software without prior
+ written authorization of the copyright holder.
+
+Files: Examples/Statistics/*.cxx
+Copyright: 2008 Sandia Corporation
+License: Sandia-2008
+ Redistribution and use in source and binary forms, with or without 
+ modification, are permitted provided that this Notice and any
+ statement of authorship are reproduced on all copies.
+
+Files: Examples/GUI/Qt/SimpleView/SimpleView.h
+ Examples/GUI/Qt/SimpleView/main.cxx
+ Examples/Infoviz/Cxx/EasyView/EasyView.h
+Copyright: 2009 Sandia Corporation
+License: Sandia-2009
+ Redistribution and use in source and binary forms, with or without 
+ modification, are permitted provided that this Notice and any
+ statement of authorship are reproduced on all copies.
+
+Files: ThirdParty/verdict/vtkverdict/*
+Copyright: 2006 Sandia Corporation
+License: BSD-3-clause
+
+Files: ThirdParty/VPIC/*
+Copyright: 2007, Los Alamos National Security, LLC
+License: BSD-3-clause
+
+Files: ThirdParty/TclTk/*
+Copyright: 1990-1994 The Regents of the University of California.
+           1994-1997 Sun Microsystems, Inc.
+           1998 by Scriptics Corporation.
+License: BSD-like
+   This software is copyrighted by the Regents of the University of
+   California, Sun Microsystems, Inc., Scriptics Corporation,
+   and other parties.  The following terms apply to all files associated
+   with the software unless explicitly disclaimed in individual files.
+   .
+   The authors hereby grant permission to use, copy, modify, distribute,
+   and license this software and its documentation for any purpose, provided
+   that existing copyright notices are retained in all copies and that this
+   notice is included verbatim in any distributions. No written agreement,
+   license, or royalty fee is required for any of the authorized uses.
+   Modifications to this software may be copyrighted by their authors
+   and need not follow the licensing terms described here, provided that
+   the new terms are clearly indicated on the first page of each file where
+   they apply.
+   .
+   IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY
+   FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+   ARISING OUT OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY
+   DERIVATIVES THEREOF, EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGE.
+   .
+   THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES,
+   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE
+   IS PROVIDED ON AN "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE
+   NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR
+   MODIFICATIONS.
+   .
+   GOVERNMENT USE: If you are acquiring this software on behalf of the
+   U.S. government, the Government shall have only "Restricted Rights"
+   in the software and related documentation as defined in the Federal
+   Acquisition Regulations (FARs) in Clause 52.227.19 (c) (2).  If you
+   are acquiring the software on behalf of the Department of Defense, the
+   software shall be classified as "Commercial Computer Software" and the
+   Government shall have only "Restricted Rights" as defined in Clause
+   252.227-7013 (c) (1) of DFARs.  Notwithstanding the foregoing, the
+   authors grant the U.S. Government and others acting in its behalf
+   permission to use and distribute the software in accordance with the
+   terms specified in this license.
+
+Files: ThirdParty/libproj4/*
+Copyright: 2003, 2006   Gerald I. Evenden
+License: MIT
+
+Files: ThirdParty/ftgl/*
+Copyright: 2001-2 Henry Maddocks
+License: MIT
+
+Files: ThirdParty/exodusII/*
+Copyright: 2005 Sandia Corporation.
+License: BSD-3-clause
+
+Files: ThirdParty/alglib/*
+Copyright: 2003-2007, Sergey Bochkanov (ALGLIB project).
+License: BSD-3-clause
+
+Files: Examples/Android/NativeVTK/jni/main.cxx Examples/Android/JavaVTK/src/com/kitware/JavaVTK/*
+       Examples/Android/JavaVTK/jni/main.cxx
+       Interaction/Widgets/Testing/Cxx/TestPickingManager*
+Copyright: 2007-2010 The Android Open Source Project
+License: Apache-2
+
+ 
+Files: Interaction/Widgets/Testing/Cxx/TestPickingManagerWidgets.cxx
+       Interaction/Widgets/Testing/Cxx/TestPickingManagerSeedWidget.cxx
+       Rendering/Core/Testing/Cxx/TestPickingManager.cxx
+       Rendering/Core/vtkPickingManager.*
+       Utilities/Scripts/SetupExternalData.sh
+Copyright: Kitware Inc
+License: Apache-2
+
+ 
+Files: Utilities/MetaIO/vtkmetaio/metaFEMObject.*
+       Utilities/Maintenance/ArchiveTestingData.py
+       Utilities/Maintenance/computeCodeCoverageLocally.sh
+       Utilities/Maintenance/SourceTarball.bash
+       Utilities/Maintenance/computeCodeCoverageLocallyForOneTest.sh
+Copyright: Insight Software Consortium
+License: Apache-2
+
+ 
+Files: Common/Color/vtkColorSeries.*
+Copyright: 2010 Brewer, Cynthia A. and Mark Harrower and Andy Woodruff and David Heyman
+License: Apache-2-modified
+  The color schemes below are copyright under the following license, excerpted
+  from http://www.personal.psu.edu/cab38/ColorBrewer/ColorBrewer_updates.html
+  on August 13, 2012:
+  .
+    Apache-Style Software License for ColorBrewer software and
+    ColorBrewer Color Schemes
+  .
+    Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania
+    State University.
+  .
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  .
+    http://www.apache.org/licenses/LICENSE-2.0
+  .
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations
+    under the License.
+  .
+  This text from my earlier Apache License Version 1.1 also remains in place for
+  guidance on attribution and permissions:
+  .
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+    1. Redistributions as source code must retain the above copyright notice,
+       this list of conditions and the following disclaimer.
+    2. The end-user documentation included with the redistribution, if any, must
+       include the following acknowledgment:
+       "This product includes color specifications and designs developed by
+       Cynthia Brewer (http://colorbrewer.org/)."
+       Alternately, this acknowledgment may appear in the software itself, if
+       and wherever such third-party acknowledgments normally appear.
+    4. The name "ColorBrewer" must not be used to endorse or promote products
+       derived from this software without prior written permission. For written
+       permission, please contact Cynthia Brewer at cbrewer@psu.edu.
+    5. Products derived from this software may not be called "ColorBrewer", nor
+       may "ColorBrewer" appear in their name, without prior written permission
+       of Cynthia Brewer.
+
+Files:  Filters/Parallel/vtkBlockDistribution.h
+        Infovis/Parallel/vtkPBGLConnectedComponents.cxx
+        Infovis/Parallel/Testing/Cxx/*
+        Infovis/Parallel/*
+        Infovis/Boost/Testing/Cxx/TestVariantSerialization.cxx
+        Infovis/Boost/vtkVariantBoostSerialization.h
+        Infovis/BoostGraphAlgorithms/vtkBoostBreadthFirstSearch.cxx
+        Common/DataModel/vtkDistributedGraphHelper.*
+Copyright: 2008 The Trustees of Indiana University
+License: Boost-1.0
+  Boost Software License - Version 1.0 - August 17th, 2003
+  .
+  Permission is hereby granted, free of charge, to any person or organization
+  obtaining a copy of the software and accompanying documentation covered by
+  this license (the "Software") to use, reproduce, display, distribute,
+  execute, and transmit the Software, and to prepare derivative works of the
+  Software, and to permit third-parties to whom the Software is furnished to
+  do so, all subject to the following:
+  .
+  The copyright notices in the Software and this entire statement, including
+  the above license grant, this restriction and the following disclaimer,
+  must be included in all copies of the Software, in whole or in part, and
+  all derivative works of the Software, unless such copies or derivative
+  works are solely in the form of machine-executable object code generated by
+  a source language processor.
+  .
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+  SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+  FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+License: BSD-3-clause
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are
+   met:
+   .
+       * Redistributions of source code must retain the above copyright
+         notice, this list of conditions and the following disclaimer.
+   .
+       * Redistributions in binary form must reproduce the above
+         copyright notice, this list of conditions and the following
+         disclaimer in the documentation and/or other materials provided
+         with the distribution.
+   .
+       * Neither the name of Sandia Corporation nor the names of its
+         contributors may be used to endorse or promote products derived
+         from this software without specific prior written permission.
+   .
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+   OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+   DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: MIT
+ ** Permission is hereby granted, free of charge, to any person obtaining
+ ** a copy of this software and associated documentation files (the
+ ** "Software"), to deal in the Software without restriction, including
+ ** without limitation the rights to use, copy, modify, merge, publish,
+ ** distribute, sublicense, and/or sell copies of the Software, and to
+ ** permit persons to whom the Software is furnished to do so, subject to
+ ** the following conditions:
+ **
+ ** The above copyright notice and this permission notice shall be
+ ** included in all copies or substantial portions of the Software.
+ **
+ ** THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ ** EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ ** MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ ** IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ ** SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+License: Apache-2
+ On Debian systems, the full text of the Apache License
+ Version 2.0 can be found in the file
+ `/usr/share/common-licenses/Apache-2.0'.

@@ -487,6 +487,10 @@ get_meta_size = _openncc.get_meta_size
 def GetMetaDataExt(pbuf: 'char *') -> "int *, int *, int *":
     return _openncc.GetMetaDataExt(pbuf)
 GetMetaDataExt = _openncc.GetMetaDataExt
+
+def sdk_net3_init(cb: 'vscRecvCb', param: 'void *', blob_path: 'char const *', par: 'Network1Par', par_Len: 'int', blob2_path: 'char const *', par2: 'Network2Par', par2_Len: 'int', blob3_path: 'char const *', par3: 'Network2Par', par3_Len: 'int') -> "int":
+    return _openncc.sdk_net3_init(cb, param, blob_path, par, par_Len, blob2_path, par2, par2_Len, blob3_path, par3, par3_Len)
+sdk_net3_init = _openncc.sdk_net3_init
 MAX_MODE_SIZE = _openncc.MAX_MODE_SIZE
 CAMERA_CONTROL__AE_AUTO__FLASH_MODE__OFF = _openncc.CAMERA_CONTROL__AE_AUTO__FLASH_MODE__OFF
 CAMERA_CONTROL__AE_AUTO__FLASH_MODE__AUTO = _openncc.CAMERA_CONTROL__AE_AUTO__FLASH_MODE__AUTO

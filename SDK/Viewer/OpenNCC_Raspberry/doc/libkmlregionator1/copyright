@@ -1,0 +1,128 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libkml
+Upstream-Contact: Rashad Kanavath <mohammedrashadkm@gmail.com>
+Source: https://github.com/libkml/libkml
+
+Files: *
+Copyright: 2008-2010, Google Inc.
+License: BSD-3-Clause
+
+Files: src/kml/base/contrib/minizip/ioapi.h
+ src/kml/base/contrib/minizip/iomem_simple.c
+ src/kml/base/contrib/minizip/iomem_simple.h
+Copyright: 1998-2005, Gilles Vollant
+                2003, Justin Fletcher
+Comment: This file is from the proposed iomem_simple package found at
+ http://code.trak.dk/
+ .
+ ioapi_mem2.c -- IO base function header for compress/uncompress .zip
+ files using zlib + zip or unzip API
+ .
+ This version of ioapi is designed to access memory rather than files.
+ We do use a region of memory to put data in to and take it out of. We do
+ not have auto-extending buffers and do not inform anyone else that the
+ data has been written. It is really intended for accessing a zip archive
+ embedded in an application such that I can write an installer with no
+ external files. Creation of archives has not been attempted, although
+ parts of the framework are present.
+ .
+ Based on Unzip ioapi.c version 0.22, May 19th, 2003
+ .
+ Copyright (C) 1998-2003 Gilles Vollant
+           (C) 2003 Justin Fletcher
+ .
+ Dynamically allocated memory version. Troels K 2004
+    mem_close deletes the data: file is single-session. No filenames.
+ .
+ This file is under the same license as the Unzip tool it is distributed
+ with.
+License: zlib
+
+Files: src/kml/base/contrib/minizip/unzip.c
+ src/kml/base/contrib/minizip/unzip.h
+Copyright: 1990-2000, Info-ZIP.
+           1998-2005, Gilles Vollant
+Comment: Decryption code comes from crypt.c by Info-ZIP but has been greatly
+ reduced in terms of compatibility with older software. The following is from
+ the original crypt.c. Code woven in by Terry Thorsen 1/2003.
+ .
+ Copyright (c) 1990-2000 Info-ZIP.  All rights reserved.
+ .
+ See the accompanying file LICENSE, version 2000-Apr-09 or later
+ (the contents of which are also included in zip.h) for terms of use.
+ If, for some reason, all these files are missing, the Info-ZIP license
+ also may be found at:  ftp://ftp.info-zip.org/pub/infozip/license.html
+ .
+ crypt.c (full version) by Info-ZIP.      Last revised:  [see crypt.h]
+ .
+ The encryption/decryption parts of this source code (as opposed to the
+ non-echoing password parts) were originally written in Europe.  The
+ whole source package can be freely distributed, including from the USA.
+ (Prior to January 2000, re-export from the US was a violation of US law.)
+ .
+ This encryption code is a direct transcription of the algorithm from
+ Roger Schlafly, described by Phil Katz in the file appnote.txt.  This
+ file (appnote.txt) is distributed with the PKZIP program (even in the
+ version without encryption capabilities).
+License: zlib
+
+Files: debian/*
+Copyright: 2009, Francesco Paolo Lovergine <frankie@debian.org>
+License: GPL-3+
+
+License: BSD-3-Clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+License: zlib
+ This software is provided 'as-is', without any express or implied
+ warranty.  In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+ 1. The origin of this software must not be misrepresented; you must not
+    claim that you wrote the original software. If you use this software
+    in a product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
+ 2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+

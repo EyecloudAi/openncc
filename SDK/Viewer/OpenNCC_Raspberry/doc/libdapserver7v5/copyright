@@ -1,0 +1,122 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Name: libdap
+Maintainer: Alastair McKinstry <mckinstry@debian.org>
+Source:  http://www.opendap.org/
+
+Files: *
+Copyright: 2002,2003 OPeNDAP, Inc.
+License: LGPL-2.1
+
+Files: debian/*
+Copyright: 2011 Alastair McKinstry <mckinstry@debian.org>
+License: GPL-2
+
+Files: gl/*
+Copyright (C) 1995, 1999, 2001-2004, 2006-2013 Free Software Foundation, Inc.
+License: LGPL-2.1
+
+Files: Makefile.am, Makefile.in, deflate.c util_mit.cc
+Copyright :1994-2002 World Wide Web Consortium, (Massachusetts Institute of
+ Technology, Institut National de Recherche en Informatique et en Automatique,
+ Keio University). 
+License: W3C
+
+Files: Ancillary.h Array.cc Array.h AttrTable.cc AttrTable.h BaseType.cc BaseType.h Byte.cc Byte.h ce_expr.yy Clause.cc Clause.h Connect.cc Connect.h Constructor.cc D4Connect.cc D4FilterClause.cc DapIndent.cc DapIndent.h DapObj.h DAS.cc DAS.h das.yy DataDDS.cc DataDDS.h DDS.cc DDS.h dds.yy DODSFilter.cc DODSFilter.h dods-limits.h Error.cc Error.h Error.yy escaping.cc escaping.h expr.h Float32.cc Float32.h Float64.cc Float64.h getdap4.cc getdap.cc Grid.cc Grid.h Int16.cc Int16.h Int32.cc Int32.h Int64.cc InternalErr.cc InternalErr.h libdap.spec Makefile.am Makefile.in Marshaller.h mime_util.cc mime_util.h Operators.h parser.h parser-util.cc RCReader.cc RCReader.h README RValue.cc RValue.h Sequence.cc Sequence.h SignalHandler.cc Str.cc Str.h Structure.cc Structure.h tests/TestGrid.cc tests/TestUrl.h tests/TestUInt16.cc tests/TestStr.h tests/dds-test.cc tests/TestByte.h tests/TestStructure.cc tests/TestSequence.cc tests/TestFloat32.h tests/TestUrl.cc tests/TestUInt32.cc tests/TestArray.h tests/TestStructure.h tests/TestUInt32.h tests/TestInt32.h tests/TestInt16.cc tests/TestFloat32.cc tests/expr-test.cc tests/TestUInt16.h tests/TestFloat64.h tests/TestGrid.h tests/TestInt16.h tests/TestByte.cc tests/TestStr.cc tests/TestFloat64.cc tests/TestArray.cc tests/TestInt32.cc tests/das-test.cc tests/TestSequence.h UInt16.cc UInt16.h UInt32.cc UInt32.h UnMarshaller.h Url.cc util.cc VCPP/sample/getdap.cc Vector.cc Vector.h XDRFileMarshaller.cc XDRFileMarshaller.h XDRFileUnMarshaller.cc XDRFileUnMarshaller.h XDRStreamMarshaller.cc XDRStreamMarshaller.h XDRStreamUnMarshaller.cc XDRStreamUnMarshaller.h XDRUtils.cc XDRUtils.h
+License: URI
+
+License: LGPL-2.1
+ Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+ 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+ .
+ [This is the first released version of the Lesser GPL.  It also counts
+ as the successor of the GNU Library Public License, version 2, hence
+ the version number 2.1.]
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/LGPL-2.1'.
+
+License: W3C
+ Copyright # 1994-2002 World Wide Web Consortium, (Massachusetts Institute of
+ Technology, Institut National de Recherche en Informatique et en Automatique,
+ Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/
+ .
+ This W3C work (including software, documents, or other related items) is
+ being provided by the copyright holders under the following license. By
+ obtaining, using and/or copying this work, you (the licensee) agree that you
+ have read, understood, and will comply with the following terms and
+ conditions:
+ .
+ Permission to use, copy, modify, and distribute this software and its
+ documentation, with or without modification, for any purpose and without fee
+ or royalty is hereby granted, provided that you include the following on ALL
+ copies of the software and documentation or portions thereof, including
+ modifications, that you make:
+ .
+ 1. The full text of this NOTICE in a location viewable to users of the
+    redistributed or derivative work.
+ .
+ 2. Any pre-existing intellectual property disclaimers, notices, or terms
+      and conditions. If none exist, a short notice of the following form
+      (hypertext is preferred, text is permitted) should be used within the
+      body of any redistributed or derivative code: "Copyright #
+      [$date-of-software] World Wide Web Consortium, (Massachusetts Institute
+      of Technology, Institut National de Recherche en Informatique et en
+      Automatique, Keio University). All Rights Reserved.
+      http://www.w3.org/Consortium/Legal/"
+ .
+ 3. Notice of any changes or modifications to the W3C files, including the
+      date changes were made. (We recommend you provide URIs to the location
+      from which the code is derived.)
+ .
+ THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS
+ MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR
+ PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE
+ ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+ .
+ COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR
+ CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR
+ DOCUMENTATION.
+ .
+ The name and trademarks of copyright holders may NOT be used in advertising
+ or publicity pertaining to the software without specific, written prior
+ permission. Title to copyright in this software and any associated
+ documentation will at all times remain with copyright holders.
+
+License: URI
+ (c) Copyright 1994-2000 by
+ The University of Rhode Island and The Massachusetts Institute of Technology
+ . 
+ Portions of this software were developed by the Graduate School of
+ Oceanography (GSO) at the University of Rhode Island (URI) in collaboration
+ with The Massachusetts Institute of Technology (MIT).
+ .
+ Access and use of this software shall impose the following obligations and
+ understandings on the user. The user is granted the right, without any fee
+ or cost, to use, copy, modify, alter, enhance and distribute this software,
+ and any derivative works thereof, and its supporting documentation for any
+ purpose whatsoever, provided that this entire notice appears in all copies
+ of the software, derivative works and supporting documentation. The names
+ URI, MIT and/or GSO, may not be used in any advertising or publicity to
+ endorse or promote any products or commercial entity unless specific
+ written permission is obtained from URI/MIT. The user also understands that
+ URI/MIT is not obligated to provide the user with any support, consulting,
+ training or assistance of any kind with regard to the use, operation and
+ performance of this software nor to provide the user with any updates,
+ revisions, new versions or "bug fixes".
+ .
+ THIS SOFTWARE IS PROVIDED BY URI/MIT "AS IS" AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ EVENT SHALL URI/MIT BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL
+ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+ PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTUOUS
+ ACTION, ARISING OUT OF OR IN CONNECTION WITH THE ACCESS, USE OR PERFORMANCE
+	      

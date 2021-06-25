@@ -23,7 +23,7 @@ TARGET_LIB = lib/libOpenNCC.a
 
 # the obj dir
 OBJDIR = obj
-BINDIR = ../../bin
+BINDIR = bin
 ###########################################################################
 
 TEST_SOURCES = $(wildcard *.cpp)
