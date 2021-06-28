@@ -1,5 +1,15 @@
 #!/bin/bash
 
+echo -n "Please make sure you have backed up fw or bin(y or n)"
+read Key
+if [ $Key = "y" ];then
+	rm -rf fw/ bin/ moviUsbBoot openncc.py _openncc.so
+elif [ $Key = "n" ];then
+	echo "n"
+else
+	echo "other"
+fi
+
 echo "copy openncc.py"
 if [ ! -f "openncc.py" ];then
 	cp ../../../Source/Library/python3/openncc.py .

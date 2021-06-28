@@ -208,7 +208,11 @@ int main(void)
     pthread_t threadid_yuv,threadid_h26x,threadid_jpeg;
     memset(&cam_info, 0, sizeof(cam_info));
 
+
     //1.load firmware
+    printf("==================================\n");
+    printf("1.load firmware\n");
+    printf("==================================\n");
     ret = load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
     if (ret < 0)
     {
@@ -218,6 +222,9 @@ int main(void)
     printf("usb sersion:%d \n", get_usb_version());
 
     //2. Get the current camera mode support list
+    printf("==================================\n");
+    printf("2. Get the current camera mode support list\n");
+    printf("==================================\n");
     SensorModesConfig cameraCfg;
     SensorModesList list;
     camera_control_get_features(&list);
@@ -233,11 +240,17 @@ int main(void)
     }
 
     //3. Select camera working mode
+    printf("==================================\n");
+    printf("3. Select camera working mode\n");
+    printf("==================================\n");
     int sensorModeId = 0; //0:1080P, 1:4K
     camera_select_sensor(sensorModeId);
     memcpy(&cameraCfg, &list.mode[sensorModeId], sizeof(cameraCfg)); //select camera info
 
     //4. Configure device resoures
+    printf("==================================\n");
+    printf("4. Configure device resoures\n");
+    printf("==================================\n");
     cam_info.imageWidth   = cameraCfg.camWidth;
     cam_info.imageHeight  = cameraCfg.camHeight;
     cam_info.isOutputYUV  = 1;
@@ -251,6 +264,9 @@ int main(void)
         return -1;
 
     //5. Create receiving thread
+    printf("==================================\n");
+    printf("5. Create receiving thread\n");
+    printf("==================================\n");
     int rv = pthread_create(&threadid_yuv, NULL, yuvThread, &cameraCfg);
     if (rv)
     {

@@ -86,6 +86,9 @@ int main(void)
     memset(&cam_info, 0, sizeof(cam_info));
 
     //1.load firmware
+    printf("=============================\n");
+    printf("1.load firmware\n");
+    printf("=============================\n");
     ret = load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
     if (ret < 0)
     {
@@ -95,6 +98,9 @@ int main(void)
     printf("usb sersion:%d \n", get_usb_version());
 
     //2. Get the current camera mode support list
+    printf("=============================\n");
+    printf("2. Get the current camera mode support list\n");
+    printf("=============================\n");
     SensorModesConfig cameraCfg;
     SensorModesList list;
     camera_control_get_features(&list);
@@ -110,6 +116,9 @@ int main(void)
     }
 
     //3. Select camera working mode
+    printf("=============================\n");
+    printf("3. Select camera working mode\n");
+    printf("=============================\n");
     int sensorModeId = 0; //0:1080P, 1:4K
     camera_select_sensor(sensorModeId);
     memcpy(&cameraCfg, &list.mode[sensorModeId], sizeof(cameraCfg)); //select camera info
@@ -117,6 +126,9 @@ int main(void)
     cnn1PrmSet.imageHeight = cameraCfg.camHeight;
 
     //4. Configure device resoures
+    printf("=============================\n");
+    printf("4. Configure device resoures\n");
+    printf("=============================\n");
     //////////////////////////////////////Model parameter initialization start///////////////////////////////////////////////////
  #if (CUR_TEST_CASE == TEST_FACE_DETCTION_ADAS_0001)
      //////////single model demo/////////
@@ -244,6 +256,9 @@ int main(void)
 
      //////////////////////////////////////Model parameter initialization end///////////////////////////////////////////////////
      //5. sdk initialization
+    printf("=============================\n");
+    printf("5. sdk initialization\n");
+    printf("=============================\n");
      ret = sdk_net2_init(0,0,
              blob,  &cnn1PrmSet, sizeof(cnn1PrmSet), 
              blob2,  &cnn2PrmSet, sizeof(cnn2PrmSet));

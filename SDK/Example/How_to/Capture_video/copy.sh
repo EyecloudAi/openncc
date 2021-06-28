@@ -1,5 +1,14 @@
 #!/bin/bash
 
+echo -n "Please make sure you have backed up lib or bin(y or n)"
+read Key
+if [ $Key = "y" ];then
+	rm -rf lib/ bin/
+elif [ $Key = "n" ];then
+	echo "n"
+else
+	echo "other"
+fi
 
 echo "copy lib/libOpenNCC.a ...."
 if [ ! -d "lib/" ];then

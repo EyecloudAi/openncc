@@ -36,6 +36,7 @@ def get_header_info(spec):
 	return frames[0],frames[1],frames[2]
 	
 def main():
+	print('1.load firmware')
 	res = ncc.load_fw("./moviUsbBoot","fw/flicRefApp.mvcmd")
 	if res<0: 
 		print('load firmware error!')
@@ -80,7 +81,8 @@ def main():
 	cam_info.inputDimWidth =0
 	cam_info.inputDimHeight =0
 	#ncc.SetMeanValue(cam_info,0.0,0.0,0.0)
-	cam_info.meanValue = [0.0,0.0,0.0]  
+	cam_info.meanValue = [0.0,0.0,0.0]
+	print('2.sdk_init')  
 	ret = ncc.sdk_init(None, None, "./blob/2020.3/face-detection-retail-0004/face-detection-retail-0004.blob",cam_info, struct.calcsize("13I4f")) #struct CameraInfo
 	metasize=ncc.get_meta_size()
 	print("xlink_init ret=%d  %d" % (ret,metasize))

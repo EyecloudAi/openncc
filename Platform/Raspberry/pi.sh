@@ -5,6 +5,15 @@ project_name="${project_path##*/}"
 #echo $project_path
 echo $project_name
 
+echo -n "Please make sure you have backed up what you need?(y or n)"
+read Key
+if [ $Key = "y" ];then
+	rm -rf Source/ Example/ Viewer/
+elif [ $Key = "n" ];then
+	echo "n"
+else
+	echo "other"
+fi
 echo "mkdir Source"
 if [ ! -d "Source/" ];then
 	mkdir Source
@@ -53,6 +62,8 @@ fi
 echo "copy Viewer ...... "
 if [ ! -d "Viewer/" ];then
 	cp -r ../../SDK/Viewer/ ./
+	rm -rf Viewer/OpenNcc_Linux
+	rm -rf Viewer/OpenNcc_Windows
 else
 	echo "Viewer is exist"
 fi
