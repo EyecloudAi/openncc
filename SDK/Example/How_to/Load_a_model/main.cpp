@@ -34,7 +34,7 @@ int main(void)
     printf("==============================\n");
     printf("1.Load firmware\n");
     printf("==============================\n");
-    ret = load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
+    ret = load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
     if (ret < 0)
     {
         printf("lowd firmware error! return \n");

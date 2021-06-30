@@ -37,7 +37,7 @@ def get_header_info(spec):
 	
 def main():
 	print('1.load firmware')
-	res = ncc.load_fw("./moviUsbBoot","fw/flicRefApp.mvcmd")
+	res = ncc.load_fw("./moviUsbBoot","fw/OpenNcc.mvcmd")
 	if res<0: 
 		print('load firmware error!')
 		sys.exit(1)

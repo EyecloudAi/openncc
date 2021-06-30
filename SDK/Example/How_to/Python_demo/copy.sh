@@ -43,16 +43,10 @@ if [ ! -d "fw/" ];then
 	cp -r ../../../Source/Firmware/fw/ .
 else
 	echo "bin/fw/ is exist"
-	echo "copy flicRefApp.mvcmd"
-	if [ ! -f "fw/flicRefApp.mvcmd" ];then
-		cp ../../../Source/Firmware/fw/flicRefApp.mvcmd fw/
+	echo "copy OpenNcc.mvcmd"
+	if [ ! -f "fw/OpenNcc.mvcmd" ];then
+		cp ../../../Source/Firmware/fw/OpenNcc.mvcmd fw/
 	else
-		echo "flicRefApp.mvcmd is exist"
-	fi
-	echo "copy usb-ma2x8x.mvcmd"
-	if [ ! -f "fw/usb-ma2x8x.mvcmd" ];then
-		cp ../../../Source/Firmware/fw/usb-ma2x8x.mvcmd fw/
-	else
-		echo "usb-ma2x8x.mvcmd is exist"
+		echo "OpenNcc.mvcmd is exist"
 	fi
 fi

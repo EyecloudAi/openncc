@@ -40,15 +40,10 @@ if [ ! -d "Source/Firmware/" ];then
 	cp -r ../../SDK/Source/Firmware/ ./Source
 else
 	echo "Firmware is exist"
-	if [ ! -f "Source/Firmware/flicRefAPP.mvcmd" ];then
-		cp ../../SDK/Source/Firmware/flicRefApp.mvcmd Source/Firmware/
+	if [ ! -f "Source/Firmware/OpenNcc.mvcmd" ];then
+		cp ../../SDK/Source/Firmware/OpenNcc.mvcmd Source/Firmware/
 	else
-		echo "flicRefAPP.mvcmd is exist,don't need copy"
-	fi
-	if [ ! -f "Source/Firmware/usb-ma2x8x.mvcmd" ];then
-		cp ../../SDK/Source/Firmware/usb-ma2x8x.mvcmd Source/Firmware/
-	else
-		echo "usb-ma2x8x.mvcmd is exist,don't need copy"
+		echo "OpenNcc.mvcmd is exist,don't need copy"
 	fi
 fi
 
@@ -69,5 +64,5 @@ else
 fi
 
 echo "copy Pi lib to Viewer"
-cp Source/Library/C\&C++/libOpenNCC.a Viewer/QT_example/OpenNCC/ncc_sdk/libOpenNCC_rasp.a
+cp Source/Library/C\&C++/libOpenNCC.a Viewer/QT_Package/OpenNCC/ncc_sdk/libOpenNCC_rasp.a
 

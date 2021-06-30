@@ -157,7 +157,7 @@ int main_cb(void)
 	 memset(metadata, 0, sizeof(metadata));
 
     //1. ¼ÓÔØ¹Ì¼þ
-    load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
+    load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
 		
 		printf("usb sersion:%d \n",get_usb_version());
 		
@@ -215,7 +215,7 @@ int main_1net(void)
 	int ret;
 	memset(metadata, 0, sizeof(metadata));
 
-   ret=load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
+   ret=load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
 //   ret=load_fw("./moviUsbBoot",NULL);
    if (ret<0)
    {
@@ -356,7 +356,7 @@ int main_2net(void)
    get_sdk_version(version);
    printf("sdk sersion:%d %s \n",get_usb_version(),version);
    
-    ret = load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
+    ret = load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
     if (ret < 0)
     {
         printf("lowd firmware error! return \n");
@@ -499,7 +499,7 @@ int main_2input(void)
    get_sdk_version(version);
    printf("sdk sersion:%d %s \n",get_usb_version(),version);
    
-    ret = load_fw("./moviUsbBoot","./fw/flicRefApp.mvcmd");
+    ret = load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
     if (ret < 0)
     {
         printf("lowd firmware error! return \n");
