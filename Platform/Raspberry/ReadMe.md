@@ -73,7 +73,7 @@ sudo ./pi.sh
 # If you input yes, the previous file will not exist
 ```
 
- ![image-20210628151746293](.\image\choosey.png)
+ ![image-20210628151746293](./image/choosey.png)
 
 At the end of the run, you can see these directories.
 
@@ -295,41 +295,41 @@ File->Open File or Project
 
 * find your pro in Raspberry Pi and Open it (like /home/pi/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/OpenNCC/OpenNCC.pro)
 
-![image-20210625144248899](.\image\selectpro.png)
+![image-20210625144248899](./image/selectpro.png)
 
 * Select Ok
 
-![image-20210625144302046](.\image\selectok.png)
+![image-20210625144302046](./image/selectok.png)
 
 * Select Configure Project
 
-![image-20210623155840801](.\image\selectConfigureProject.png)
+![image-20210623155840801](./image/selectConfigureProject.png)
 
 you can see `Project MESSAGE:build on arm 64`
 
-![image-20210623160046877](.\image\Showarm64.png)
+![image-20210623160046877](./image/Showarm64.png)
 
 ## 3.Select the version you want to build as Debug or Release
 
-![image-20210623160521339](.\image\selectRelease.png)
+![image-20210623160521339](./image/selectRelease.png)
 
 then build it.
 
-![image-20210623160615254](.\image\buid.png)
+![image-20210623160615254](./image/buid.png)
 
 # Run
 
 ## 1.Run Application
 
-![image-20210625144551829](.\image\Run.png)
+![image-20210625144551829](./image/Run.png)
 
 * Possible program:
 
-![image-20210623163329237](.\image\Problem.png)
+![image-20210623163329237](./image/Problem.png)
 
 Slove:
 
-![image-20210625144632907](.\image\Slove.png)
+![image-20210625144632907](./image/Slove.png)
 
 ```shell
 cd /home/pi/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/build-OpenNCC-Desktop-Release/
@@ -338,11 +338,11 @@ sudo cp -r ../../OpenNCC_Raspberry/Configuration .
 
 ## 2.Run
 
-![image-20210625145032525](.\image\RunAgain.png)
+![image-20210625145032525](./image/RunAgain.png)
 
 * Get device Info
 
-![image-20210625145109431](.\image\GetDeviceInfo.png)
+![image-20210625145109431](./image/GetDeviceInfo.png)
 
 **<font color="red">Note:You may come across problems that need keys</font>**
 
@@ -361,19 +361,19 @@ copy key file to `bin/fw` like this.
 sudo cp ~/eyecloud.key Configuration/fw/
 ```
 
-![image-20210625145356957](.\image\copyKey.png)
+![image-20210625145356957](./image/copyKey.png)
 
 You can run it again now.
 
-![image-20210624100143967](.\image\RunAgain1.png)
+![image-20210624100143967](./image/RunAgain1.png)
 
 * Get device info
 
-![image-20210624100332924](.\image\GetDeviceInfo1.png)
+![image-20210624100332924](./image/GetDeviceInfo1.png)
 
 * Start running model
 
-![image-20210624100417037](.\image\Start.png)
+![image-20210624100417037](./image/Start.png)
 
 # Package QT program you run
 
