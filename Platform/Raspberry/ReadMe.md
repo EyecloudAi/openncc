@@ -12,7 +12,7 @@ Board：Raspberry Pi 4 B
 
 img download url:https://www.raspberrypi.org/software/operating-systems/
 
-![image-20210609174741914](.\image\Download.png)
+![image-20210609174741914](./image/Download.png)
 
 you can also visit https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2021-05-28/2021-05-07-raspios-buster-armhf.zip
 
