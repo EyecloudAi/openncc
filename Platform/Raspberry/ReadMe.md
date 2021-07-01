@@ -293,13 +293,13 @@ sudo qtcreator
 File->Open File or Project
 ```
 
-* find your pro in Raspberry Pi and Open it (like /home/pi/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/OpenNCC/OpenNCC.pro)
+* find your pro in Raspberry Pi and Open it (like /home/pi/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package/OpenNCC/OpenNCC.pro)
 
-![image-20210625144248899](./image/selectpro.png)
+![image-20210701160558519](./image/selectpro.png)
 
 * Select Ok
 
-![image-20210625144302046](./image/selectok.png)
+![image-20210701160632613](./image/selectok.png)
 
 * Select Configure Project
 
@@ -329,10 +329,10 @@ then build it.
 
 Slove:
 
-![image-20210625144632907](./image/Slove.png)
+![image-20210701160906341](./image/Slove.png)
 
 ```shell
-cd /home/pi/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/build-OpenNCC-Desktop-Release/
+cd /home/pi/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package/build-OpenNCC-Desktop-Release/
 sudo cp -r ../../OpenNCC_Raspberry/Configuration .
 ```
 
@@ -361,7 +361,7 @@ copy key file to `bin/fw` like this.
 sudo cp ~/eyecloud.key Configuration/fw/
 ```
 
-![image-20210625145356957](./image/copyKey.png)
+![image-20210701161239156](./image/copyKey.png)
 
 You can run it again now.
 
@@ -383,8 +383,8 @@ You can run it again now.
 cd ~/Desktop/
 mkdir openncc_view
 cd openncc_view
-cp ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/build-OpenNCC-Desktop-Release/OpenNCC .
-cp -r ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/build-OpenNCC-Desktop-Release/Configuration/ .
+cp ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package/build-OpenNCC-Desktop-Release/OpenNCC .
+cp -r ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package/build-OpenNCC-Desktop-Release/Configuration/ .
 ```
 
 2. Put `linuxdeployqt-pi` in `/usr/local/bin` (`linuxdeployqt-pi` in `QT_Package`)
