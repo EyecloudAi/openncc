@@ -22,9 +22,6 @@ xcopy ..\..\SDK\Source\Model\2020.3\ Source\Model\2020.3\ /s/e/y
 echo copy Firmware......
 md Source\Firmware
 xcopy ..\..\SDK\Source\Firmware\ Source\Firmware\ /s/e/y
-echo copy Example.....
-md Example
-xcopy ..\..\SDK\Example\ Example\ /s/e/y
 echo copy Viewer.....
 md Viewer
 xcopy ..\..\SDK\Viewer\ Viewer\ /s/e/y
