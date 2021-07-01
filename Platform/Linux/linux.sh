@@ -53,7 +53,7 @@ if [ ! -d "Example/" ];then
 else
 	echo "Example is exist"
 fi
-
+rm -rf Example/How_to/Python_demo
 echo "copy Viewer ...... "
 if [ ! -d "Viewer/" ];then
 	cp -r ../../SDK/Viewer/ ./
