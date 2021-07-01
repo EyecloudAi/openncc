@@ -387,10 +387,11 @@ cp ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/build-OpenNCC-Desktop-R
 cp -r ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_example/build-OpenNCC-Desktop-Release/Configuration/ .
 ```
 
-2. Put `linuxdeployqt` in `/usr/local/bin` (`linuxdeployqt` in `QT_example`)
+2. Put `linuxdeployqt-pi` in `/usr/local/bin` (`linuxdeployqt-pi` in `QT_Package`)
 
 ```shell
-sudo cp linuxdeployqt /usr/local/bin
+# linuxdeployqt-pi in ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package
+sudo cp linuxdeployqt-pi /usr/local/bin/linuxdeployqt
 ```
 
 ​	3. Package QT 
