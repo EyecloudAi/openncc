@@ -63,5 +63,5 @@ else
 	echo "Viewer is exist"
 fi
 
-echo "copy Pi lib to Viewer"
+echo "copy Linux lib to Viewer"
 cp Source/Library/C\&C++/libOpenNCC.a Viewer/QT_Package/OpenNCC/ncc_sdk/libOpenNCC.a
