@@ -37,7 +37,7 @@ extern "C" int gettimeofday(struct timeval *tp, void *tzp);
 /* 2. 人脸检测demo程序 */
 #define  DEMO_FACE_DETECTION  1
 
-#define APP_VERSION "NV02.101.81"
+#define APP_VERSION "NV02.101.82"
 
 #define  OPENCV_SHOW_SCALE    (0.8)    /* 显示缩放系数 */
 extern "C"  void os_sleep(int ms);
@@ -261,7 +261,7 @@ void Widget::model_2nd_changed()
     {
         if(ui->h264_stream->isChecked() || ui->h265_stream->isChecked() || ui->mjpeg_stream->isChecked())
         {
-            ui->two_net_model->setEnabled(false);
+         //   ui->two_net_model->setEnabled(false);
         }
         choose_2nd_model_status(1);
         QSqlQuery query;
@@ -1256,6 +1256,6 @@ void Widget::on_yuv_stream_stateChanged(int arg1)
     }else if(arg1 == Qt::CheckState::Unchecked){
          qInfo()<<"yuv is not clicked";
         ui->saveAviCheckBox_->show();
-        ui->two_net_model->setEnabled(false);
+       // ui->two_net_model->setEnabled(false);
     }
 }

@@ -448,7 +448,7 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
                 case YUV420p:
                 {
                     maxReadSize = sizeof(frameSpecOut) + cameraCfg.camWidth * cameraCfg.camHeight * 3 /2;
-                    if(read_yuv_data(recvImageData,&maxReadSize,1)<0)
+                    if(read_yuv_data(recvImageData,&maxReadSize,true)<0)
                     {
                         continueReadedFailedCount++;
                         break;
@@ -466,7 +466,7 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
                 {
 
                      maxReadSize  = MAX_FRAME_BUF_SIZE;
-                    if (read_26x_data(recvImageData, &maxReadSize, 0) < 0)
+                    if (read_26x_data(recvImageData, &maxReadSize, true) < 0)
                     {
                         QThread::sleep(1);
                         continueReadedFailedCount++;
@@ -493,7 +493,7 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
                 {
 
                      maxReadSize  = MAX_FRAME_BUF_SIZE;
-                    if (read_jpg_data(recvImageData, &maxReadSize, 0) < 0)
+                    if (read_jpg_data(recvImageData, &maxReadSize, true) < 0)
                     {
                         QThread::sleep(1);
                         continueReadedFailedCount++;
