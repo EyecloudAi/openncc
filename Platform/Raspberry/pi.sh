@@ -59,6 +59,10 @@ if [ ! -d "Viewer/" ];then
 	cp -r ../../SDK/Viewer/ ./
 	rm -rf Viewer/OpenNcc_Linux
 	rm -rf Viewer/OpenNcc_Windows
+	chmod +x Viewer/OpenNCC_Raspberry/OpenNCC
+	rm -rf Viewer/OpenNCC_Raspberry/AppRun
+	ln Viewer/OpenNCC_Raspberry/OpenNCC Viewer/OpenNCC_Raspberry/AppRun
+	chmod +x Viewer/OpenNCC_Raspberry/Configuration/moviUsbBoot
 else
 	echo "Viewer is exist"
 fi
