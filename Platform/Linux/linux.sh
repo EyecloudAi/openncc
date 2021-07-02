@@ -53,15 +53,19 @@ if [ ! -d "Example/" ];then
 else
 	echo "Example is exist"
 fi
-
+rm -rf Example/How_to/Python_demo
 echo "copy Viewer ...... "
 if [ ! -d "Viewer/" ];then
 	cp -r ../../SDK/Viewer/ ./
+	chmod +x Viewer/OpenNcc_Linux/OpenNCC
+	rm -rf Viewer/OpenNcc_Linux/AppRun
+	ln Viewer/OpenNcc_Linux/OpenNCC Viewer/OpenNcc_Linux/AppRun
+	chmod +x Viewer/OpenNcc_Linux/Configuration/moviUsbBoot
 	rm -rf Viewer/OpenNcc_Windows
 	rm -rf Viewer/OpenNCC_Raspberry
 else
 	echo "Viewer is exist"
 fi
 
-echo "copy Pi lib to Viewer"
+echo "copy Linux lib to Viewer"
 cp Source/Library/C\&C++/libOpenNCC.a Viewer/QT_Package/OpenNCC/ncc_sdk/libOpenNCC.a
