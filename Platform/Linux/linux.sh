@@ -57,6 +57,10 @@ rm -rf Example/How_to/Python_demo
 echo "copy Viewer ...... "
 if [ ! -d "Viewer/" ];then
 	cp -r ../../SDK/Viewer/ ./
+	chmod +x Viewer/OpenNcc_Linux/OpenNCC
+	rm -rf Viewer/OpenNcc_Linux/AppRun
+	ln Viewer/OpenNcc_Linux/OpenNCC Viewer/OpenNcc_Linux/AppRun
+	chmod +x Viewer/OpenNcc_Linux/Configuration/moviUsbBoot
 	rm -rf Viewer/OpenNcc_Windows
 	rm -rf Viewer/OpenNCC_Raspberry
 else
