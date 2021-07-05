@@ -1,1 +1,0 @@
-/opt/intel/openvino/inference_engine/lib/intel64/myriad_compile -m face-reidentification-retail-0095.xml -o face-reidentification-retail-0095.blob -VPU_MYRIAD_PLATFORM VPU_MYRIAD_2480 -VPU_NUMBER_OF_SHAVES 8 -VPU_NUMBER_OF_CMX_SLICES 8

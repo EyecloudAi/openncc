@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "start": "python app.py"
-  },
-  "models": {
-    "alwaysai/mobilenet_ssd_eyecloud": 1
-  }
-}
