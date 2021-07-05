@@ -35,6 +35,7 @@ if [ ! -d "bin/" ];then
 	cp -r ../../../Source/Model/ bin/blob
 	echo "copy moviUsbBoot...."
 	cp ../../../Source/Library/C\&C++/moviUsbBoot bin/
+	chmod +x bin/moviUsbBoot
 	echo "copy fw....."
 	cp -r ../../../Source/Firmware/fw/ bin/
 else
@@ -48,7 +49,8 @@ else
 
 	echo "copy moviUsbBoot...."
 	if [ ! -f "bin/moviUsbBoot" ];then
-		cp ../../../Source/Library/C\&C++/moviUsbBoot bin/	
+		cp ../../../Source/Library/C\&C++/moviUsbBoot bin/
+		chmod +x bin/moviUsbBoot	
 	else
 		echo "moviUsbBoot is exist"
 	fi

@@ -26,7 +26,8 @@ fi
 
 echo "copy moviUsbBoot...."
 if [ ! -f "moviUsbBoot" ];then
-	cp ../../../Source/Library/C\&C++/moviUsbBoot .	
+	cp ../../../Source/Library/C\&C++/moviUsbBoot .
+	chmod +x moviUsbBoot	
 else
 	echo "moviUsbBoot is exist"
 fi
