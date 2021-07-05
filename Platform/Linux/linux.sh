@@ -139,3 +139,20 @@ fi
 echo "copy Linux lib to Viewer"
 
 cp Source/Library/C\&C++/libOpenNCC.a Viewer/QT_Package/OpenNCC/ncc_sdk/libOpenNCC.a
+chmod +x Example/How_to/Capture_video/copy.sh
+chmod +x Example/How_to/Capture_video/compile.sh
+chmod +x Example/How_to/Capture_video/run.sh
+
+chmod +x Example/How_to/How_to_use_sdk/copy.sh
+chmod +x Example/How_to/How_to_use_sdk/compile.sh
+chmod +x Example/How_to/How_to_use_sdk/run.sh
+
+chmod +x Example/How_to/Load_a_model/copy.sh
+chmod +x Example/How_to/Load_a_model/compile.sh
+chmod +x Example/How_to/Load_a_model/run.sh
+
+chmod +x Example/How_to/Multiple_models/copy.sh
+chmod +x Example/How_to/Multiple_models/compile.sh
+chmod +x Example/How_to/Multiple_models/run.sh
+
+

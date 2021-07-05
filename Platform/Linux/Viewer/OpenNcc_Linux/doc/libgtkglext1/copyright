@@ -1,0 +1,44 @@
+This package was debianized by Stefan Schwandter <swan@debian.org> on
+Sun, 22 Dec 2002 11:50:20 +0100.
+
+It was downloaded from http://sourceforge.net/projects/gtkglext/
+
+Upstream Author: Naofumi Yasufuku <naofumi@users.sourceforge.net>
+
+Contributors: see AUTHORS file
+
+Copyright:
+
+Copyright (c) 2002-2004 Naofumi Yasufuku
+
+GtkGLExt libraries are released under the terms of the GNU Lesser
+General Public License (GNU LGPL). While components and programs
+included with this release are licensed under the terms of the GNU
+General Public License (GNU GPL).
+
+See 
+/usr/share/common-licenses/GPL and
+/usr/share/common-licenses/LGPL.
+
+Additionally, the following files have additional copyrights:
+
+"examples/lw.c", "examples/lw.h", "examples/viewlw.c":
+  Copyright (C) 1998 Janne L�f <jlof@mail.student.oulu.fi>
+
+"examples/coolwave.c", "examples/coolwave2.c", "examples/template.c",
+"examples/rotating-square.c":
+  Copyright (c) 2002 Alif Wahid <awah005@users.sourceforge.net>
+
+"examples/glxinfo.c":
+  Copyright (C) 1999-2002  Brian Paul
+
+"examples/trackball.c", "examples/trackball.h":
+  Copyright (c) 1993, 1994, Silicon Graphics, Inc.
+
+"gdk/gdkglshapes.c":
+  Copyright (c) Mark J. Kilgard, 1994, 1997.
+  Copyright (c) 1993, Silicon Graphics, Inc.
+
+"gdk/gdkgltokens.h", "gdk/glext/wglext.h", "gdk/glext/glext.h",
+"gdk/glext/glxext.h":
+  Copyright (c) 1991-2000 Silicon Graphics, Inc.

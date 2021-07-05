@@ -1,0 +1,247 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+
+Files: *
+Copyright: © 2001-2003, David Janssens
+ © 2002-2003, Yannick Verschueren
+ © 2005, Herve Drolon, FreeImage Team
+ © 2003-2009, Francois-Olivier Devaux
+ © 2003-2012, Antonin Descampe
+ © 2002-2012, Professor Benoit Macq
+ © 2002-2012, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+License: BSD-2
+
+Files: applications/codec/convert.c
+ applications/codec/image_to_j2k.c
+ doc/man/*
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2001-2003, David Janssens
+ © 2002-2003, Yannick Verschueren
+ © 2003-2007, Francois-Olivier Devaux and Antonin Descampe
+ © 2005, Herve Drolon, FreeImage Team
+ © 2006-2007, Parvatha Elangovan
+License: BSD-2
+
+Files: applications/codec/index.c
+ applications/codec/index.h
+ applications/mj2/extract_j2k_from_mj2.c
+ applications/mj2/mj2.c
+ applications/mj2/wrap_j2k_in_mj2.c
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2003-2007, Francois-Olivier Devaux
+License: BSD-2
+
+Files: applications/codec/j2k_dump.c
+ doc/man/man1/j2k_dump.1
+Copyright: © 2010, Mathieu Malaterre, GDCM
+License: BSD-2
+
+Files: applications/codec/windirent.h
+Copyright: © 1998-2002, Toni Ronkko <tronkko@messi.uku.fi>
+License: Expat
+
+Files: applications/common/opj_getopt.c
+Copyright: © 1987, 1993-1994, The Regents of the University of California.
+License: BSD-3
+
+Files: applications/JavaOpenJPEG/JavaOpenJPEG.c
+ applications/JavaOpenJPEG/JavaOpenJPEGDecoder.c
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2001-2003, David Janssens
+ © 2002-2003, Yannick Verschueren
+ © 2003-2007, Francois-Olivier Devaux and Antonin Descampe
+ © 2005, Herve Drolon, FreeImage Team
+ © 2006-2007, Parvatha Elangovan
+ © 2007, Patrick Piscaglia, Telemis s.a.
+License: BSD-2
+
+Files: applications/JavaOpenJPEG/java-sources/*
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2002-2007, Patrick Piscaglia, Telemis s.a.
+License: BSD-2
+
+Files: applications/jpip/*
+Copyright: © 2002-2011, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2011, Professor Benoit Macq
+ © 2010-2011, Kaori Hagihara
+License: BSD-2
+
+Files: applications/jpip/libopenjpip/dec_clientmsg_handler.h
+ applications/jpip/libopenjpip/j2kheader_manager.*
+ applications/jpip/libopenjpip/jp2k_encoder.*
+ applications/jpip/libopenjpip/jpip_parser.*
+ applications/jpip/libopenjpip/msgqueue_manager.*
+ applications/jpip/libopenjpip/query_parser.*
+ applications/jpip/util/opj_server.c
+Copyright: © 2002-2011, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2011, Professor Benoit Macq
+ © 2010-2011, Kaori Hagihara
+ © 2011, Lucian Corlaciu, GSoC
+License: BSD-2
+
+Files: applications/mj2/frames_to_mj2.c
+ applications/mj2/mj2_convert.h
+ applications/mj2/mj2.h
+ applications/mj2/mj2_to_frames.c
+Copyright: © 2002-2004,  Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2003-2004, Francois-Olivier Devaux
+License: BSD-2
+
+Files: applications/mj2/meta_out.*
+ applications/mj2/mj2_to_metadata.*
+Copyright: © 2002-2004,  Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+Author: Glenn Pearson
+License: PD
+ The base code in this file was developed by the author as part of a video archiving
+ project for the U.S. National Library of Medicine, Bethesda, MD. 
+ It is the policy of NLM (and U.S. government) to not assert copyright.
+
+Files: applications/mj2/mj2_convert.c
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2003-2007, Francois-Olivier Devaux and Antonin Descampe
+License: BSD-2
+
+Files: applications/OPJViewer/*
+Copyright: © 2007, Digital Signal Processing Laboratory, Universit� degli studi di Perugia (UPG), Italy
+License: BSD-2
+
+Files: debian/*
+Copyright: © 2007, Paul Hampson <Paul.Hampson@Pobox.com>
+ © 2007-2008, Robin Cornelius <robin.cornelius@gmail.com>
+ © 2008, Cyril Brulebois <kibi@debian.org>
+ © 2012, David Bremner <bremner@debian.org>
+ © 2012, David Paleino <dapal@debian.org>
+License: BSD-2
+
+Files: libopenjpeg/cidx_manager.*
+ libopenjpeg/indexbox_manager.h
+ libopenjpeg/phix_manager.c
+ libopenjpeg/ppix_manager.c
+ libopenjpeg/thix_manager.c
+ libopenjpeg/tpix_manager.c
+Copyright: © 2002-2011, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2011, Professor Benoit Macq
+ © 2003-2004, Yannick Verschueren
+ © 2010-2011, Kaori Hagihara
+License: BSD-2
+
+Files: libopenjpeg/dwt.c
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2001-2003, David Janssens
+ © 2002-2003, Yannick Verschueren
+ © 2003-2007, Francois-Olivier Devaux and Antonin Descampe
+ © 2005, Herve Drolon, FreeImage Team
+ © 2007, Jonathan Ballard <dzonatas@dzonux.net>
+ © 2007, Callum Lerwick <seg@haxxed.com>
+License: BSD-2
+
+Files: libopenjpeg/event.*
+ libopenjpeg/image.*
+ libopenjpeg/j2k_lib.*
+ libopenjpeg/openjpeg.c
+ libopenjpeg/opj_includes.h
+Copyright: © 2005, Herve Drolon, FreeImage Team
+License: BSD-2
+
+Files: libopenjpeg/jp2.h
+ libopenjpeg/jpt.*
+Copyright: © 2002-2007, Communications and Remote Sensing Laboratory, Universite catholique de Louvain (UCL), Belgium
+ © 2002-2007, Professor Benoit Macq
+ © 2002-2003, Yannick Verschueren
+ © 2005, Herve Drolon, FreeImage Team
+License: BSD-2
+
+Files: libopenjpeg/opj_malloc.h
+Copyright: © 2005, Herve Drolon, FreeImage Team
+ © 2007, Callum Lerwick <seg@haxxed.com>
+License: BSD-2
+
+Files: libopenjpeg/jpwl/crc.*
+ libopenjpeg/jpwl/jpwl.*
+ libopenjpeg/jpwl/jpwl_lib.c
+ libopenjpeg/jpwl/rs.*
+Copyright: © 2001-2003, David Janssens
+ © 2002-2003, Yannick Verschueren
+ © 2003-2005, Francois Devaux and Antonin Descampe
+ © 2005, Herve Drolon, FreeImage Team
+ © 2002-2005, Communications and remote sensing Laboratory, Universite catholique de Louvain, Belgium
+ © 2005-2006, Dept. of Electronic and Information Engineering, Universita' degli Studi di Perugia, Italy
+License: BSD-2
+
+Files: tests/*
+Copyright: © 2011, Mickael Savinaud, Communications & Systemes <mickael.savinaud@c-s.fr>
+License: BSD-2
+
+License: BSD-2
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ .
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS `AS IS'
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ ``Software''), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED ``AS IS'', WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL TONI RONKKO BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+
+License: BSD-3
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.

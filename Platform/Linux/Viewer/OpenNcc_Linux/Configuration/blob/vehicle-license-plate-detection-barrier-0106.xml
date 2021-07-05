@@ -1,0 +1,3750 @@
+<?xml version="1.0" ?>
+<net batch="1" name="vehicle-license-plate-detection-barrier-0106" version="5">
+	<layers>
+		<layer id="0" name="Placeholder" precision="FP16" type="Input">
+			<output>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>300</dim>
+					<dim>300</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="Mul_/Fused_Mul_/FusedScaleShift_" precision="FP16" type="ScaleShift">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>300</dim>
+					<dim>300</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>300</dim>
+					<dim>300</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="0" size="6"/>
+				<biases offset="6" size="6"/>
+			</blobs>
+		</layer>
+		<layer id="2" name="MobilenetV2/Conv/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="16" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>300</dim>
+					<dim>300</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="12" size="864"/>
+				<biases offset="876" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="3" name="MobilenetV2/Conv/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="MobilenetV2/expanded_conv/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="16" kernel="3,3" output="16" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="908" size="288"/>
+				<biases offset="1196" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="5" name="MobilenetV2/expanded_conv/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="6" name="MobilenetV2/expanded_conv/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="16" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1228" size="512"/>
+				<biases offset="1740" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="7" name="MobilenetV2/expanded_conv/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="8" name="MobilenetV2/expanded_conv_1/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1772" size="3072"/>
+				<biases offset="4844" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="9" name="MobilenetV2/expanded_conv_1/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="10" name="MobilenetV2/expanded_conv_1/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="96" kernel="3,3" output="96" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>150</dim>
+					<dim>150</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="5036" size="1728"/>
+				<biases offset="6764" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="11" name="MobilenetV2/expanded_conv_1/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="12" name="MobilenetV2/expanded_conv_1/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="16" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="6956" size="3072"/>
+				<biases offset="10028" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="13" name="MobilenetV2/expanded_conv_2/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="10060" size="3072"/>
+				<biases offset="13132" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="14" name="MobilenetV2/expanded_conv_2/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="MobilenetV2/expanded_conv_2/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="96" kernel="3,3" output="96" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="13324" size="1728"/>
+				<biases offset="15052" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="16" name="MobilenetV2/expanded_conv_2/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="MobilenetV2/expanded_conv_2/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="16" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="15244" size="3072"/>
+				<biases offset="18316" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="18" name="MobilenetV2/expanded_conv_2/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="19" name="MobilenetV2/expanded_conv_3/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="18348" size="3072"/>
+				<biases offset="21420" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="20" name="MobilenetV2/expanded_conv_3/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="21" name="MobilenetV2/expanded_conv_3/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="96" kernel="3,3" output="96" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>75</dim>
+					<dim>75</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="21612" size="1728"/>
+				<biases offset="23340" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="22" name="MobilenetV2/expanded_conv_3/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="23" name="MobilenetV2/expanded_conv_3/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="16" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="23532" size="3072"/>
+				<biases offset="26604" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="24" name="MobilenetV2/expanded_conv_4/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="26636" size="3072"/>
+				<biases offset="29708" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="25" name="MobilenetV2/expanded_conv_4/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="26" name="MobilenetV2/expanded_conv_4/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="96" kernel="3,3" output="96" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="29900" size="1728"/>
+				<biases offset="31628" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="27" name="MobilenetV2/expanded_conv_4/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="28" name="MobilenetV2/expanded_conv_4/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="16" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="31820" size="3072"/>
+				<biases offset="34892" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="29" name="MobilenetV2/expanded_conv_4/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="30" name="MobilenetV2/expanded_conv_5/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="34924" size="3072"/>
+				<biases offset="37996" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="31" name="MobilenetV2/expanded_conv_5/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="32" name="MobilenetV2/expanded_conv_5/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="96" kernel="3,3" output="96" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="38188" size="1728"/>
+				<biases offset="39916" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="33" name="MobilenetV2/expanded_conv_5/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="34" name="MobilenetV2/expanded_conv_5/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="16" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="40108" size="3072"/>
+				<biases offset="43180" size="32"/>
+			</blobs>
+		</layer>
+		<layer id="35" name="MobilenetV2/expanded_conv_5/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="36" name="MobilenetV2/expanded_conv_6/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>16</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="43212" size="3072"/>
+				<biases offset="46284" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="37" name="MobilenetV2/expanded_conv_6/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="38" name="MobilenetV2/expanded_conv_6/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="96" kernel="3,3" output="96" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>38</dim>
+					<dim>38</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="46476" size="1728"/>
+				<biases offset="48204" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="39" name="MobilenetV2/expanded_conv_6/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="40" name="MobilenetV2/expanded_conv_6/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="48396" size="4608"/>
+				<biases offset="53004" size="48"/>
+			</blobs>
+		</layer>
+		<layer id="41" name="MobilenetV2/expanded_conv_7/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="144" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="53052" size="6912"/>
+				<biases offset="59964" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="42" name="MobilenetV2/expanded_conv_7/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="43" name="MobilenetV2/expanded_conv_7/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="144" kernel="3,3" output="144" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="60252" size="2592"/>
+				<biases offset="62844" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="44" name="MobilenetV2/expanded_conv_7/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="45" name="MobilenetV2/expanded_conv_7/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="63132" size="6912"/>
+				<biases offset="70044" size="48"/>
+			</blobs>
+		</layer>
+		<layer id="46" name="MobilenetV2/expanded_conv_7/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="47" name="MobilenetV2/expanded_conv_8/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="144" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="70092" size="6912"/>
+				<biases offset="77004" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="48" name="MobilenetV2/expanded_conv_8/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="49" name="MobilenetV2/expanded_conv_8/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="144" kernel="3,3" output="144" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="77292" size="2592"/>
+				<biases offset="79884" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="50" name="MobilenetV2/expanded_conv_8/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="51" name="MobilenetV2/expanded_conv_8/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="80172" size="6912"/>
+				<biases offset="87084" size="48"/>
+			</blobs>
+		</layer>
+		<layer id="52" name="MobilenetV2/expanded_conv_8/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="53" name="MobilenetV2/expanded_conv_9/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="144" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="87132" size="6912"/>
+				<biases offset="94044" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="54" name="MobilenetV2/expanded_conv_9/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="55" name="MobilenetV2/expanded_conv_9/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="144" kernel="3,3" output="144" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="94332" size="2592"/>
+				<biases offset="96924" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="56" name="MobilenetV2/expanded_conv_9/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="57" name="MobilenetV2/expanded_conv_9/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="97212" size="6912"/>
+				<biases offset="104124" size="48"/>
+			</blobs>
+		</layer>
+		<layer id="58" name="MobilenetV2/expanded_conv_9/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="59" name="MobilenetV2/expanded_conv_10/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="144" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="104172" size="6912"/>
+				<biases offset="111084" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="60" name="MobilenetV2/expanded_conv_10/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="61" name="MobilenetV2/expanded_conv_10/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="144" kernel="3,3" output="144" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="111372" size="2592"/>
+				<biases offset="113964" size="288"/>
+			</blobs>
+		</layer>
+		<layer id="62" name="MobilenetV2/expanded_conv_10/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="63" name="MobilenetV2/expanded_conv_10/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="32" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>144</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="114252" size="9216"/>
+				<biases offset="123468" size="64"/>
+			</blobs>
+		</layer>
+		<layer id="64" name="MobilenetV2/expanded_conv_11/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="192" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="123532" size="12288"/>
+				<biases offset="135820" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="65" name="MobilenetV2/expanded_conv_11/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="66" name="MobilenetV2/expanded_conv_11/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="192" kernel="3,3" output="192" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="136204" size="3456"/>
+				<biases offset="139660" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="67" name="MobilenetV2/expanded_conv_11/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="68" name="MobilenetV2/expanded_conv_11/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="32" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="140044" size="12288"/>
+				<biases offset="152332" size="64"/>
+			</blobs>
+		</layer>
+		<layer id="69" name="MobilenetV2/expanded_conv_11/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="70" name="MobilenetV2/expanded_conv_12/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="192" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="152396" size="12288"/>
+				<biases offset="164684" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="71" name="MobilenetV2/expanded_conv_12/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="72" name="MobilenetV2/expanded_conv_12/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="192" kernel="3,3" output="192" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="165068" size="3456"/>
+				<biases offset="168524" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="73" name="MobilenetV2/expanded_conv_12/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="74" name="MobilenetV2/expanded_conv_12/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="32" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="168908" size="12288"/>
+				<biases offset="181196" size="64"/>
+			</blobs>
+		</layer>
+		<layer id="75" name="MobilenetV2/expanded_conv_12/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="76" name="SSD/ssd_head/layer_14/output_mbox_loc/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="8" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="181260" size="4608"/>
+				<biases offset="185868" size="16"/>
+			</blobs>
+		</layer>
+		<layer id="77" name="SSD/ssd_head/Flatten/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="78" name="SSD/ssd_head/Flatten/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="79" name="SSD/ssd_head/Flatten/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>2888</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="80" name="MobilenetV2/expanded_conv_13/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="192" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="185888" size="12288"/>
+				<biases offset="198176" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="81" name="MobilenetV2/expanded_conv_13/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="82" name="MobilenetV2/expanded_conv_13/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="192" kernel="3,3" output="192" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="198560" size="3456"/>
+				<biases offset="202016" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="83" name="MobilenetV2/expanded_conv_13/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="84" name="MobilenetV2/expanded_conv_13/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="56" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="202400" size="21504"/>
+				<biases offset="223904" size="112"/>
+			</blobs>
+		</layer>
+		<layer id="85" name="MobilenetV2/expanded_conv_14/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="336" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="224016" size="37632"/>
+				<biases offset="261648" size="672"/>
+			</blobs>
+		</layer>
+		<layer id="86" name="MobilenetV2/expanded_conv_14/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="87" name="MobilenetV2/expanded_conv_14/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="336" kernel="3,3" output="336" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="262320" size="6048"/>
+				<biases offset="268368" size="672"/>
+			</blobs>
+		</layer>
+		<layer id="88" name="MobilenetV2/expanded_conv_14/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="89" name="MobilenetV2/expanded_conv_14/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="56" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="269040" size="37632"/>
+				<biases offset="306672" size="112"/>
+			</blobs>
+		</layer>
+		<layer id="90" name="MobilenetV2/expanded_conv_14/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="91" name="MobilenetV2/expanded_conv_15/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="336" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="306784" size="37632"/>
+				<biases offset="344416" size="672"/>
+			</blobs>
+		</layer>
+		<layer id="92" name="MobilenetV2/expanded_conv_15/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="93" name="MobilenetV2/expanded_conv_15/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="336" kernel="3,3" output="336" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="345088" size="6048"/>
+				<biases offset="351136" size="672"/>
+			</blobs>
+		</layer>
+		<layer id="94" name="MobilenetV2/expanded_conv_15/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="95" name="MobilenetV2/expanded_conv_15/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="56" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="351808" size="37632"/>
+				<biases offset="389440" size="112"/>
+			</blobs>
+		</layer>
+		<layer id="96" name="MobilenetV2/expanded_conv_15/add" precision="FP16" type="Eltwise">
+			<data operation="sum"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="97" name="MobilenetV2/expanded_conv_16/expand/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="336" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>56</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="389552" size="37632"/>
+				<biases offset="427184" size="672"/>
+			</blobs>
+		</layer>
+		<layer id="98" name="MobilenetV2/expanded_conv_16/expand/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="99" name="MobilenetV2/expanded_conv_16/depthwise/depthwise" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="336" kernel="3,3" output="336" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="427856" size="6048"/>
+				<biases offset="433904" size="672"/>
+			</blobs>
+		</layer>
+		<layer id="100" name="MobilenetV2/expanded_conv_16/depthwise/Relu6" precision="FP16" type="Clamp">
+			<data max="6" min="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="101" name="MobilenetV2/expanded_conv_16/project/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="112" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>336</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>112</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="434576" size="75264"/>
+				<biases offset="509840" size="224"/>
+			</blobs>
+		</layer>
+		<layer id="102" name="SSD/ssd_head_1/layer_18/output_mbox_loc/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="12" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>112</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="510064" size="24192"/>
+				<biases offset="534256" size="24"/>
+			</blobs>
+		</layer>
+		<layer id="103" name="SSD/ssd_head_1/Flatten/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="104" name="SSD/ssd_head_1/Flatten/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="105" name="SSD/ssd_head_1/Flatten/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+					<dim>12</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>1200</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="106" name="features/intermediate_1/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="96" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>112</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="534280" size="21504"/>
+				<biases offset="555784" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="107" name="features/intermediate_1/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="108" name="features/feature_map_1/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="192" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="555976" size="331776"/>
+				<biases offset="887752" size="384"/>
+			</blobs>
+		</layer>
+		<layer id="109" name="features/feature_map_1/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="110" name="SSD/ssd_head_2/feature_map_1_mbox_loc/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="12" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="888136" size="41472"/>
+				<biases offset="929608" size="24"/>
+			</blobs>
+		</layer>
+		<layer id="111" name="SSD/ssd_head_2/Flatten/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="112" name="SSD/ssd_head_2/Flatten/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="113" name="SSD/ssd_head_2/Flatten/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+					<dim>12</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>300</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="114" name="features/intermediate_2/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="48" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="929632" size="18432"/>
+				<biases offset="948064" size="96"/>
+			</blobs>
+		</layer>
+		<layer id="115" name="features/intermediate_2/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="116" name="features/feature_map_2/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="96" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="948160" size="82944"/>
+				<biases offset="1031104" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="117" name="features/feature_map_2/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="118" name="SSD/ssd_head_3/feature_map_2_mbox_loc/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="8" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1031296" size="13824"/>
+				<biases offset="1045120" size="16"/>
+			</blobs>
+		</layer>
+		<layer id="119" name="SSD/ssd_head_3/Flatten/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="120" name="SSD/ssd_head_3/Flatten/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="121" name="SSD/ssd_head_3/Flatten/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>72</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="122" name="features/intermediate_3/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="48" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1045136" size="9216"/>
+				<biases offset="1054352" size="96"/>
+			</blobs>
+		</layer>
+		<layer id="123" name="features/intermediate_3/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="124" name="features/feature_map_3/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="96" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1054448" size="82944"/>
+				<biases offset="1137392" size="192"/>
+			</blobs>
+		</layer>
+		<layer id="125" name="features/feature_map_3/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="126" name="SSD/ssd_head_4/feature_map_3_mbox_loc/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="8" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1137584" size="13824"/>
+				<biases offset="1151408" size="16"/>
+			</blobs>
+		</layer>
+		<layer id="127" name="SSD/ssd_head_4/Flatten/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>8</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+					<dim>8</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="128" name="SSD/ssd_head_4/Flatten/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="129" name="SSD/ssd_head_4/Flatten/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+					<dim>8</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="130" name="features/intermediate_4/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1151424" size="4608"/>
+				<biases offset="1156032" size="48"/>
+			</blobs>
+		</layer>
+		<layer id="131" name="features/intermediate_4/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="132" name="features/feature_map_4/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="48" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>24</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1156080" size="20736"/>
+				<biases offset="1176816" size="96"/>
+			</blobs>
+		</layer>
+		<layer id="133" name="features/feature_map_4/Relu" precision="FP16" type="ReLU">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="134" name="SSD/ssd_head_5/feature_map_4_mbox_loc/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="12" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1176912" size="10368"/>
+				<biases offset="1187280" size="24"/>
+			</blobs>
+		</layer>
+		<layer id="135" name="SSD/ssd_head_5/Flatten/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>12</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="136" name="SSD/ssd_head_5/Flatten/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="137" name="SSD/ssd_head_5/Flatten/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>12</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="138" name="SSD/concat_reshape_softmax/mbox_loc" precision="FP16" type="Concat">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2888</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1200</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>300</dim>
+				</port>
+				<port id="3">
+					<dim>1</dim>
+					<dim>72</dim>
+				</port>
+				<port id="4">
+					<dim>1</dim>
+					<dim>32</dim>
+				</port>
+				<port id="5">
+					<dim>1</dim>
+					<dim>12</dim>
+				</port>
+			</input>
+			<output>
+				<port id="6">
+					<dim>1</dim>
+					<dim>4504</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="139" name="DetectionOutput_Reshape_loc_/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="140" name="DetectionOutput_Reshape_loc_" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>4504</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>4504</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="141" name="SSD/ssd_head/layer_14/output_mbox_conf/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="6" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>6</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1187304" size="3456"/>
+				<biases offset="1190760" size="12"/>
+			</blobs>
+		</layer>
+		<layer id="142" name="SSD/ssd_head/Flatten_1/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>6</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="143" name="SSD/ssd_head/Flatten_1/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="144" name="SSD/ssd_head/Flatten_1/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>19</dim>
+					<dim>19</dim>
+					<dim>6</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>2166</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="145" name="SSD/ssd_head_1/layer_18/output_mbox_conf/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="9" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>112</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>9</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1190772" size="18144"/>
+				<biases offset="1208916" size="18"/>
+			</blobs>
+		</layer>
+		<layer id="146" name="SSD/ssd_head_1/Flatten_1/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>9</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+					<dim>9</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="147" name="SSD/ssd_head_1/Flatten_1/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="148" name="SSD/ssd_head_1/Flatten_1/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10</dim>
+					<dim>10</dim>
+					<dim>9</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>900</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="149" name="SSD/ssd_head_2/feature_map_1_mbox_conf/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="9" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>192</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>9</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1208934" size="31104"/>
+				<biases offset="1240038" size="18"/>
+			</blobs>
+		</layer>
+		<layer id="150" name="SSD/ssd_head_2/Flatten_1/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>9</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+					<dim>9</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="151" name="SSD/ssd_head_2/Flatten_1/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="152" name="SSD/ssd_head_2/Flatten_1/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>5</dim>
+					<dim>5</dim>
+					<dim>9</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>225</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="153" name="SSD/ssd_head_3/feature_map_2_mbox_conf/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="6" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>6</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1240056" size="10368"/>
+				<biases offset="1250424" size="12"/>
+			</blobs>
+		</layer>
+		<layer id="154" name="SSD/ssd_head_3/Flatten_1/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>6</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="155" name="SSD/ssd_head_3/Flatten_1/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="156" name="SSD/ssd_head_3/Flatten_1/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>6</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>54</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="157" name="SSD/ssd_head_4/feature_map_3_mbox_conf/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="6" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>6</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1250436" size="10368"/>
+				<biases offset="1260804" size="12"/>
+			</blobs>
+		</layer>
+		<layer id="158" name="SSD/ssd_head_4/Flatten_1/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>6</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="159" name="SSD/ssd_head_4/Flatten_1/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="160" name="SSD/ssd_head_4/Flatten_1/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>2</dim>
+					<dim>6</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>24</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="161" name="SSD/ssd_head_5/feature_map_4_mbox_conf/Conv2D" precision="FP16" type="Convolution">
+			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="9" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>48</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>9</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+			<blobs>
+				<weights offset="1260816" size="7776"/>
+				<biases offset="1268592" size="18"/>
+			</blobs>
+		</layer>
+		<layer id="162" name="SSD/ssd_head_5/Flatten_1/_permute_" precision="FP16" type="Permute">
+			<data order="0,2,3,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>9</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>9</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="163" name="SSD/ssd_head_5/Flatten_1/flatten/Reshape/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="164" name="SSD/ssd_head_5/Flatten_1/flatten/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>9</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>9</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="165" name="SSD/concat_reshape_softmax/mbox_conf" precision="FP16" type="Concat">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>2166</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>900</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>225</dim>
+				</port>
+				<port id="3">
+					<dim>1</dim>
+					<dim>54</dim>
+				</port>
+				<port id="4">
+					<dim>1</dim>
+					<dim>24</dim>
+				</port>
+				<port id="5">
+					<dim>1</dim>
+					<dim>9</dim>
+				</port>
+			</input>
+			<output>
+				<port id="6">
+					<dim>1</dim>
+					<dim>3378</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="166" name="SSD/concat_reshape_softmax/concat/Output_0/Data__const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="1268610" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="167" name="SSD/concat_reshape_softmax/Reshape" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3378</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1126</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="168" name="SSD/concat_reshape_softmax/Softmax" precision="FP16" type="SoftMax">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1126</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1">
+					<dim>1126</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="169" name="DetectionOutput_Reshape_conf_/DimData_const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="185884" size="4"/>
+			</blobs>
+		</layer>
+		<layer id="170" name="DetectionOutput_Reshape_conf_" precision="FP16" type="Reshape">
+			<input>
+				<port id="0">
+					<dim>1126</dim>
+					<dim>3</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2">
+					<dim>1</dim>
+					<dim>3378</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="171" name="DetectionOutput_Reshape_priors_/Output_0/Data__const" precision="FP16" type="Const">
+			<output>
+				<port id="1">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>4504</dim>
+				</port>
+			</output>
+			<blobs>
+				<custom offset="1268614" size="18016"/>
+			</blobs>
+		</layer>
+		<layer id="172" name="DetectionOutput_" precision="FP16" type="DetectionOutput">
+			<data code_type="caffe.PriorBoxParameter.CENTER_SIZE" confidence_threshold="0.01" input_height="1" input_width="1" keep_top_k="200" nms_threshold="0.45" normalized="1" num_classes="3" pad_mode="caffe.ResizeParameter.CONSTANT" resize_mode="caffe.ResizeParameter.WARP" share_location="1" top_k="400" variance_encoded_in_target="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>4504</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>3378</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+					<dim>2</dim>
+					<dim>4504</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3">
+					<dim>1</dim>
+					<dim>1</dim>
+					<dim>200</dim>
+					<dim>7</dim>
+				</port>
+			</output>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="0" to-layer="1" to-port="0"/>
+		<edge from-layer="1" from-port="3" to-layer="2" to-port="0"/>
+		<edge from-layer="2" from-port="3" to-layer="3" to-port="0"/>
+		<edge from-layer="3" from-port="1" to-layer="4" to-port="0"/>
+		<edge from-layer="4" from-port="3" to-layer="5" to-port="0"/>
+		<edge from-layer="5" from-port="1" to-layer="6" to-port="0"/>
+		<edge from-layer="6" from-port="3" to-layer="7" to-port="0"/>
+		<edge from-layer="3" from-port="1" to-layer="7" to-port="1"/>
+		<edge from-layer="7" from-port="2" to-layer="8" to-port="0"/>
+		<edge from-layer="8" from-port="3" to-layer="9" to-port="0"/>
+		<edge from-layer="9" from-port="1" to-layer="10" to-port="0"/>
+		<edge from-layer="10" from-port="3" to-layer="11" to-port="0"/>
+		<edge from-layer="11" from-port="1" to-layer="12" to-port="0"/>
+		<edge from-layer="12" from-port="3" to-layer="13" to-port="0"/>
+		<edge from-layer="13" from-port="3" to-layer="14" to-port="0"/>
+		<edge from-layer="14" from-port="1" to-layer="15" to-port="0"/>
+		<edge from-layer="15" from-port="3" to-layer="16" to-port="0"/>
+		<edge from-layer="16" from-port="1" to-layer="17" to-port="0"/>
+		<edge from-layer="17" from-port="3" to-layer="18" to-port="0"/>
+		<edge from-layer="12" from-port="3" to-layer="18" to-port="1"/>
+		<edge from-layer="18" from-port="2" to-layer="19" to-port="0"/>
+		<edge from-layer="19" from-port="3" to-layer="20" to-port="0"/>
+		<edge from-layer="20" from-port="1" to-layer="21" to-port="0"/>
+		<edge from-layer="21" from-port="3" to-layer="22" to-port="0"/>
+		<edge from-layer="22" from-port="1" to-layer="23" to-port="0"/>
+		<edge from-layer="23" from-port="3" to-layer="24" to-port="0"/>
+		<edge from-layer="24" from-port="3" to-layer="25" to-port="0"/>
+		<edge from-layer="25" from-port="1" to-layer="26" to-port="0"/>
+		<edge from-layer="26" from-port="3" to-layer="27" to-port="0"/>
+		<edge from-layer="27" from-port="1" to-layer="28" to-port="0"/>
+		<edge from-layer="28" from-port="3" to-layer="29" to-port="0"/>
+		<edge from-layer="23" from-port="3" to-layer="29" to-port="1"/>
+		<edge from-layer="29" from-port="2" to-layer="30" to-port="0"/>
+		<edge from-layer="30" from-port="3" to-layer="31" to-port="0"/>
+		<edge from-layer="31" from-port="1" to-layer="32" to-port="0"/>
+		<edge from-layer="32" from-port="3" to-layer="33" to-port="0"/>
+		<edge from-layer="33" from-port="1" to-layer="34" to-port="0"/>
+		<edge from-layer="34" from-port="3" to-layer="35" to-port="0"/>
+		<edge from-layer="29" from-port="2" to-layer="35" to-port="1"/>
+		<edge from-layer="35" from-port="2" to-layer="36" to-port="0"/>
+		<edge from-layer="36" from-port="3" to-layer="37" to-port="0"/>
+		<edge from-layer="37" from-port="1" to-layer="38" to-port="0"/>
+		<edge from-layer="38" from-port="3" to-layer="39" to-port="0"/>
+		<edge from-layer="39" from-port="1" to-layer="40" to-port="0"/>
+		<edge from-layer="40" from-port="3" to-layer="41" to-port="0"/>
+		<edge from-layer="41" from-port="3" to-layer="42" to-port="0"/>
+		<edge from-layer="42" from-port="1" to-layer="43" to-port="0"/>
+		<edge from-layer="43" from-port="3" to-layer="44" to-port="0"/>
+		<edge from-layer="44" from-port="1" to-layer="45" to-port="0"/>
+		<edge from-layer="45" from-port="3" to-layer="46" to-port="0"/>
+		<edge from-layer="40" from-port="3" to-layer="46" to-port="1"/>
+		<edge from-layer="46" from-port="2" to-layer="47" to-port="0"/>
+		<edge from-layer="47" from-port="3" to-layer="48" to-port="0"/>
+		<edge from-layer="48" from-port="1" to-layer="49" to-port="0"/>
+		<edge from-layer="49" from-port="3" to-layer="50" to-port="0"/>
+		<edge from-layer="50" from-port="1" to-layer="51" to-port="0"/>
+		<edge from-layer="51" from-port="3" to-layer="52" to-port="0"/>
+		<edge from-layer="46" from-port="2" to-layer="52" to-port="1"/>
+		<edge from-layer="52" from-port="2" to-layer="53" to-port="0"/>
+		<edge from-layer="53" from-port="3" to-layer="54" to-port="0"/>
+		<edge from-layer="54" from-port="1" to-layer="55" to-port="0"/>
+		<edge from-layer="55" from-port="3" to-layer="56" to-port="0"/>
+		<edge from-layer="56" from-port="1" to-layer="57" to-port="0"/>
+		<edge from-layer="57" from-port="3" to-layer="58" to-port="0"/>
+		<edge from-layer="52" from-port="2" to-layer="58" to-port="1"/>
+		<edge from-layer="58" from-port="2" to-layer="59" to-port="0"/>
+		<edge from-layer="59" from-port="3" to-layer="60" to-port="0"/>
+		<edge from-layer="60" from-port="1" to-layer="61" to-port="0"/>
+		<edge from-layer="61" from-port="3" to-layer="62" to-port="0"/>
+		<edge from-layer="62" from-port="1" to-layer="63" to-port="0"/>
+		<edge from-layer="63" from-port="3" to-layer="64" to-port="0"/>
+		<edge from-layer="64" from-port="3" to-layer="65" to-port="0"/>
+		<edge from-layer="65" from-port="1" to-layer="66" to-port="0"/>
+		<edge from-layer="66" from-port="3" to-layer="67" to-port="0"/>
+		<edge from-layer="67" from-port="1" to-layer="68" to-port="0"/>
+		<edge from-layer="68" from-port="3" to-layer="69" to-port="0"/>
+		<edge from-layer="63" from-port="3" to-layer="69" to-port="1"/>
+		<edge from-layer="69" from-port="2" to-layer="70" to-port="0"/>
+		<edge from-layer="70" from-port="3" to-layer="71" to-port="0"/>
+		<edge from-layer="71" from-port="1" to-layer="72" to-port="0"/>
+		<edge from-layer="72" from-port="3" to-layer="73" to-port="0"/>
+		<edge from-layer="73" from-port="1" to-layer="74" to-port="0"/>
+		<edge from-layer="74" from-port="3" to-layer="75" to-port="0"/>
+		<edge from-layer="69" from-port="2" to-layer="75" to-port="1"/>
+		<edge from-layer="75" from-port="2" to-layer="76" to-port="0"/>
+		<edge from-layer="76" from-port="3" to-layer="77" to-port="0"/>
+		<edge from-layer="77" from-port="1" to-layer="79" to-port="0"/>
+		<edge from-layer="78" from-port="1" to-layer="79" to-port="1"/>
+		<edge from-layer="75" from-port="2" to-layer="80" to-port="0"/>
+		<edge from-layer="80" from-port="3" to-layer="81" to-port="0"/>
+		<edge from-layer="81" from-port="1" to-layer="82" to-port="0"/>
+		<edge from-layer="82" from-port="3" to-layer="83" to-port="0"/>
+		<edge from-layer="83" from-port="1" to-layer="84" to-port="0"/>
+		<edge from-layer="84" from-port="3" to-layer="85" to-port="0"/>
+		<edge from-layer="85" from-port="3" to-layer="86" to-port="0"/>
+		<edge from-layer="86" from-port="1" to-layer="87" to-port="0"/>
+		<edge from-layer="87" from-port="3" to-layer="88" to-port="0"/>
+		<edge from-layer="88" from-port="1" to-layer="89" to-port="0"/>
+		<edge from-layer="89" from-port="3" to-layer="90" to-port="0"/>
+		<edge from-layer="84" from-port="3" to-layer="90" to-port="1"/>
+		<edge from-layer="90" from-port="2" to-layer="91" to-port="0"/>
+		<edge from-layer="91" from-port="3" to-layer="92" to-port="0"/>
+		<edge from-layer="92" from-port="1" to-layer="93" to-port="0"/>
+		<edge from-layer="93" from-port="3" to-layer="94" to-port="0"/>
+		<edge from-layer="94" from-port="1" to-layer="95" to-port="0"/>
+		<edge from-layer="95" from-port="3" to-layer="96" to-port="0"/>
+		<edge from-layer="90" from-port="2" to-layer="96" to-port="1"/>
+		<edge from-layer="96" from-port="2" to-layer="97" to-port="0"/>
+		<edge from-layer="97" from-port="3" to-layer="98" to-port="0"/>
+		<edge from-layer="98" from-port="1" to-layer="99" to-port="0"/>
+		<edge from-layer="99" from-port="3" to-layer="100" to-port="0"/>
+		<edge from-layer="100" from-port="1" to-layer="101" to-port="0"/>
+		<edge from-layer="101" from-port="3" to-layer="102" to-port="0"/>
+		<edge from-layer="102" from-port="3" to-layer="103" to-port="0"/>
+		<edge from-layer="103" from-port="1" to-layer="105" to-port="0"/>
+		<edge from-layer="104" from-port="1" to-layer="105" to-port="1"/>
+		<edge from-layer="101" from-port="3" to-layer="106" to-port="0"/>
+		<edge from-layer="106" from-port="3" to-layer="107" to-port="0"/>
+		<edge from-layer="107" from-port="1" to-layer="108" to-port="0"/>
+		<edge from-layer="108" from-port="3" to-layer="109" to-port="0"/>
+		<edge from-layer="109" from-port="1" to-layer="110" to-port="0"/>
+		<edge from-layer="110" from-port="3" to-layer="111" to-port="0"/>
+		<edge from-layer="111" from-port="1" to-layer="113" to-port="0"/>
+		<edge from-layer="112" from-port="1" to-layer="113" to-port="1"/>
+		<edge from-layer="109" from-port="1" to-layer="114" to-port="0"/>
+		<edge from-layer="114" from-port="3" to-layer="115" to-port="0"/>
+		<edge from-layer="115" from-port="1" to-layer="116" to-port="0"/>
+		<edge from-layer="116" from-port="3" to-layer="117" to-port="0"/>
+		<edge from-layer="117" from-port="1" to-layer="118" to-port="0"/>
+		<edge from-layer="118" from-port="3" to-layer="119" to-port="0"/>
+		<edge from-layer="119" from-port="1" to-layer="121" to-port="0"/>
+		<edge from-layer="120" from-port="1" to-layer="121" to-port="1"/>
+		<edge from-layer="117" from-port="1" to-layer="122" to-port="0"/>
+		<edge from-layer="122" from-port="3" to-layer="123" to-port="0"/>
+		<edge from-layer="123" from-port="1" to-layer="124" to-port="0"/>
+		<edge from-layer="124" from-port="3" to-layer="125" to-port="0"/>
+		<edge from-layer="125" from-port="1" to-layer="126" to-port="0"/>
+		<edge from-layer="126" from-port="3" to-layer="127" to-port="0"/>
+		<edge from-layer="127" from-port="1" to-layer="129" to-port="0"/>
+		<edge from-layer="128" from-port="1" to-layer="129" to-port="1"/>
+		<edge from-layer="125" from-port="1" to-layer="130" to-port="0"/>
+		<edge from-layer="130" from-port="3" to-layer="131" to-port="0"/>
+		<edge from-layer="131" from-port="1" to-layer="132" to-port="0"/>
+		<edge from-layer="132" from-port="3" to-layer="133" to-port="0"/>
+		<edge from-layer="133" from-port="1" to-layer="134" to-port="0"/>
+		<edge from-layer="134" from-port="3" to-layer="135" to-port="0"/>
+		<edge from-layer="135" from-port="1" to-layer="137" to-port="0"/>
+		<edge from-layer="136" from-port="1" to-layer="137" to-port="1"/>
+		<edge from-layer="79" from-port="2" to-layer="138" to-port="0"/>
+		<edge from-layer="105" from-port="2" to-layer="138" to-port="1"/>
+		<edge from-layer="113" from-port="2" to-layer="138" to-port="2"/>
+		<edge from-layer="121" from-port="2" to-layer="138" to-port="3"/>
+		<edge from-layer="129" from-port="2" to-layer="138" to-port="4"/>
+		<edge from-layer="137" from-port="2" to-layer="138" to-port="5"/>
+		<edge from-layer="138" from-port="6" to-layer="140" to-port="0"/>
+		<edge from-layer="139" from-port="1" to-layer="140" to-port="1"/>
+		<edge from-layer="75" from-port="2" to-layer="141" to-port="0"/>
+		<edge from-layer="141" from-port="3" to-layer="142" to-port="0"/>
+		<edge from-layer="142" from-port="1" to-layer="144" to-port="0"/>
+		<edge from-layer="143" from-port="1" to-layer="144" to-port="1"/>
+		<edge from-layer="101" from-port="3" to-layer="145" to-port="0"/>
+		<edge from-layer="145" from-port="3" to-layer="146" to-port="0"/>
+		<edge from-layer="146" from-port="1" to-layer="148" to-port="0"/>
+		<edge from-layer="147" from-port="1" to-layer="148" to-port="1"/>
+		<edge from-layer="109" from-port="1" to-layer="149" to-port="0"/>
+		<edge from-layer="149" from-port="3" to-layer="150" to-port="0"/>
+		<edge from-layer="150" from-port="1" to-layer="152" to-port="0"/>
+		<edge from-layer="151" from-port="1" to-layer="152" to-port="1"/>
+		<edge from-layer="117" from-port="1" to-layer="153" to-port="0"/>
+		<edge from-layer="153" from-port="3" to-layer="154" to-port="0"/>
+		<edge from-layer="154" from-port="1" to-layer="156" to-port="0"/>
+		<edge from-layer="155" from-port="1" to-layer="156" to-port="1"/>
+		<edge from-layer="125" from-port="1" to-layer="157" to-port="0"/>
+		<edge from-layer="157" from-port="3" to-layer="158" to-port="0"/>
+		<edge from-layer="158" from-port="1" to-layer="160" to-port="0"/>
+		<edge from-layer="159" from-port="1" to-layer="160" to-port="1"/>
+		<edge from-layer="133" from-port="1" to-layer="161" to-port="0"/>
+		<edge from-layer="161" from-port="3" to-layer="162" to-port="0"/>
+		<edge from-layer="162" from-port="1" to-layer="164" to-port="0"/>
+		<edge from-layer="163" from-port="1" to-layer="164" to-port="1"/>
+		<edge from-layer="144" from-port="2" to-layer="165" to-port="0"/>
+		<edge from-layer="148" from-port="2" to-layer="165" to-port="1"/>
+		<edge from-layer="152" from-port="2" to-layer="165" to-port="2"/>
+		<edge from-layer="156" from-port="2" to-layer="165" to-port="3"/>
+		<edge from-layer="160" from-port="2" to-layer="165" to-port="4"/>
+		<edge from-layer="164" from-port="2" to-layer="165" to-port="5"/>
+		<edge from-layer="165" from-port="6" to-layer="167" to-port="0"/>
+		<edge from-layer="166" from-port="1" to-layer="167" to-port="1"/>
+		<edge from-layer="167" from-port="2" to-layer="168" to-port="0"/>
+		<edge from-layer="168" from-port="1" to-layer="170" to-port="0"/>
+		<edge from-layer="169" from-port="1" to-layer="170" to-port="1"/>
+		<edge from-layer="140" from-port="2" to-layer="172" to-port="0"/>
+		<edge from-layer="170" from-port="2" to-layer="172" to-port="1"/>
+		<edge from-layer="171" from-port="1" to-layer="172" to-port="2"/>
+	</edges>
+	<meta_data>
+		<MO_version value="2019.1.0-341-gc9b66a2"/>
+		<cli_parameters>
+			<data_type value="FP16"/>
+			<disable_fusing value="False"/>
+			<disable_gfusing value="False"/>
+			<disable_nhwc_to_nchw value="False"/>
+			<disable_omitting_optional value="False"/>
+			<disable_resnet_optimization value="False"/>
+			<enable_concat_optimization value="False"/>
+			<enable_flattening_nested_params value="False"/>
+			<extensions value="DIR"/>
+			<framework value="tf"/>
+			<generate_deprecated_IR_V2 value="False"/>
+			<input value="Placeholder"/>
+			<input_model value="DIR/MobileNetSSD.pb.frozen"/>
+			<input_model_is_text value="False"/>
+			<input_shape value="[1,300,300,3]"/>
+			<k value="DIR/CustomLayersMapping.xml"/>
+			<keep_shape_ops value="False"/>
+			<legacy_mxnet_model value="False"/>
+			<log_level value="ERROR"/>
+			<mean_scale_values value="{'Placeholder': {'mean': array([127.5, 127.5, 127.5]), 'scale': array([127.5])}}"/>
+			<mean_values value="Placeholder[127.5,127.5,127.5]"/>
+			<model_name value="vehicle-license-plate-detection-barrier-0106"/>
+			<move_to_preprocess value="False"/>
+			<output value="['SSD/concat_reshape_softmax/mbox_loc_final', 'SSD/concat_reshape_softmax/mbox_conf_final', 'SSD/concat_reshape_softmax/mbox_priorbox']"/>
+			<output_dir value="DIR"/>
+			<placeholder_shapes value="{'Placeholder': array([  1, 300, 300,   3])}"/>
+			<remove_output_softmax value="False"/>
+			<reverse_input_channels value="True"/>
+			<save_params_from_nd value="False"/>
+			<scale_values value="Placeholder[127.5]"/>
+			<silent value="False"/>
+			<tensorflow_use_custom_operations_config value="DIR/MobileNetSSD.tfmo.json"/>
+			<version value="False"/>
+			<unset unset_cli_parameters="batch, counts, finegrain_fusing, freeze_placeholder_with_value, input_checkpoint, input_meta_graph, input_proto, input_symbol, mean_file, mean_file_offsets, nd_prefix_name, pretrained_model_name, saved_model_dir, saved_model_tags, scale, tensorboard_logdir, tensorflow_custom_layer_libraries, tensorflow_custom_operations_config_update, tensorflow_object_detection_api_pipeline_config, tensorflow_operation_patterns, tensorflow_subgraph_patterns"/>
+		</cli_parameters>
+	</meta_data>
+</net>
