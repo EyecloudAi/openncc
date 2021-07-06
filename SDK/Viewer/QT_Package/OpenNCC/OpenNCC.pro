@@ -80,21 +80,21 @@ DEPENDPATH += $$PWD/ncc_sdk
 win32: {
 
     INCLUDEPATH += \
-        D:/opencv/opencv/build/include \
-        D:/ffmpeg/dev/include \
+        C:/opencv34/opencv/build/include \
+        C:/ffmpeg/dev/include \
 
     CONFIG(debug, debug|release) {
-        LIBS += D:\opencv\opencv\build\x64\vc14\lib\opencv_world3410d.lib
+        LIBS += C:\opencv34\opencv\build\x64\vc14\lib\opencv_world340d.lib
         LIBS += -L$$PWD/ncc_sdk/ -lOpenNCCd
         PRE_TARGETDEPS += $$PWD/ncc_sdk/OpenNCCd.lib
     } else {
-        LIBS += D:\opencv\opencv\build\x64\vc14\lib\opencv_world3410.lib
+        LIBS += C:\opencv34\opencv\build\x64\vc14\lib\opencv_world340.lib
         LIBS += -L$$PWD/ncc_sdk/ -lOpenNCC
         PRE_TARGETDEPS += $$PWD/ncc_sdk/OpenNCC.lib
     }
 
 
-    LIBS += -LD:/ffmpeg/dev/lib/win64/ -lavcodec -lavdevice -lavfilter -lavformat -lavutil -lpostproc -lswscale
+    LIBS += -LC:/ffmpeg/dev/lib/win64/ -lavcodec -lavdevice -lavfilter -lavformat -lavutil -lpostproc -lswscale
 
     LIBS += -lAdvapi32
 

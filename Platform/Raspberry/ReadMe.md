@@ -16,20 +16,6 @@ img download url:https://www.raspberrypi.org/software/operating-systems/
 
 you can also visit https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2021-05-28/2021-05-07-raspios-buster-armhf.zip
 
-## Install Qt5 on Raspberry Pi
-
-```shell
-sudo apt-get update
-
-sudo apt-get install qt5-default -y
-
-sudo apt-get install qtcreator -y
-
-sudo apt-get install qtmultimedia5-dev -y
-
-sudo apt-get install libqt5serialport5-dev -y
-```
-
 ## Install libusb,opencv and ffmpeg
 
 ```shell
@@ -67,7 +53,7 @@ cd openncc/Platform/Raspberry
 
 ```shell
 # current directory:/home/pi/gitlab/openncc/Platform/Raspberry
-sudo ./pi.sh
+./pi.sh
 # If you want to run a script, remember to back up what you need
 # Please make sure you have backed up what you need?(y or n)
 # If you input yes, the previous file will not exist
@@ -113,9 +99,9 @@ cd Example/How_to
 ## 1.Capture_video
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Capture_video
-sudo ./copy.sh
-sudo ./compile.sh
+# current directory:openncc/Platform/Raspberry/Example/How_to/Capture_video
+./copy.sh
+./compile.sh
 sudo ./run.sh
 ```
 
@@ -133,23 +119,23 @@ At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, a
 copy key file to `bin/fw` like this.
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Capture_video/bin
-sudo cp ~/eyecloud.key ./fw/
+# current directory:openncc/Platform/Raspberry/Example/How_to/Capture_video/bin
+cp ~/eyecloud.key ./fw/
 ```
 
  Now,you can run `Capturevideo`
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Capture_video
+# current directory:openncc/Platform/Raspberry/Example/How_to/Capture_video
 sudo ./run.sh
 ```
 
 ## 2.How_to_use_sdk
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/How_to_use_sdk
-sudo ./copy.sh
-sudo ./compile.sh
+# current directory:openncc/Platform/Raspberry/Example/How_to/How_to_use_sdk
+./copy.sh
+./compile.sh
 sudo ./run.sh
 ```
 
@@ -167,23 +153,23 @@ At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, a
 copy key file to `bin/fw` like this.
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/How_to_use_sdk/bin 
-sudo cp ~/eyecloud.key ./fw/
+# current directory:openncc/Platform/Raspberry/Example/How_to/How_to_use_sdk/bin 
+cp ~/eyecloud.key ./fw/
 ```
 
  Now,you can run `OpenNCC`
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/How_to_use_sdk
+# current directory:openncc/Platform/Raspberry/Example/How_to/How_to_use_sdk
 sudo ./run.sh
 ```
 
 ## 3.Load_a_model
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Load_a_model
-sudo ./copy.sh
-sudo ./compile.sh
+# current directory:openncc/Platform/Raspberry/Example/How_to/Load_a_model
+./copy.sh
+./compile.sh
 sudo ./run.sh
 ```
 
@@ -201,23 +187,23 @@ At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, a
 copy key file to `bin/fw` like this.
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Load_a_model/bin
-sudo cp ~/eyecloud.key ./fw/
+# current directory:openncc/Platform/Raspberry/Example/How_to/Load_a_model/bin
+cp ~/eyecloud.key ./fw/
 ```
 
  Now,you can run `Openncc`
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Load_a_model
+# current directory:openncc/Platform/Raspberry/Example/How_to/Load_a_model
 sudo ./run.sh
 ```
 
 ## 4.Multiple_models
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Multiple_models
-sudo ./copy.sh
-sudo ./compile.sh
+# current directory:openncc/Platform/Raspberry/Example/How_to/Multiple_models
+./copy.sh
+./compile.sh
 sudo ./run.sh
 ```
 
@@ -235,22 +221,22 @@ At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, a
 copy key file to `bin/fw` like this.
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Multiple_models/bin
-sudo cp ~/eyecloud.key ./fw/
+# current directory:openncc/Platform/Raspberry/Example/How_to/Multiple_models/bin
+cp ~/eyecloud.key ./fw/
 ```
 
  Now,you can run `Openncc`
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Multiple_models
+# current directory:openncc/Platform/Raspberry/Example/How_to/Multiple_models
 sudo ./run.sh
 ```
 
 ## 5.Python_demo
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Python_demo
-sudo ./copy.sh
+# current directory:openncc/Platform/Raspberry/Example/How_to/Python_demo
+./copy.sh
 sudo ./run.sh
 ```
 
@@ -268,18 +254,32 @@ At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, a
 copy key file to `fw` like this.
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Python_demo
-sudo cp ~/eyecloud.key ./fw/
+# current directory:openncc/Platform/Raspberry/Example/How_to/Python_demo
+cp ~/eyecloud.key ./fw/
 ```
 
  Now,you can run `Openncc`
 
 ```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry/Python_demo
+# current directory:openncc/Platform/Raspberry/Example/How_to/Python_demo
 sudo ./run.sh
 ```
 
 # Compilation
+
+## Install Qt5 on Raspberry Pi
+
+```shell
+sudo apt-get update
+
+sudo apt-get install qt5-default -y
+
+sudo apt-get install qtcreator -y
+
+sudo apt-get install qtmultimedia5-dev -y
+
+sudo apt-get install libqt5serialport5-dev -y
+```
 
 ## 1.open qtcreator
 

@@ -227,12 +227,20 @@ Metadata Output Parsing:
     Mat showImage;
     /* 缩放显示 */
     resize(outgoingImage,showImage,Size(outgoingImage.cols*scale,outgoingImage.rows*scale),0,0,INTER_LINEAR);
+
+
     if(!cvGetWindowHandle(name)&&first==0)
     {
         qInfo() << "close Window";
-        cv::destroyWindow(name);
+        if(cvGetWindowHandle(name))
+        {
+            cv::destroyWindow(name);
+        }
+        first = 12;
         return;
     }
+
+    //printf("test236..................\n");
     cv::imshow(name, showImage);
     first = 0;
 

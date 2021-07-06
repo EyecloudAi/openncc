@@ -24,6 +24,7 @@ fi
 echo "copy Library ...."
 if [ ! -d "Source/Library/" ];then
 	cp -r ../../SDK/Source/Library/Raspberry/ ./Source/Library
+	cp ./Source/Library/moviUsbBoot ./Source/Library/C\&C++
 else
 	echo "Library is exist"
 fi
