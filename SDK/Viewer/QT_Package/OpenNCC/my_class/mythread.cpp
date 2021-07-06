@@ -93,7 +93,7 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
         qDebug()<<"test.....";
         two_net_model = 0;
         //cv::destroyWindow(src);
-        sdk_uninit();
+        //sdk_uninit();
         UninitDecoder();
     }
     int ret = loadFw("/Configuration/moviUsbBoot","/Configuration/fw/OpenNcc.mvcmd");
