@@ -1,12 +1,14 @@
 ## 硬件规格
 
 * 定焦镜头 6mm  
-![Figure-2](/openncc/docimg/ch/HardwareF2.jpg)
+
+  ![Figure-2](/openncc/docimg/ch/HardwareF2.jpg)
+
 * 变焦镜头 2.8-12mm
 
-![image-20210702134620748](/openncc/docimg/ch/2.8_12mm.png)
+<img src="../../docimg/ch/2.8_12mm.png" alt="image-20210702134620748" style="zoom:150%;" />
 
-![img](/openncc/docimg/ch/2.8_12mm_1.png)
+<img src="../../docimg/ch/2.8_12mm_1.png" alt="img" style="zoom:150%;" />
 
 ![img](/openncc/docimg/ch/2.8_12mm_2.png)
 
@@ -26,7 +28,7 @@
 
   ![image-20210702135838265](/openncc/docimg/ch/SC8238_1.png)
 
-  结构尺寸
+  结构尺寸：
 
   ![image-20210702135920924](/openncc/docimg/ch/SC8238_2.png)
 
@@ -36,7 +38,7 @@
 
   ![image-20210702140012580](/openncc/docimg/ch/AR0234.png)
 
-  结构尺寸
+  结构尺寸：
 
   ![image-20210702140048596](/openncc/docimg/ch/AR0234_1.png)
 
@@ -96,9 +98,9 @@ FPC座J3接口定义:
 | 29   | CAM_A_D3_P    | MIPI数据对3 差分信号+ | /           |
 | 30   | CAM_A_D3_N    | MIPI数据对3 差分信号- | /           |
 
-## 开箱OpenNCC
+## 开箱展示
 
-&emsp;包装盒的贴纸提供了OpenNCC的官网地址（[www.openncc.com.cn](http://www.openncc.com.cn)），可供下载相关的技术文档和开发包。
+&emsp;包装盒的贴纸提供了OpenNCC的官网地址[www.openncc.com.cn](http://www.openncc.com.cn)，可供下载相关的技术文档和开发包。
 
 ![Figure-6](/openncc/docimg/ch/OpenNCC_1.png)
 
@@ -106,7 +108,7 @@ FPC座J3接口定义:
 
 ![Figure-6](/openncc/docimg/ch/OpenNCC_2.png)
 
-## 启动硬件
+## 硬件启动
 
 &emsp;使用OpenNCC官方配备的USB数据线分别连接OpenNCC与电脑<font color="red">USB 3.0</font>接口。如下图所示：
 

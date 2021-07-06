@@ -2,9 +2,8 @@
 
 ### 下载Software Development Kit(SDK)
 
-* 进入www.openncc.com.cn官网
-* 点击 <font color="blue">技术支持</font>
-* 点击<font color="blue">**→**</font>访问SDK仓库https://giteee.com/eyecloud/openncc
+* 进入[官网](https://www.openncc.com.cn/)
+* 点击<font color="blue">**→**</font>访问SDK仓库
 
 ![img](/openncc/docimg/ch/download.png)
 
@@ -30,9 +29,9 @@
 
 ### 环境搭建
 
-* 进入目录`opennccc/Platform/Linux`
-* 右键打开终端
-* 输入命令 `sudo ./linux.sh`
+* 进入目录`opennccc/Platform/Linux`。
+* 右键打开终端。
+* 输入命令 `./linux.sh`。
 
 ![image-20210702142033823](/openncc/docimg/ch/linuxsh.png)
 
@@ -44,7 +43,7 @@
 
 * 进入openncc/Platform/Linux/Viewer/OpenNcc_Linux 目录。
 
-* 右键打开终端，执行 sudo ./AppRun，启动软件。
+* 右键打开终端，执行`sudo ./AppRun`，启动软件。
 
 * 连接OpenNCC相机到电脑USB 3.0接口，点击 Get device info 按钮获取设备信息，此时log区域会有两种提示：
 
@@ -78,7 +77,7 @@
 
 * 可以通过框选ROI区域限制算法区域，算法只对区域内的场景进行识别。
 
-（具体见[运行结果](#_2.5_运行结果演示)展示）
+（具体见[运行结果](#运行结果演示)展示）
 
 * `2nd network model`：选择二级算法模型。
 
@@ -100,7 +99,7 @@
 
 ![img](/openncc/docimg/ch/linux_view8.png)
 
-* 勾选`save_avi`，会在打开视频流后，将视频保存到avi文件夹下，文件名称以时间命名。当关闭视频流后，视频会停止保存。（yuv420p没有此项）
+* 勾选`save_avi`，视频将在打开视频流后，以时间命名的avi文件保存到目录openncc/Platform/Linux/Viewer/OpenNcc_Linux /avi文件夹下。当关闭视频流后，视频会停止保存。（yuv420p没有此项）
 
 ![img](/openncc/docimg/ch/linux_view9.png)
 
@@ -112,7 +111,7 @@
 
 ![img](/openncc/docimg/ch/windows_view1.png)
 
-* 双击运行windows.bat
+* 双击运行`windows.bat`。
 
 * 结果如下：
 
@@ -123,22 +122,19 @@
 ### OpenNCC_Windows操作演示
 
 * 进入openncc/Platform/Windows/Viewer/OpenNcc_Windows 目录。
-
-* 双击运行 OpenNCC.exe。
-
-* 后续操作同[OpenNCC_Linux操作演示]。
+* 双击运行 `OpenNCC.exe`。
+* 后续操作同[OpenNCC_Linux](#OpenNCC_Linux操作演示)
 
 ## 快速入门之Raspberry Pi
 
 ### 环境搭建
 
+* 打开终端
 * 进入openncc/Platform/Raspberry
 
 ![img](/openncc/docimg/ch/pi_view1.png)
 
-* 右键打开终端。
-
-* 输入命令 sudo ./pi.sh
+* 输入命令 `./pi.sh`。
 
 ![img](/openncc/docimg/ch/pi_view2.png)
 
@@ -162,21 +158,18 @@
 ------
 
 * 将密钥文件（eyecloud.key）复制到目录openncc/Platform/Raspberry/Viewer/OpenNcc_Raspberry/Configuration/fw
-
 * 回到目录openncc/Platform/Viewer/OpenNcc_Raspberry
-
-* 右键打开终端，执行 sudo ./AppRun，启动软件。
-
-*  后续操作同[OpenNCC_Linux操作演示]。
+* 打开终端，执行 `sudo ./AppRun`，启动软件。
+*  后续操作同[OpenNCC_Linux](#OpenNCC_Linux操作演示)。
 
 ## Custom（自定义）
 
 ### 环境搭建
 
-* 进入openncc/Platform/Custom
-* 右键打开终端
+* 进入openncc/Platform/Custom。
+* 右键打开终端。
 
-* 输入命令 sudo ./custom.sh
+* 输入命令 `./custom.sh`
 
 ------
 

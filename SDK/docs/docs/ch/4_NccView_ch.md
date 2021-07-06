@@ -1,9 +1,9 @@
 ## 概述
-OpenNCC View是一款用于快速体验OpenNCC开发套件的软件，运行OpenNCC View下默认模型不依赖OpenVINO，OpenNCC View集成了OpenNCC SDK全部API,可以完成OpenNCC在独立模式下实现对相机的连接,固件和AI模型的下载，及完成视频流显示与算法结果的后处理。用户可以通过友好的界面，来操作和控制相机.  
+&emsp;OpenNCC View是一款用于快速体验OpenNCC开发套件的软件，运行OpenNCC View下默认模型不依赖OpenVINO，OpenNCC View集成了OpenNCC SDK全部API,可以完成OpenNCC在独立模式下实现对相机的连接,固件和AI模型的下载，及完成视频流显示与算法结果的后处理。用户可以通过友好的界面，来操作和控制相机.  
 ![Figure-1](/openncc/docimg/ch/NccViewF1.png)   
 
 ## 模型解析
-模型在OpenNCC完成推演后，通过OpenNCC SDK API获取实时的推演结果，OpenView针对物体检测这类模型[Object Detection Models](https://docs.openvinotoolkit.org/2019_R1.1/usergroup1.html)实现了推演结果的通用解析器。  
+&emsp;模型在OpenNCC完成推演后，通过OpenNCC SDK API获取实时的推演结果，OpenView针对物体检测这类模型[Object Detection Models](https://docs.openvinotoolkit.org/2019_R1.1/usergroup1.html)实现了推演结果的通用解析器。  
     OpenView的推演后处理支持如下格式输出：
 
     输出的数据形态：[1, 1, N, 7]
