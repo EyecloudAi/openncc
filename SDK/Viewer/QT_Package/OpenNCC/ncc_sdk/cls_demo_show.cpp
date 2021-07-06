@@ -22,7 +22,6 @@
 //#include<vector>
 using namespace std;
 using namespace cv;
-
 extern QStringList valid_data_list;
 
 typedef struct{
@@ -76,6 +75,7 @@ static int coordinate_is_valid(float x1, float y1, float x2, float y2)
 
 void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps)
 {
+
     cv::Mat yuvImg;
     yuvImg.create(h * 3 / 2, w, CV_8UC1);
     cv::Mat outgoing_img;
@@ -207,6 +207,7 @@ void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int n
     /* 缩放显示 */
     resize(outgoing_img,showImage,Size(outgoing_img.cols*scale,outgoing_img.rows*scale),0,0,INTER_LINEAR);
     //    cv::imshow("OpenNCC", showImage);
+
     cv::imshow(name, showImage);
     cv::waitKey(1);
 }
