@@ -1,65 +1,5 @@
 [TOC]
 
-# Install QT
-
-OS:Ubuntu16.04
-
-**Note:If you install QT yourself, you'd better uninstall it , Then follow our steps to install** 
-
-download url:https://download.qt.io/official_releases/qt/5.12/5.12.9/
-
-file name:`qt-opensource-linux-x64-5.12.9.run`
-
-**step 1**:enter Download and `chmod +x`
-
-![image-20210701145141262](./Image/installQTstep1.jpg)
-
-```shell
-chmod +x qt-opensource-linux-x64-5.12.9.run
-```
-
-**step 2**:run qt install
-
-```shell
-sudo ./qt-opensource-linux-x64-5.12.9.run
-```
-
-![img](./Image/Setup1.jpg) 
-
-* Next
-
-![img](./Image/Setup2.jpg) 
-
-* Next
-
-![img](./Image/Setup3.jpg) 
-
-* Next
-
-![img](./Image/Setup4.jpg) 
-
-* Next
-
-![img](./Image/Setup5.jpg) 
-
-* Next
-
-![img](./Image/Setup6.jpg) 
-
-* Next
-
-![img](./Image/Setup7.jpg) 
-
-* Next
-
-![img](./Image/Setup8.jpg) 
-
-* Install
-
-![img](./Image/Setup9.jpg) 
-
-* Finish
-
 # Install ffmpeg and opencv
 
 ```shell
@@ -192,7 +132,65 @@ sudo ./run.sh
 sudo ./run.sh
 ```
 
+# Install QT
 
+OS:Ubuntu16.04
+
+**Note:If you install QT yourself, you'd better uninstall it , Then follow our steps to install** 
+
+download url:https://download.qt.io/official_releases/qt/5.12/5.12.9/
+
+file name:`qt-opensource-linux-x64-5.12.9.run`
+
+**step 1**:enter Download and `chmod +x`
+
+![image-20210701145141262](./Image/installQTstep1.jpg)
+
+```shell
+chmod +x qt-opensource-linux-x64-5.12.9.run
+```
+
+**step 2**:run qt install
+
+```shell
+sudo ./qt-opensource-linux-x64-5.12.9.run
+```
+
+![img](./Image/Setup1.jpg) 
+
+* Next
+
+![img](./Image/Setup2.jpg) 
+
+* Next
+
+![img](./Image/Setup3.jpg) 
+
+* Next
+
+![img](./Image/Setup4.jpg) 
+
+* Next
+
+![img](./Image/Setup5.jpg) 
+
+* Next
+
+![img](./Image/Setup6.jpg) 
+
+* Next
+
+![img](./Image/Setup7.jpg) 
+
+* Next
+
+![img](./Image/Setup8.jpg) 
+
+* Install
+
+![img](./Image/Setup9.jpg) 
+
+* Finish
 
 # Run View
 
@@ -273,10 +271,14 @@ sudo chmod +x moviUsbBoot
 
 # Pack QT program
 
-**step 1**:copy linuxdeployqt-linux(in QT_Package) to /usr/local/bin/
+download linuxdeployqt from https://github.com/probonopd/linuxdeployqt/releases
+
+![image-20210707113905727](./Image/linuxdeployqt.png)
+
+**step 1**:copy linuxdeployqt-7-x86_64.AppImage to /usr/local/bin/
 
 ```shell
-sudo cp linuxdeployqt-linux /usr/local/bin/
+sudo cp linuxdeployqt-7-x86_64.AppImage /usr/local/bin/
 ```
 
 **step 2**:copy `OpenNCC` to other folder.
@@ -293,11 +295,11 @@ cp OpenNCC ~/OpenNCC_Linux/
 cp -r Configuration/ ~/OpenNCC_Linux/
 ```
 
-**step 4**:modify /usr/local/bin/linuxdeployqt-linux to /usr/local/bin/linuxdeployqt
+**step 4**:modify /usr/local/bin/linuxdeployqt-7-x86_64.AppImage to /usr/local/bin/linuxdeployqt
 
 ```shell
-sudo mv /usr/local/bin/linuxdeployqt-linux /usr/l
-ocal/bin/linuxdeployqt 
+sudo mv /usr/local/bin/linuxdeployqt-7-x86_64.AppImage /usr/local/bin/linuxdeployqt 
+sudo chmod +x /usr/local/bin/linuxdeployqt
 ```
 
 **step 5**:pack qt program
