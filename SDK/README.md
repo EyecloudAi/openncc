@@ -12,17 +12,19 @@ Rebuild SDK：
 
 2. Add new document.
 
-OpenNCC Firmware MV02.101.21
+**OpenNCC Firmware MV02.101.21**
 
 1. Add SC200AI module
 
 
 
-OpenNCC Viewer NV02.101.80
+**OpenNCC Viewer NV02.101.82**
 
-1. Fix video stream block in mode of calling second level model 
+1. Fix video streaming block in mode of calling second level model.
 
+2. Fix  crash when close streaming window.
 
+   
 
 ## R21.04.01
 
@@ -153,7 +155,7 @@ Known issues:
 
 
 
-## R20.11.1
+## R20.11.01
 
 
 **OpenNCC SDK V3.0.2:**
