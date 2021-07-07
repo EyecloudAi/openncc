@@ -389,6 +389,10 @@ cp -r ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package/build-OpenNCC-Deskto
 
 2. Put `linuxdeployqt-pi` in `/usr/local/bin` (`linuxdeployqt-pi` in `QT_Package`)
 
+Note:you can also download linuxdeployqt from https://github.com/probonopd/linuxdeployqt/releases 
+
+download source code and build refer to https://github.com/probonopd/linuxdeployqt/blob/master/BUILDING.md.
+
 ```shell
 # linuxdeployqt-pi in ~/gitlab/openncc/Platform/Raspberry/Viewer/QT_Package
 sudo cp linuxdeployqt-pi /usr/local/bin/linuxdeployqt
