@@ -2,7 +2,7 @@
 
 [Documentation](https://eyecloudai.github.io/openncc)  
 
-[技术文档](http://eyecloud.gitee.io/openncc)  
+[技术文档](https://eyecloudai.github.io/openncc)  
 
 [用户手册](https://gitee.com/eyecloud/openncc/tree/master/SDK/docs/WordPdf/ch)
 
