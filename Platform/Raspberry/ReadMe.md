@@ -114,7 +114,7 @@ Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
 load firmware error! return
 ```
 
-At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, and we will generate a key file for you.
+At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
 
 copy key file to `bin/fw` like this.
 
@@ -148,7 +148,7 @@ Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
 load firmware error! return
 ```
 
-At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, and we will generate a key file for you.
+At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
 
 copy key file to `bin/fw` like this.
 
@@ -182,7 +182,7 @@ Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
 load firmware error! return
 ```
 
-At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, and we will generate a key file for you.
+At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
 
 copy key file to `bin/fw` like this.
 
@@ -216,7 +216,7 @@ Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
 load firmware error! return
 ```
 
-At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, and we will generate a key file for you.
+At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
 
 copy key file to `bin/fw` like this.
 
@@ -249,7 +249,7 @@ Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
 load firmware error! return
 ```
 
-At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, and we will generate a key file for you.
+At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
 
 copy key file to `fw` like this.
 
@@ -353,7 +353,7 @@ Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
 load firmware error! return
 ```
 
-At this time, you need to send the SN number to `liangjie.song@eyecloud.tech`, and we will generate a key file for you.
+At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
 
 copy key file to `bin/fw` like this.
 

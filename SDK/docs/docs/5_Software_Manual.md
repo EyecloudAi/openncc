@@ -37,7 +37,7 @@ SDK支持的产品如下：
 - C/C++
 - Python3.5、Python3.7
 
-### 2.1 SDK development package directory structure
+### SDK development package directory structure
 
 | Directory                                                    | Contents                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -84,7 +84,7 @@ Enter from the command line terminal：`./myriad_compile -m input_xxx-fp16.xml �
 
 &ensp; OpenNCC focuses on the rapid deployment of deep learning models, is compatible with Intel OpenVINO tools, and for embedded graphics and image application scenarios, it has completed the integration of different resolution sensors from 2MP to 20MP on end-point target devices, and the end-point target devices has realized the deployment of professional-level ISP.  OpenVINO optimized converted model files can be dynamically downloaded to the end-point OpenNCC camera to achieve rapid deployment of deep learning models. OpenNCC has designed independent working mode, mixed development mode and co-processing compute stick mode to adapt to different work application scenarios.
 
-### 4.1 OpenNCC standalone mode
+### OpenNCC standalone mode
 &ensp;In the independent mode, OpenNCC independently runs a deep learning model, and feeds back the inference results to the user through the OpenNCC SDK API.
 The application deployment process is as follows:  
 
@@ -101,7 +101,7 @@ The IR is a pair of files that describe the whole model:
 * To integrate the BLOB model file generated after optimization using OpenNCC SDK, see the demo program of `Examples/How_to/Load a model` under SDK.  
 * &emsp; OpenNCC View is an application demonstration program with an operating interface integrated with OpenNCC SDK. You can also use OpenView to deploy models and obtain test results. Refer to OpenNCC View Guide Because different depth models have differentiated inference output results, if users cannot find a suitable post-processing analytical model under the SDK, they need to refer to `Examples/How_to/load a model` and write post-processing code in combination with their own application scenarios.
 
-#### 4.1.1 Secondary model operation support
+#### Secondary model operation support
 Considering the end-to-side computing capability, at present, SDK multi-level models support cascading of two-level models, as shown in the following figure:  
 
 ![F](/openncc/docimg/ch/SoftManualF10.jpg)  
@@ -147,7 +147,7 @@ Based on the detection results of the first stage, the detection coordinates of 
 
 &emsp;In `Examples/Linkage_demo/work_with_OpenVINO` demonstrated how to combine OpenNCC and OpenVINO on Host PC to implement a distributed AI system.  
 
-### 4.3 Co-processing compute stick mode
+### Co-processing compute stick mode
 &emsp;OpenNCC's co-processing mode is similar to Intel NCS2. In this mode of operation, OpenNCC's vision sensor does not work, and users can use OpenNCC alone to achieve full compatibility with the OpenVINO environment. The typical deep learning model deployment process of OpenVINO is as follows:  
 
 ![Figure-4](/openncc/docimg/sw_figure4.png)    
@@ -160,10 +160,10 @@ Based on the detection results of the first stage, the detection coordinates of 
 
 &emsp;Copy `Source/Firmware/fw /usb-ma2x8x.mvcmd` and replace openvino/inference_engine/lib/intel64/usb-ma2x8x.mvcmd in the openvino installation directory.(Remarks: usb-ma2x8x.mvcmd in the openvino installation directory must be backed up before replacement. This file needs to be restored when using NCS2 inference)  
 
-### 4.4 Difference between independent mode and co-processing mode
+### Difference between independent mode and co-processing mode
 &emsp;The right side of the figure below is the independent mode of OpenNCC, and the left side is the co-processing mode of OpenNCC (similar to Intel NCS2).  
 
-![Figure-5](/openncc/docimg/sw_figure5.png'))  
+![Figure-5](/openncc/docimg/sw_figure5.png)
 
  &emsp;When we need to deploy a vision-based deep learning model, first we need to obtain a high-quality video stream, then run the inference engine to calculate the input image data, and finally output the result. For the co-processing mode on the left, we need an OpenNCC or Intel NCS2 implements end-to-side reasoning. At the same time, we need to obtain a video stream from a camera and send the video frame to OpenNCC  via USB. In the independent mode on the right, no additional camera is needed to obtain the video stream. We only need to download the model to OpenNCC to obtain the deduction results.  
 
