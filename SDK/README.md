@@ -4,7 +4,8 @@
 
 ## R21.07.02
 
-1. Add English document
+1. Add English document.
+2. Associate to OpenNCC PaddlePaddle-OCR warehouse.
 
 ## R21.07.01
 
@@ -46,7 +47,7 @@ Rebuild SDK：
 
 **OpenNCC SDK SV02.103.04**
 
-no change
+​	no change
 
 **OpenNCC Viewer NV02.101.15**
 
@@ -54,7 +55,7 @@ no change
 
 **OpenNCC Firmware MV02.101.14**
 
-no change
+​	no change
 
 Known issues:
 
@@ -106,7 +107,7 @@ Known issues:
 
 **OpenNCC Viewer NV02.101.31:**
 
-update sdk.
+​	update sdk.
 
 **OpenNCC Firmware MV02.101.05:**
 

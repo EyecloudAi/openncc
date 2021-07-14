@@ -49,6 +49,7 @@ SDK支持的产品如下：
 | Example/Linkage_demo/  <br />work with AlwaysAI /  <br />pedestrian_tracking_demo | Face  model, using AlwaysAI to parse the result display and count the number of  people passing the recognition area. |
 | Example/Linkage_demo/  <br />work_with_OpenVINO/  <br />human_pose_estimation_demo | Human  skeleton model, using OpenVINO to parse the result display. |
 | Example/Linkage_demo/  <br />work_with_OpenVINO/  <br />interactive_face_detection_demo | Face,  age, gender, and mood models, using OpenVINO parsing results. |
+| Example/Linkage_demo/  <br />work_with_PaddlePaddle          | OCR Sample application, include a network link to the OCR warehouse. |
 | Tools/myriad_compiler                                        | IR file conversion Blob file tool                            |
 | Tools/deployment                                             | Kit deployment script                                        |
 

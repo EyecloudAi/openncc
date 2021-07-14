@@ -47,6 +47,7 @@ SDK支持的产品如下：
 | Example/Linkage_demo<br />/work with AlwaysAI <br />/pedestrian_tracking_demo | 人脸模型，使用AlwaysAI解析结果显示，并统计通过识别区域的人数。 |
 | Example/Linkage_demo<br />/work_with_OpenVINO<br />/human_pose_estimation_demo | 人体骨骼模型，使用OpenVINO解析结果显示。                     |
 | Example/Linkage_demo<br />/work_with_OpenVINO<br />/interactive_face_detection_demo | 人脸、年龄、性别、心情模型，使用OpenVINO解析结果显示。       |
+| Example/Linkage_demo<br />/work_with_PaddlePaddle | OCR文字识别示例程序，包含OpenNCC PaddlePaddle-OCR 仓库链接。 |
 | Tools/myriad_compiler                                        | IR文件转换成Blob文件工具                                     |
 | Tools/deployment                                             | 权限部署脚本                                                 |
 
