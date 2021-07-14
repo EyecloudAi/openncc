@@ -43,19 +43,19 @@
 
 
 ## 算法加速测试结果
-| 版本信息 | 60Hz                                              | YUV    | YUV    | H.264  | H.264  | MJPEG  | MJPEG  |
-| -------- | ------------------------------------------------- | ------ | ------ | ------ | ------ | ------ | ------ |
-|          | 1080P  3.0usb                                     | 双引擎 | 单引擎 | 双引擎 | 单引擎 | 双引擎 | 单引擎 |
-|          | 模型                                              | AI FPS | AI FPS | AI FPS | AI FPS | AI FPS | AI FPS |
-|          | classification-fp16                               |        | 14     |        | 14     |        | 14     |
-|          | face-detection-retail-0004-fp16                   |        | 55     |        | 55     |        | 52     |
-|          | face-detection-adas-0001-fp16                     |        | 8      |        | 8      |        | 8      |
-|          | person-detection-retail-0013-fp16                 |        | 6      |        | 6      |        | 6      |
-|          | person-vehicle-bike-detection-crossroad-0078-fp16 |        | 2      |        | 3      |        | 3      |
-|          | face-person-detection-retail-0002-fp16            |        | 5      |        | 5      |        | 5      |
-|          | pedestrian-detection-adas-0002-fp16               |        | 8      |        | 9      |        | 9      |
-|          | vehicle-detection-adas-0002-fp16                  |        | 9      |        | 9      |        | 9      |
-|          | vehicle-license-plate-detection-barrier-0106-fp16 |        | 28     |        | 28     |        | 29     |
-|          | license-plate-recognition-barrier-0001            |        | 23     |        | 23     |        | 23     |
-|          | pedestrian-and-vehicle-detector-adas-0001-fp16    |        | 7      |        | 7      |        | 7      |
+| Version | AR0234 60Hz 1080P 3.0usb                          | YUV    | YUV    | H.264  | H.264  | MJPEG  | MJPEG  |
+| ------- | ------------------------------------------------- | ------ | ------ | ------ | ------ | ------ | ------ |
+|         | Number of Acceleration Engines                    | 2      | 1      | 2      | 1      | 2      | 1      |
+|         | Model                                             | AI FPS | AI FPS | AI FPS | AI FPS | AI FPS | AI FPS |
+|         | classification-fp16                               | 25     | 14     | 25     | 14     | 25     | 14     |
+|         | face-detection-retail-0004-fp16                   | 80     | 43     | 80     | 55     | 80     | 52     |
+|         | face-detection-adas-0001-fp16                     | 15     | 7      | 15     | 8      | 15     | 8      |
+|         | person-detection-retail-0013-fp16                 | 12     | 5      | 12     | 6      | 12     | 6      |
+|         | person-vehicle-bike-detection-crossroad-0078-fp16 | 6      | 2      | 6      | 3      | 6      | 3      |
+|         | face-person-detection-retail-0002-fp16            | 10     | 4.5    | 10     | 5      | 10     | 5      |
+|         | pedestrian-detection-adas-0002-fp16               | 15     | 7      | 15     | 9      | 15     | 9      |
+|         | vehicle-detection-adas-0002-fp16                  | 15     | 8      | 15     | 9      | 15     | 9      |
+|         | vehicle-license-plate-detection-barrier-0106-fp16 | 45     | 24     | 45     | 28     | 45     | 29     |
+|         | license-plate-recognition-barrier-0001            | 40     | 24     | 40     | 23     | 40     | 23     |
+|         | pedestrian-and-vehicle-detector-adas-0001-fp16    | 12     | 7      | 12     | 7      | 12     | 7      |
 

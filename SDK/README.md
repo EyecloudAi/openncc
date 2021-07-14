@@ -1,8 +1,10 @@
 # OpenNCC SDK Release Note
 
----
 
 
+## R21.07.02
+
+1. Add English document
 
 ## R21.07.01
 

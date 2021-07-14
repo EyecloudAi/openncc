@@ -4,7 +4,9 @@
 
 [技术文档](https://eyecloudai.github.io/openncc/ch)  
 
-[用户手册](https://gitee.com/eyecloud/openncc/tree/master/SDK/docs/WordPdf/ch)
+[UserManual](https://github.com/EyecloudAi/openncc/blob/master/docs/WordPdf/en/OpenNCC_UserManual_En.pdf)
+
+[用户手册](https://gitee.com/eyecloud/openncc/blob/master/SDK/docs/WordPdf/ch/OpenNCC_UserManual_Cn.pdf)
 
 
 ## Support
@@ -16,5 +18,5 @@ You are welcome to contact us for your suggestions, and model request.
 
 ## Current Version
 
-**R21.07.01**
+**R21.07.02**
 

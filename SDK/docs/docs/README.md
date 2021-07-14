@@ -4,7 +4,7 @@ heroImage: /web/ncclogo.jpg
 heroText: null
 tagline: Open Neural Compute Camera 
 actionText: Quick Start →
-actionLink: /Software_Manual.md
+actionLink: /1_Introduction.md
 features:
 - title: Open AI Vision
   details: null

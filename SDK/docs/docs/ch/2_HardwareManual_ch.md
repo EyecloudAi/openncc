@@ -6,9 +6,9 @@
 
 * 变焦镜头 2.8-12mm
 
-<img src="../../docimg/ch/2.8_12mm.png" alt="image-20210702134620748" style="zoom:150%;" />
+<img src="/openncc/docimg/ch/2.8_12mm.png" alt="image-20210702134620748" style="zoom:150%;" />
 
-<img src="../../docimg/ch/2.8_12mm_1.png" alt="img" style="zoom:150%;" />
+<img src="/openncc/docimg/ch/2.8_12mm_1.png" alt="img" style="zoom:150%;" />
 
 ![img](/openncc/docimg/ch/2.8_12mm_2.png)
 

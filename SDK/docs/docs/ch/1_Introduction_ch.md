@@ -1,7 +1,7 @@
 ## OpenNCC 概述
-&emsp; OpenNCC 是一款eyecloud.ai公司自主研发的开源的可编程AI 相机,搭载了Intel Movidius Myriad X 视觉处理单元（VPU），它是一种低功耗片上系统（SoC），用于无人机、智能相机、VR/AR 头盔等设备的深度学习及其他人工智能视觉应用加速。Myriad X 将会在同样功耗条件下提供 Myriad 2 十倍的深度神经网络（DNN）性能。Myriad X 理论计算能力 4+ TOPS 的基础上达到超过每秒万亿次（TOPS）的 DNN 峰值吞吐量。 
+&emsp;OpenNCC 是一款eyecloud.ai公司自主研发的开源的可编程AI 相机,搭载了Intel Movidius Myriad X 视觉处理单元（VPU），它是一种低功耗片上系统（SoC），用于无人机、智能相机、VR/AR 头盔等设备的深度学习及其他人工智能视觉应用加速。Myriad X 将会在同样功耗条件下提供 Myriad 2 十倍的深度神经网络（DNN）性能。Myriad X 理论计算能力 4+ TOPS 的基础上达到超过每秒万亿次（TOPS）的 DNN 峰值吞吐量。 
 
-&emsp; OpenNCC 是由SENSOR板和CORE板组成，搭载了200万或800万像素的传感器。 同时OpenNCC 核心板采用CSI_MIPI_RX 4lane 接口，与CORE板进行数据交互传输，最大支持sensor分辨率为20M@30fps，同时也支持3D模组、红外模组。CORE 板输出接口USB2.0/3.0，可搭载4G/8G/16G LPDDR4, 16M SPI FLASH。 
+&emsp;OpenNCC 是由SENSOR板和CORE板组成，搭载了200万或800万像素的传感器。 同时OpenNCC 核心板采用CSI_MIPI_RX 4lane 接口，与CORE板进行数据交互传输，最大支持sensor分辨率为20M@30fps，同时也支持3D模组、红外模组。CORE 板输出接口USB2.0/3.0，可搭载4G/8G/16G LPDDR4, 16M SPI FLASH。 
 
   <img src="/openncc/docimg/ch/HardwareF_1.png" alt="Figure-1" style="zoom:80%;" />
 
@@ -28,7 +28,7 @@
 
 ## OpenNCC系列产品
 
-​		&emsp;根据不同的应用场景，OpenNCC推出了不同的产品系列，其中主要有针对开发者的OpenNCC Light系列，针对工业应用场景的OpenNCC USB和OpenNCC IPC系列。
+&emsp;根据不同的应用场景，OpenNCC推出了不同的产品系列，其中主要有针对开发者的OpenNCC Light系列，针对工业应用场景的OpenNCC USB和OpenNCC IPC系列。
 
 ### OpenNCC Lite系列
 
