@@ -6,7 +6,7 @@
 
 [UserManual](https://github.com/EyecloudAi/openncc/blob/master/docs/WordPdf/en/OpenNCC_UserManual_En.pdf)
 
-[用户手册](https://gitee.com/eyecloud/openncc/blob/master/SDK/docs/WordPdf/ch/OpenNCC_UserManual_Cn.pdf)
+[用户手册](https://gitee.com/eyecloud/openncc/blob/master/docs/WordPdf/ch/OpenNCC_UserManual_Ch.pdf)
 
 
 ## Support
