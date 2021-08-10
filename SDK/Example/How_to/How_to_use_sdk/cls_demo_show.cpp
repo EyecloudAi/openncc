@@ -107,13 +107,13 @@ void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int n
 		y1 = f16Tof32(cls_ret[i*7+6]);
 
 		score =(float)f16Tof32(cls_ret[i*7+2]);
-		/* 无效数据，不显示画框 */
+		/* invalid data,no frame is displayed */
 		if( (coordinate_is_valid(x0, y0, x1, y1) ==0 )|| (score < min_cls_score))
 		{
 			continue;
 		}
 
-		/* 判断是否需要识别的物体 */
+		/* Determine whether the object needs to be recognized */
 		int id =-1;
 		int cls_id = (int)(f16Tof32(cls_ret[i*7+1]));
 		for (int index = 0; index < sizeof(cls_type) / sizeof(cls_type[0]);index++)
@@ -124,13 +124,13 @@ void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int n
 				break;
 			}
 		}
-		/* 不是有效识别的物体，不显示画框 */
+		/* It is not a valid recognized object,and the picture frame is not displayed */
 		if (id == -1)
 		{
 			continue;
 		}
 
-		/* 画识别的物体框 */
+		/* Draw the recognized object box */
 		cv::Rect box;
 		box.x = x0 * dis_w + oft_x;
 		box.y = y0 * dis_h + oft_y;
@@ -147,7 +147,7 @@ void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int n
 		cv::putText(outgoing_img, result, origin, cv::FONT_HERSHEY_COMPLEX, 1,  cv::Scalar(cls_type[id].clolors&0xff,(cls_type[id].clolors&0xff00)>>8,(cls_type[id].clolors&0xff0000)>>16), 1, 8, 0);
 	}
 
-	/* 算法有效区域 */
+	/* Effective region of algorithm */
 	if(nn_fov_show)
 	{
 		cv::Rect box_nn;
@@ -164,7 +164,7 @@ void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int n
 	}
 
 	Mat showImage;
-	/* 缩放显示 */
+	/* Zoom display */
 	resize(outgoing_img,showImage,Size(outgoing_img.cols*scale,outgoing_img.rows*scale),0,0,INTER_LINEAR);
 	cv::imshow(name, showImage);
 

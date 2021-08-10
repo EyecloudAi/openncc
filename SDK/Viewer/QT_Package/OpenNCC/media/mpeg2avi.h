@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "media2Avi.h"
-
+#include "FormatThread.h"
 class Mpeg2Avi : public Media2Avi
 {
     Q_OBJECT
@@ -20,6 +20,7 @@ private:
     AVStream*               outStream_;
     AVPacket*               pkt_;
     AVFormatContext *       ofmtCtx_;
+    FormatThread *myformat_thread1;
 };
 
 #endif // MPEG2AVI_H

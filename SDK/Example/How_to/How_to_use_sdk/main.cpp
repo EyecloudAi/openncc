@@ -52,10 +52,10 @@ static CameraInfo cam_info =
 	0,
 	0 ,
 	1,                         //stdValue
-    1,                           /*打开YUV420输出功能*/
-    0,                           /*打开H26X编码功能*/
-    0,                           /*打开MJPEG编码功能*/
-	ENCODE_H264_MODE,            /* 使用H264编码格式 */
+    1,                           /*Turn on YUV420 output function*/
+    0,                           /*Turn on h26x coding function*/
+    0,                           /*Turn on MJPEG encoding*/
+	ENCODE_H264_MODE,            /* Use H264 encoding format */
 };
 
 static void vscRead(void* param,void* data, int len)
@@ -82,7 +82,7 @@ static void vscRead(void* param,void* data, int len)
 
         case (H26X ):
         {
-            /* 获取H65视频流数懿
+            /* Get H26x video stream
             char *h265_data = (char *) data + sizeof(frameSpecOut);
             if(fd ==0)
             {

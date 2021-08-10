@@ -33,6 +33,7 @@ tar zxvf opencv-3.4.0.tar.gz
 # 6.enter opencv-3.4.0 and mkdir build
 cd opencv-3.4.0
 mkdir build
+cd build
 # 7.cmake
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .. 
 ```
@@ -80,59 +81,9 @@ pkg-config opencv --modversion
 
 ![image-20210706173303118](./Image/findopencvversion.png)
 
-# Run Example
-
-```shell
-# current directory:openncc/Platform/Linux/
-cd Example/How_to
-```
-
-```
-└── How_to
-	├── Capture_video
-	├── How_to_use_sdk
-	├── Load_a_model
-	├── Multiple_models
-	├── Python_demo
-```
-
-## 1.Capture_video
-
-```shell
-# current directory:openncc/Platform/Linux/Example/How_to/Capture_video
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-## 2.How_to_use_sdk
-
-```shell
-# current directory:openncc/Platform/Linux/Example/How_to/How_to_use_sdk
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-## 3.Load_a_model
-
-```shell
-# current directory:openncc/Platform/Linux/Example/How_to/Load_a_model
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-## 4.Multiple_models
-
-```shell
-# current directory:openncc/Platform/Linux/Example/How_to/Multiple_models
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
 # Install QT
+
+ **If you want to compile QT yourself, you can do the following steps** 
 
 OS:Ubuntu16.04
 

@@ -1,0 +1,1341 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: GDAL/OGR
+Upstream-Contact: The GDAL/OGR project team, Frank Warmerdam <warmerdam@pobox.com>
+Source: http://www.gdal.org/
+Comment: Several data files with unclear rights are removed to create
+ the +dfsg version.
+ .
+ gdal/data/cubewerx_extra.wkt
+ Derived from definitions distributed by Cubewerx.
+ See http://trac.osgeo.org/gdal/ticket/2165
+ .
+ gdal/data/ecw_cs.wkt
+ Derived via much processing from ERMapper GDT definitions.
+ See http://trac.osgeo.org/gdal/ticket/2162
+ .
+Files-Excluded: data/cubewerx_extra.wkt
+ data/ecw_cs.wkt
+
+Files: *
+Copyright:               2007-2018, Even Rouault <even dot rouault at spatialys dot com>
+                         2009-2018, Martin Landa <landa.martin gmail.com>
+                         2013-2018, NextGIS <info@nextgis.ru>
+                        2014, 2018, Oslandia <info at oslandia dot com>
+                         2015-2018, Planet Labs
+                         2016-2018, Dmitry Baryshnikov
+                        2016, 2018, Andrew Sudorgin
+       2006-2008, 2010, 2015, 2018, Ivan Lucena <ivan dot lucena at oracle dot com>
+                              2018, Azavea
+                              2018, Dr. James McClain <james.mcclain@gmail.com>
+                              2018, Liu Yimin
+                              2018, Paul Austin <paul.austin@revolsys.com>
+                  2005, 2007, 2017, Ari Jolma
+                              2017, Alan Thomas <alant@outlook.com.au>
+                              2017, DigitalGlobe
+                              2017, Finnish Environment Institute
+                              2017, Hobu Inc
+                              2016, Alexandr Borzykh
+                              2016, Avyav Kumar Singh <avyavkumar at gmail dot com>
+                              2016, Julien Michel <julien dot michel at cnes dot fr>
+                              2016, Lucian Plesea
+                              2016, Piers Titus van der Torren <pierstitus@gmail.com>
+                              2016, SatCen - European Union Satellite Centre
+ 2005, 2007-2008, 2010, 2013, 2015, Tamas Szekeres
+                              2015, Airbus DS Geo SA
+                              2015, European Union (European Environment Agency)
+                              2015, European Union Satellite Centre
+                              2015, Faza Mahamood
+                              2015, Sean Gillies <sean@mapbox.com>
+                   2010, 2013-2014, Kyle Shannon <kyle at pobox dot com>
+                         2008-2014, Antonio Valentino <antonio.valentino@tiscali.it>
+                        2004, 2014, Pirmin Kalberer, Sourcepole AG
+                         2013-2014, ZJU Walkinfo Technology Corp., Ltd
+                              2014, François Hissel <francois.hissel@gmail.com>
+                              2014, Matthieu Volat <matthieu.volat@ujf-grenoble.fr>
+                              2014, Mikhail Gusev
+                              2014, Norman Barker <norman at cloudant com>
+                              2014, Sebastian Walter <sebastian dot walter at fu-berlin dot de>
+                         1998-2013, Frank Warmerdam <warmerdam@pobox.com>
+                         2009-2013, Jorge Arevalo <jorge.arevalo@deimos-space.com>
+                         2009-2013, David Zwarg <dzwarg@azavea.com>
+                        2011, 2013, Paul Ramsey <pramsey@boundlessgeo.com>
+                              2013, Alan Boudreault
+                              2013, EOX IT Services, GmbH
+                              2012, Andrew Migal
+                              2012, Jean-Claude Repetto
+                              2012, LibKEA
+                              2012, Roger Veciana <rveciana@gmail.com>
+                         2010-2011, Martin Lambers <marlam@marlam.de>
+                              2011, Adam Estrada
+                              2011, Alessandro Furieri
+                              2011, Ben Ahmed Daho Ali
+                   2005-2007, 2010, Daylon Graphics Ltd
+                   2006-2007, 2010, Mateusz Loskot <mateusz@loskot.net>
+                         2009-2010, PCI Geomatics, 50 West Wilmot Street, Richmond Hill, Ont, Canada
+                         2009-2010, Ragi Yaser Burhum
+                              2010, Brian Case
+                              2010, Chaitanya kumar CH
+                              2010, Chris Yesson <chris.yesson@ioz.ac.uk>
+                              2010, Constantin Jucovschi
+                              2010, ESRI
+                              2010, Seth Price <seth@pricepages.org>
+                              2010, SPADAC Inc. <harsh.govind@spadac.com>
+                              2010, Thomas Hirsch
+                         2002-2009, Andrey Kiselev <dron@ak4719.spb.edu>
+                              2009, Leonardo de Paula Rosa Piga
+                              2009, Volker Wichmann <wichmann@laserdata.at>
+                         1998-2008, Daniel Morissette
+                        2006, 2008, Henrik Johansson <henrik@johome.net>
+                         2007-2008, Howard Butler <hobu.inc@gmail.com>
+                              2008, Chris Toney
+                              2008, Her majesty the Queen in right of Canada as represented by the Canadian Nuclear Safety Commission
+                              2008, Klokan Petr Pridal
+                              2008, Shawn Gervais <project10@project10.net>
+                              2008, Xiuguang Zhou (ESRI)
+                        2004, 2007, ITC
+                        2005, 2007, Kevin Ruland
+                         2006-2007, Waypoint Information Technology
+                              2007, Adam Guernsey <adam@ctech.com>
+                              2007, Adam Nowacki
+                              2007, Andrea Aime <andrea.aime@gmail.com>
+                              2007, Chris Schmidt
+                              2007, Christian Mueller
+                              2007, Geoconcept and IGN
+                              2007, Jens Oberender
+                              2007, Philippe P. Vachon <philippe@cowpig.ca>
+                              2006, Benjamin Collins
+                              2006, Christopher Condit
+                              2006, James Flemer <jflemer@alum.rpi.edu>
+                              2006, Kevin Locke <kwl7@cornell.edu>
+                              2006, MapShots Inc (www.mapshots.com)
+                              2006, Oleg Semykin
+                              2006, The MITRE Corporation
+                              2005, Benjamin Simon <noumayoss@gmail.com>
+                              2005, Daniel Wallner <daniel.wallner@bredband.net>
+                              2005, Frans van den Bergh <fvdbergh@csir.co.za>
+                              2005, Radim Blazek <radim.blazek@gmail.com>
+                              2005, Sam Gillingham
+                              2005, Vexcel Corp
+                              2004, Kor de Jong
+                              2004, VIZRT Inc
+                         1999-2003, Stephane Villeneuve
+                              2003, Applied Coherent Technology Corporation (www.actgate.com)
+                              2003, OPeNDAP, Inc
+                   1999, 2001-2002, Safe Software Inc.
+                         2000-2002, Avenza Systems Inc, http://www.avenza.com/
+                              2002, i3 - information integration and imaging, Fort Collin,CO
+                              2002, Mark Phillips
+                         2000-2001, Atlantis Scientific Inc
+                              2001, Keyhole, Inc.
+                              2001, Simon Perkins
+                              2000, Derrick J Brashear
+                              1999, Intergraph Corporation
+                              1999, Les Technologies SoftMap Inc
+                              1998, Global Geomatics
+                              1992, Michigan State University
+                                    PCRaster owners
+License: Expat
+
+Files: alg/internal_libqhull/*
+Copyright: 1993-2012, C.B. Barber
+           1993-2012, The National Science and Technology Research Center for
+                      Computation and Visualization of Geometric Structures
+                      (The Geometry Center) University of Minnesota
+License: Qhull
+
+Files: apps/gdaldem_lib.cpp
+Copyright: 2006, 2009, Matthew Perry
+            2009-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: Portions derived from GRASS 4.1 (public domain) See
+ http://trac.osgeo.org/gdal/ticket/2975 for more information regarding
+ history of this code
+License: Expat
+
+Files: data/esri_epsg.wkt
+ data/esri_extra.wkt
+Copyright: 1999-2018, Esri Inc.
+License: Apache-2.0
+
+Files: frmts/aigrid/aigccitt.c
+Copyright: 1990-1997, Sam Leffler
+           1991-1997, Silicon Graphics, Inc
+                2002, Frank Warmerdam <warmerdam@pobox.com>
+           2009-2013, Even Rouault <even dot rouault at mines-paris dot org>
+License: HPND-p-sl-sgi
+
+Files: frmts/gif/giflib/*
+Copyright: 1989-1990, Gershon Elber
+     1992, 1996-1997, Eric S. Raymond
+                1998, Toshio Kuratomi
+License: Expat
+
+Files: frmts/grib/degrib/*
+Copyright: NOAA NWS
+License: public-domain
+ The degrib and g2clib source code are modified versions of code produced
+ by NOAA NWS and are in the public domain subject to the following
+ restrictions:
+ .
+ http://www.weather.gov/im/softa.htm
+ .
+ DISCLAIMER The United States Government makes no warranty, expressed or
+ implied, as to the usefulness of the software and documentation for any
+ purpose. The U.S. Government, its instrumentalities, officers, employees,
+ and agents assumes no responsibility (1) for the use of the software and
+ documentation listed below, or (2) to provide technical support to users.
+ .
+ http://www.weather.gov/disclaimer.php
+ .
+  The information on government servers are in the public domain, unless
+ specifically annotated otherwise, and may be used freely by the public so
+ long as you do not 1) claim it is your own (e.g. by claiming copyright for
+ NWS information -- see below), 2) use it in a manner that implies an
+ endorsement or affiliation with NOAA/NWS, or 3) modify it in content and
+ then present it as official government material. You also cannot present
+ information of your own in a way that makes it appear to be official
+ government information..
+ .
+  The user assumes the entire risk related to its use of this data. NWS is
+ providing this data "as is," and NWS disclaims any and all warranties,
+ whether express or implied, including (without limitation) any implied
+ warranties of merchantability or fitness for a particular purpose. In no
+ event will NWS be liable to you or to any third party for any direct,
+ indirect, incidental, consequential, special or exemplary damages or lost
+ profit resulting from any use or misuse of this data.
+ .
+  As required by 17 U.S.C. 403, third parties producing copyrighted works
+ consisting predominantly of the material appearing in NWS Web pages must
+ provide notice with such work(s) identifying the NWS material incorporated
+ and stating that such material is not subject to copyright protection.
+
+Files: frmts/gtiff/tif_float.c
+ frmts/gtiff/tif_float.h
+Copyright: 2002, Industrial Light & Magic, a division of Lucas Digital Ltd. LLC
+           2005, Andrey Kiselev <dron@remotesensing.org>
+           2010, Even Rouault <even dot rouault at mines-paris dot org>
+License: BSD-3-Clause
+
+Files: frmts/gtiff/libgeotiff/geo_free.c
+ frmts/gtiff/libgeotiff/geo_get.c
+ frmts/gtiff/libgeotiff/geo_keyp.h
+ frmts/gtiff/libgeotiff/geokeys.h
+ frmts/gtiff/libgeotiff/geo_names.c
+ frmts/gtiff/libgeotiff/geonames.h
+ frmts/gtiff/libgeotiff/geo_new.c
+ frmts/gtiff/libgeotiff/geo_print.c
+ frmts/gtiff/libgeotiff/geo_set.c
+ frmts/gtiff/libgeotiff/geotiff.h
+ frmts/gtiff/libgeotiff/geotiffio.h
+ frmts/gtiff/libgeotiff/geo_tiffp.c
+ frmts/gtiff/libgeotiff/geo_tiffp.h
+ frmts/gtiff/libgeotiff/geovalues.h
+ frmts/gtiff/libgeotiff/geo_write.c
+ frmts/gtiff/libgeotiff/xtiff.c
+ frmts/gtiff/libgeotiff/xtiffio.h
+Copyright: 1995, Niles D. Ritter
+License: public-domain
+ Permission granted to use this software, so long as this copyright
+ notice accompanies any products derived therefrom.
+
+Files: frmts/gtiff/libtiff/t4.h
+ frmts/gtiff/libtiff/tif_aux.c
+ frmts/gtiff/libtiff/tif_close.c
+ frmts/gtiff/libtiff/tif_codec.c
+ frmts/gtiff/libtiff/tif_color.c
+ frmts/gtiff/libtiff/tif_compress.c
+ frmts/gtiff/libtiff/tif_dir.c
+ frmts/gtiff/libtiff/tif_dir.h
+ frmts/gtiff/libtiff/tif_dirinfo.c
+ frmts/gtiff/libtiff/tif_dirread.c
+ frmts/gtiff/libtiff/tif_dirwrite.c
+ frmts/gtiff/libtiff/tif_dumpmode.c
+ frmts/gtiff/libtiff/tif_error.c
+ frmts/gtiff/libtiff/tif_extension.c
+ frmts/gtiff/libtiff/tiff.h
+ frmts/gtiff/libtiff/tiffio.h
+ frmts/gtiff/libtiff/tiffiop.h
+ frmts/gtiff/libtiff/tif_fax3.c
+ frmts/gtiff/libtiff/tif_fax3.h
+ frmts/gtiff/libtiff/tif_flush.c
+ frmts/gtiff/libtiff/tif_getimage.c
+ frmts/gtiff/libtiff/tif_jpeg.c
+ frmts/gtiff/libtiff/tif_lzma.c
+ frmts/gtiff/libtiff/tif_lzw.c
+ frmts/gtiff/libtiff/tif_next.c
+ frmts/gtiff/libtiff/tif_open.c
+ frmts/gtiff/libtiff/tif_packbits.c
+ frmts/gtiff/libtiff/tif_predict.c
+ frmts/gtiff/libtiff/tif_predict.h
+ frmts/gtiff/libtiff/tif_print.c
+ frmts/gtiff/libtiff/tif_read.c
+ frmts/gtiff/libtiff/tif_strip.c
+ frmts/gtiff/libtiff/tif_swab.c
+ frmts/gtiff/libtiff/tif_thunder.c
+ frmts/gtiff/libtiff/tif_tile.c
+ frmts/gtiff/libtiff/tif_version.c
+ frmts/gtiff/libtiff/tif_warning.c
+ frmts/gtiff/libtiff/tif_webp.c
+ frmts/gtiff/libtiff/tif_write.c
+ frmts/gtiff/libtiff/tif_zip.c
+ frmts/gtiff/libtiff/tif_zstd.c
+Copyright: 1988-1997, Sam Leffler
+           1991-1997, Silicon Graphics, Inc.
+          1990, 1995, Frank D. Cringle.
+                2010, Andrey Kiselev <dron@ak4719.spb.edu>
+                2017, Planet Labs
+                2018, Mapbox
+License: HPND-sl-sgi
+
+Files: frmts/gtiff/libtiff/tif_luv.c
+Copyright: 1997, Greg Ward Larson
+           1997, Silicon Graphics, Inc.
+License: HPND-sl-gl-sgi
+
+Files: frmts/gtiff/libtiff/tif_ojpeg.c
+Copyright: Joris Van Damme <info@awaresystems.be>
+           AWare Systems <http://www.awaresystems.be/>
+Comment: The licence agreement for this file is the same as the rest of the LibTiff
+ library.
+ .
+ IN NO EVENT SHALL JORIS VAN DAMME OR AWARE SYSTEMS BE LIABLE FOR
+ ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
+ LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.
+ .
+ Joris Van Damme and/or AWare Systems may be available for custom
+ development. If you like what you see, and need anything similar or related,
+ contact <info@awaresystems.be>.
+License: HPND-sl-sgi
+
+Files: frmts/gtiff/libtiff/tif_pixarlog.c
+Copyright: 1996-1997, Sam Leffler
+                1996, Pixar
+License: HPND-p-sl-sgi
+
+Files: frmts/gtiff/tif_lerc.c
+ frmts/gtiff/tif_lerc.h
+Copyright: 2018, Even Rouault
+License: HPND-sl-sgi
+
+Files: frmts/hdf4/hdf-eos/EHapi.c
+ frmts/hdf4/hdf-eos/GDapi.c
+ frmts/hdf4/hdf-eos/SWapi.c
+ frmts/hdf4/hdf-eos/HdfEosDef.h
+ frmts/hdf4/hdf-eos/HDFEOSVersion.h
+ frmts/hdf4/hdf-eos/ease.h
+Copyright: 1996, Hughes and Applied Research Corporation
+License: HPND-eos
+
+Files: frmts/jpeg/jpgdataset.cpp
+Copyright: 2000, Frank Warmerdam
+      2007-2014, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: Portions Copyright (c) Her majesty the Queen in right of Canada as
+ represented by the Minister of National Defence, 2006.
+License: Expat
+
+Files: frmts/jpeg/libjpeg/*
+ frmts/jpeg/libjpeg12/*
+Copyright: 1991-1998, Thomas G. Lane
+                2015, D. R. Commander
+License: IJG
+
+Files: frmts/jpeg2000/jpeg2000_vsil_io.cpp
+Copyright: 1999-2000, Image Power, Inc
+           1999-2000, The University of British Columbia
+           2001-2006, Michael David Adams
+           2009-2010, Even Rouault <even dot rouault at mines-paris dot org>
+License: JasPer-2.0
+
+Files: frmts/jpipkak/jpipkakdataset.cpp
+ frmts/jpipkak/jpipkakdataset.h
+Copyright: 2000-2007, ITT Visual Information Solutions
+License: ITT
+
+Files: frmts/mrf/BitMask2D.h
+ frmts/mrf/JPNG_band.cpp
+ frmts/mrf/Packer.h
+ frmts/mrf/Packer_RLE.cpp
+ frmts/mrf/Packer_RLE.h
+Copyright: 2016-2017, Esri
+License: Apache-2.0
+
+Files: frmts/mrsid_lidar/gdal_MG4Lidar.cpp
+Copyright: 2010, LizardTech
+License: BSD-3-Clause
+
+Files: frmts/nitf/nitfdataset.cpp
+ frmts/nitf/nitfdataset.h
+ frmts/nitf/nitfrasterband.cpp
+ frmts/nitf/nitfwritejpeg.cpp
+ gcore/gdalexif.cpp
+Copyright: 2000, 2002, Frank Warmerdam
+                 2006, Her majesty the Queen in right of Canada as represented by the Minister of National Defence
+            2007-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: Portions Copyright (c) Her majesty the Queen in right of Canada as
+ represented by the Minister of National Defence, 2006.
+License: Expat
+
+Files: frmts/nitf/nitfimage.c
+ frmts/nitf/rpftocfile.cpp
+Copyright: 1995, Logiciels et Applications Scientifiques (L.A.S.) Inc
+           2002, Frank Warmerdam
+      2007-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: Portions of code are placed under the following copyright:
+ .
+ Copyright (C) 1995 Logiciels et Applications Scientifiques (L.A.S.) Inc
+ Permission to use, copy, modify and distribute this software and
+ its documentation for any purpose and without fee is hereby granted,
+ provided that the above copyright notice appear in all copies, that
+ both the copyright notice and this permission notice appear in
+ supporting documentation, and that the name of L.A.S. Inc not be used
+ in advertising or publicity pertaining to distribution of the software
+ without specific, written prior permission. L.A.S. Inc. makes no
+ representations about the suitability of this software for any purpose.
+ It is provided "as is" without express or implied warranty.
+License: Expat
+
+Files: frmts/pcraster/libcsf/*
+Copyright: PCRaster owners
+License: BSD-3-Clause
+
+Files: frmts/pds/isis2dataset.cpp
+Copyright: 2006, Frank Warmerdam <warmerdam@pobox.com>
+      2008-2011, Even Rouault <even dot rouault at mines-paris dot org>
+Comment:
+ Project:  ISIS Version 2 Driver
+ Purpose:  Implementation of ISIS2Dataset
+ Author:   Trent Hare (thare@usgs.gov),
+           Robert Soricone (rsoricone@usgs.gov)
+           Ludovic Mercier (ludovic.mercier@gmail.com)
+           Frank Warmerdam (warmerdam@pobox.com)
+ .
+ NOTE: Original code authored by Trent and Robert and placed in the public
+ domain as per US government policy.  I have (within my rights) appropriated
+ it and placed it under the following license.  This is not intended to
+ diminish Trent and Roberts contribution.
+License: Expat
+
+Files: frmts/pds/isis3dataset.cpp
+Copyright: 2007, Frank Warmerdam <warmerdam@pobox.com>
+      2009-2010, Even Rouault <even dot rouault at mines-paris dot org>
+Comment:
+ Project:  ISIS Version 3 Driver
+ Purpose:  Implementation of ISIS3Dataset
+ Author:   Trent Hare (thare@usgs.gov)
+           Frank Warmerdam (warmerdam@pobox.com)
+ .
+ NOTE: Original code authored by Trent and placed in the public domain as
+ per US government policy.  I have (within my rights) appropriated it and
+ placed it under the following license.  This is not intended to diminish
+ Trents contribution.
+License: Expat
+
+Files: frmts/pds/pdsdataset.cpp
+Copyright: 2007, Frank Warmerdam <warmerdam@pobox.com>
+      2008-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment:
+ Project:  PDS Driver; Planetary Data System Format
+ Purpose:  Implementation of PDSDataset
+ Author:   Trent Hare (thare@usgs.gov),
+           Robert Soricone (rsoricone@usgs.gov)
+ .
+ NOTE: Original code authored by Trent and Robert and placed in the public
+ domain as per US government policy.  I have (within my rights) appropriated
+ it and placed it under the following license.  This is not intended to
+ diminish Trent and Roberts contribution.
+License: Expat
+
+Files: frmts/png/libpng/*
+Copyright: 1998-2014, Glenn Randers-Pehrson
+           1996-1997, Andreas Dilger
+           1995-1996, Guy Eric Schalnat, Group 42, Inc.
+License: libpng
+
+Files: frmts/rmf/rmflzw.cpp
+Copyright: 2007, Andrey Kiselev <dron@ak4719.spb.edu>
+Comment: COPYRIGHT NOTICE FROM THE INITIAL IMPLEMENTATION:
+ .
+ The programs LZWCOM and LZWUNC, both in binary executable and source forms,
+ are in the public domain.  No warranty is given or implied, and no
+ liability will be assumed by the author.
+ .
+ Everyone on earth is hereby given permission to use, copy, distribute,
+ change, mangle, destroy or otherwise employ these programs, provided they
+ hurt no one but themselves in the process.
+ .
+ Kent Williams
+ Norand Inc.
+ 550 2nd St S.E.
+ Cedar Rapids, Iowa 52401
+ (319) 369-3131
+License: Expat
+
+Files: frmts/wms/minidriver_mrf.cpp
+Copyright: 2016, Lucian Plesea
+           2016, Esri
+License: Apache-2.0
+
+Files: frmts/zlib/*
+Copyright: 1995-2005, Jean-loup Gailly.
+           1995-2005, Mark Adler
+License: zlib
+
+Files: frmts/zlib/crc32.c
+Copyright: 1995-2005, Mark Adler
+Comment: Thanks to Rodney Brown <rbrown64@csc.com.au> for his contribution of faster
+ CRC methods: exclusive-oring 32 bits of data at a time, and pre-computing
+ tables for updating the shift register in one step with three exclusive-ors
+ instead of four steps with four exclusive-ors.  This results in about a
+ factor of two increase in speed on a Power PC G4 (PPC7455) using gcc -O3.
+License: zlib
+
+Files: gcore/Version.rc
+Copyright: 2005, Frank Warmerdam <warmerdam@pobox.com>
+Comment: Copyright assignment provided by Martin Daly by email, "Be my guest.  Fame!
+ At last!  Best not let it go to my head, eh?"
+License: Expat
+
+Files: ogr/osr_cs_wkt_parser.c
+ ogr/osr_cs_wkt_parser.h
+ ogr/swq_parser.cpp
+ ogr/swq_parser.hpp
+Copyright: 1984, 1989-1990, 2000-2015, Free Software Foundation, Inc
+                            2010-2013, Even Rouault <even dot rouault at mines-paris dot org>
+License: GPL-3+ with Bison exception
+
+Files: ogr/swq.cpp
+ ogr/swq.h
+Copyright: 2001, Information Interoperability Institute (3i)
+      2010-2013, Even Rouault <even dot rouault at mines-paris dot org>
+License: HPND-3i
+
+Files: ogr/ogrsf_frmts/dxf/intronurbs.cpp
+Copyright: 2000, 2009, David F. Rogers
+Comment: This code is derived from the code associated with the book "An
+ Introduction to NURBS" by David F. Rogers. More information on the book
+ and the code is available at: http://www.nar-associates.com/nurbs/
+License: BSD-3-Clause
+
+Files: ogr/ogrsf_frmts/geojson/libjson/*
+Copyright: 2004-2005, Metaparadigm Pte. Ltd.
+           2009-2012, Eric Haszlakiewicz
+License: Expat
+
+Files: ogr/ogrsf_frmts/ods/ods_formula_parser.cpp
+ ogr/ogrsf_frmts/ods/ods_formula_parser.hpp
+Copyright: 1984, 1989-1990, 2000-2015, Free Software Foundation, Inc.
+                                 2010, Frank Warmerdam <warmerdam@pobox.com>
+                                 2012, Even Rouault <even dot rouault at mines-paris dot org>
+License: Expat and GPL-3+ with Bison exception
+
+Files: ogr/ogrsf_frmts/ods/ods_formula_parser.hpp
+Copyright: 1984, 1989-1990, 2000-2006, Free Software Foundation, Inc.
+                                 2012, Even Rouault <even dot rouault at mines-paris dot org>
+License: GPL-3+ with Bison exception
+
+Files: ogr/ogrsf_frmts/pg/ogrpglayer.cpp
+Copyright: 1994, The Regents of the University of California
+      1996-2006, PostgreSQL Global Development Group
+           2000, Frank Warmerdam
+      2008-2013, Even Rouault <even dot rouault at mines-paris dot org>
+License: Expat and PostgreSQL
+
+Files: ogr/ogrsf_frmts/shape/dbfopen.c
+ ogr/ogrsf_frmts/shape/sbnsearch.c
+ ogr/ogrsf_frmts/shape/shapefil.h
+ ogr/ogrsf_frmts/shape/shpopen.c
+ ogr/ogrsf_frmts/shape/shptree.c
+Copyright: 1999, 2001, Frank Warmerdam
+            2011-2013, Even Rouault <even dot rouault at mines-paris dot org>
+License: Expat or LGPL-2+
+
+Files: ogr/ogrsf_frmts/sqlite/ogrsqlite3ext.h
+Copyright: 2012-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: Contains headers from sqlite3.
+ .
+ Customized version of sqlite3ext.h to fix issues with */
+ Spatialite amalgamation sqlite3ext.h that defines */
+ sqlite3_macros that contradict the ones that should be defined */
+ by sqlite3ext.h !!! This is messy, but no other choice, */
+ except not using the sqlite3ext.h from spatialite amalgamation */
+ .
+ #undef sqlite3_aggregate_context
+ ...
+ #undef sqlite3_vtab_on_conflict
+ .
+ 2006 June 7
+ .
+ The author disclaims copyright to this source code.  In place of
+ a legal notice, here is a blessing:
+ .
+    May you do good and not evil.
+    May you find forgiveness for yourself and forgive others.
+    May you share freely, never taking more than you give.
+ .
+ ***********************************************************************
+ This header file defines the SQLite interface for use by
+ shared libraries that want to be imported as extensions into
+ an SQLite instance.  Shared libraries that intend to be loaded
+ as extensions by SQLite should #include this file instead of
+ sqlite3.h.
+License: Expat
+
+Files: ogr/ogrsf_frmts/sqlite/ogrsqlitedatasource.cpp
+ ogr/ogrsf_frmts/sqlite/ogrsqlitedriver.cpp
+ ogr/ogrsf_frmts/sqlite/ogrsqlitelayer.cpp
+Copyright: 2003-2004, Frank Warmerdam <warmerdam@pobox.com>
+           2007-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: Contributor: Alessandro Furieri, a.furieri@lqt.it
+ Portions of this module properly supporting SpatiaLite Table/Geom creation
+ Developed for Faunalia ( http://www.faunalia.it) with funding from
+ Regione Toscana - Settore SISTEMA INFORMATIVO TERRITORIALE ED AMBIENTALE
+License: Expat
+
+Files: ogr/ogrsf_frmts/sqlite/ogrsqliteregexp.cpp
+Copyright: 2012, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: This code originates from pcre.c from the sqlite3-pcre extension
+ from http://laltromondo.dynalias.net/~iki/informatica/soft/sqlite3-pcre/
+ whose header is:
+ .
+ Written by Alexey Tourbin <at@altlinux.org>.
+ .
+ The author has dedicated the code to the public domain.  Anyone is free
+ to copy, modify, publish, use, compile, sell, or distribute the original
+ code, either in source code form or as a compiled binary, for any purpose,
+ commercial or non-commercial, and by any means.
+License: Expat
+
+Files: port/cpl_base64.cpp
+Copyright: 2002, Refractions Research
+      2004-2008, René Nyffenegger
+           2008, Paul Ramsey
+       2010-2013, Even Rouault <even dot rouault at mines-paris dot org>
+Comment: CPLBase64Encode() was extracted from the base64 cpp utility published by
+ René Nyffenegger. The code was modified into a form suitable for use in
+ CPL.  The original code can be found at
+ http://www.adp-gmbh.ch/cpp/common/base64.html.
+License: Expat and Base64
+
+Files: port/cpl_md5.cpp
+Copyright: 1993, Colin Plumb
+           1997, Jim Kingdon, Cyclic Software
+License: public-domain
+ This code implements the MD5 message-digest algorithm.
+ The algorithm is due to Ron Rivest.  This code was
+ written by Colin Plumb in 1993, no copyright is claimed.
+ This code is in the public domain; do with it what you wish.
+ .
+ Equivalent code is available from RSA Data Security, Inc.
+ This code has been tested against that, and is equivalent,
+ except that you don't need to include two pages of legalese
+ with every copy.
+ .
+ To compute the message digest of a chunk of bytes, declare an
+ MD5Context structure, pass it to MD5Init, call MD5Update as
+ needed on buffers full of bytes, and then call MD5Final, which
+ will fill a supplied 16-byte array with the digest.
+ .
+ This code was modified in 1997 by Jim Kingdon of Cyclic Software to
+ not require an integer type which is exactly 32 bits.  This work
+ draws on the changes for the same purpose by Tatu Ylonen
+ <ylo@cs.hut.fi> as part of SSH, but since I didn't actually use
+ that code, there is no copyright issue.  I hereby disclaim
+ copyright in any changes I have made; this code remains in the
+ public domain.
+
+Files: port/cpl_mem_cache.h
+Copyright: 2012, SAURAV MOHAPATRA <mohaps@gmail.com>
+License: cpl-mem-cache
+ Permission to use, copy, modify, and distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Files: port/cpl_minizip_ioapi.cpp
+ port/cpl_minizip_ioapi.h
+ port/cpl_minizip_unzip.cpp
+ port/cpl_minizip_unzip.h
+ port/cpl_minizip_zip.cpp
+ port/cpl_minizip_zip.h
+Copyright: 1990-2000, Info-Zip
+           1998-2005, Gilles Vollant
+           2008-2014, Even Rouault <even dot rouault at mines-paris dot org>
+                2004, Rolf Kalbermatter
+License: Info-ZIP
+
+Files: port/cpl_recode.cpp
+ port/cpl_recode_iconv.cpp
+ port/cpl_recode_stub.cpp
+Copyright: 2006, Bill Spitzak and others
+           2008, Frank Warmerdam
+           2011, Andrey Kiselev <dron@ak4719.spb.edu>
+      2009-2014, Even Rouault <even dot rouault at mines-paris dot org>
+License: HPND-disclaimer
+
+Files: port/cpl_time.cpp
+Copyright: None
+License: public-domain
+ CPLUnixTimeToYMDHMS() is derived from timesub() in localtime.c from openbsd/freebsd/netbsd.
+ CPLYMDHMSToUnixTime() has been implemented by Even Rouault and is in the public domain
+ .
+ Cf http://svn.freebsd.org/viewvc/base/stable/7/lib/libc/stdtime/localtime.c?revision=178142&view=markup
+ localtime.c comes with the following header :
+ .
+ This file is in the public domain, so clarified as of
+ 1996-06-05 by Arthur David Olson (arthur_david_olson@nih.gov).
+
+Files: port/cpl_vsil_gzip.cpp
+Copyright: 1995-2005, Jean-loup Gailly
+           2008-2014, Even Rouault <even dot rouault at mines-paris dot org>
+License: Expat and zlib
+
+Files: swig/perl/*
+Copyright: 2006-, Ari Jolma and GDAL Swig developers
+License: Artistic or GPL-1.0+
+
+Files: swig/python/samples/gdal_vrtmerge.py
+ swig/python/scripts/gdal_merge.py
+Copyright: 2000, Atlantis Scientific Inc. (www.atlsci.com)
+           2005, Gabriel Ebner <ge@gabrielebner.at>
+      2009-2011, Even Rouault <even dot rouault at mines-paris dot org>
+License: LGPL-2+
+
+Files: third_party/LercLib/*
+Copyright: 2015-2018, Esri
+License: Apache-2.0
+
+License: Apache-2.0
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ .
+ http://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ .
+ On Debian systems, the complete text of the Apache License can be found
+ in `/usr/share/common-licenses/Apache-2.0'.
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: Base64
+ base64.cpp and base64.h
+ .
+  Copyright (C) 2004-2008 René Nyffenegger
+ .
+  This source code is provided 'as-is', without any express or implied
+  warranty. In no event will the author be held liable for any damages
+  arising from the use of this software.
+ .
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+ .
+  1. The origin of this source code must not be misrepresented; you must not
+     claim that you wrote the original source code. If you use this source code
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+ .
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original source code.
+ .
+  3. This notice may not be removed or altered from any source distribution.
+ .
+  René Nyffenegger rene.nyffenegger@adp-gmbh.ch
+
+License: BSD-3-Clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+ 1) Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+ .
+ 2) Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+ .
+ 3) Neither the name of the ORGANIZATION nor the names of its contributors may
+    be used to endorse or promote products derived from this software without
+    specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+License: GPL-1.0+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.
+
+License: GPL-3+ with Bison exception
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of version 3 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+ .
+ As a special exception, you may create a larger work that contains
+ part or all of the Bison parser skeleton and distribute that work
+ under terms of your choice, so long as that work isn't itself a
+ parser generator using the skeleton or a modified version thereof
+ as a parser skeleton.  Alternatively, if you modify or redistribute
+ the parser skeleton itself, you may (at your option) remove this
+ special exception, which will cause the skeleton and the resulting
+ Bison output files to be licensed under the GNU General Public
+ License without this special exception.
+ .
+ This special exception was added by the Free Software Foundation in
+ version 2.2 of Bison.
+
+License: HPND-eos
+ Permission to use, modify, and distribute this software and its documentation
+ for any purpose without fee is hereby granted, provided that the above
+ copyright notice appear in all copies and that both that copyright notice and
+ this permission notice appear in supporting documentation.
+
+License: HPND-3i
+ Permission to use, copy, modify and distribute this software and
+ its documentation for any purpose and without fee is hereby granted,
+ provided that the above copyright notice appear in all copies, that
+ both the copyright notice and this permission notice appear in
+ supporting documentation, and that the name of 3i not be used
+ in advertising or publicity pertaining to distribution of the software
+ without specific, written prior permission.  3i makes no
+ representations about the suitability of this software for any purpose.
+ It is provided "as is" without express or implied warranty.
+
+License: HPND-disclaimer
+ Permission to use, copy, modify, and distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+License: HPND-sl-sgi
+ Permission to use, copy, modify, distribute, and sell this software and
+ its documentation for any purpose is hereby granted without fee, provided
+ that (i) the above copyright notices and this permission notice appear in
+ all copies of the software and related documentation, and (ii) the names of
+ Sam Leffler and Silicon Graphics may not be used in any advertising or
+ publicity relating to the software without the specific, prior written
+ permission of Sam Leffler and Silicon Graphics.
+ .
+ THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ IN NO EVENT SHALL SAM LEFFLER OR SILICON GRAPHICS BE LIABLE FOR
+ ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
+ LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.
+
+License: HPND-p-sl-sgi
+ Permission to use, copy, modify, distribute, and sell this software and
+ its documentation for any purpose is hereby granted without fee, provided
+ that (i) the above copyright notices and this permission notice appear in
+ all copies of the software and related documentation, and (ii) the names of
+ Pixar, Sam Leffler and Silicon Graphics may not be used in any advertising or
+ publicity relating to the software without the specific, prior written
+ permission of Pixar, Sam Leffler and Silicon Graphics.
+ .
+ THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ IN NO EVENT SHALL PIXAR, SAM LEFFLER OR SILICON GRAPHICS BE LIABLE FOR
+ ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
+ LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.
+
+License: HPND-sl-gl-sgi
+ Permission to use, copy, modify, distribute, and sell this software and
+ its documentation for any purpose is hereby granted without fee, provided
+ that (i) the above copyright notices and this permission notice appear in
+ all copies of the software and related documentation, and (ii) the names of
+ Sam Leffler, Greg Larson and Silicon Graphics may not be used in any
+ advertising or publicity relating to the software without the specific,
+ prior written permission of Sam Leffler, Greg Larson and Silicon Graphics.
+ .
+ THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ IN NO EVENT SHALL SAM LEFFLER, GREG LARSON OR SILICON GRAPHICS BE LIABLE
+ FOR ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+ WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
+ LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+ OF THIS SOFTWARE.
+
+License: IJG
+ LEGAL ISSUES
+ ============
+ .
+ In plain English:
+ .
+ 1. We don't promise that this software works.  (But if you find any bugs,
+    please let us know!)
+ 2. You can use this software for whatever you want.  You don't have to pay us.
+ 3. You may not pretend that you wrote this software.  If you use it in a
+    program, you must acknowledge somewhere in your documentation that
+    you've used the IJG code.
+ .
+ In legalese:
+ .
+ The authors make NO WARRANTY or representation, either express or implied,
+ with respect to this software, its quality, accuracy, merchantability, or
+ fitness for a particular purpose.  This software is provided "AS IS", and you,
+ its user, assume the entire risk as to its quality and accuracy.
+ .
+ This software is copyright (C) 1991-1998, Thomas G. Lane.
+ All Rights Reserved except as specified below.
+ .
+ Permission is hereby granted to use, copy, modify, and distribute this
+ software (or portions thereof) for any purpose, without fee, subject to these
+ conditions:
+ (1) If any part of the source code for this software is distributed, then this
+ README file must be included, with this copyright and no-warranty notice
+ unaltered; and any additions, deletions, or changes to the original files
+ must be clearly indicated in accompanying documentation.
+ (2) If only executable code is distributed, then the accompanying
+ documentation must state that "this software is based in part on the work of
+ the Independent JPEG Group".
+ (3) Permission for use of this software is granted only if the user accepts
+ full responsibility for any undesirable consequences; the authors accept
+ NO LIABILITY for damages of any kind.
+ .
+ These conditions apply to any software derived from or based on the IJG code,
+ not just to the unmodified library.  If you use our work, you ought to
+ acknowledge us.
+ .
+ Permission is NOT granted for the use of any IJG author's name or company name
+ in advertising or publicity relating to this software or products derived from
+ it.  This software may be referred to only as "the Independent JPEG Group's
+ software".
+ .
+ We specifically permit and encourage the use of this software as the basis of
+ commercial products, provided that all warranty or liability claims are
+ assumed by the product vendor.
+ .
+ .
+ ansi2knr.c is included in this distribution by permission of L. Peter Deutsch,
+ sole proprietor of its copyright holder, Aladdin Enterprises of Menlo Park, CA.
+ ansi2knr.c is NOT covered by the above copyright and conditions, but instead
+ by the usual distribution terms of the Free Software Foundation; principally,
+ that you must include source code if you redistribute it.  (See the file
+ ansi2knr.c for full details.)  However, since ansi2knr.c is not needed as part
+ of any program generated from the IJG code, this does not limit you more than
+ the foregoing paragraphs do.
+ .
+ The Unix configuration script "configure" was produced with GNU Autoconf.
+ It is copyright by the Free Software Foundation but is freely distributable.
+ The same holds for its supporting scripts (config.guess, config.sub,
+ ltconfig, ltmain.sh).  Another support script, install-sh, is copyright
+ by M.I.T. but is also freely distributable.
+ .
+ It appears that the arithmetic coding option of the JPEG spec is covered by
+ patents owned by IBM, AT&T, and Mitsubishi.  Hence arithmetic coding cannot
+ legally be used without obtaining one or more licenses.  For this reason,
+ support for arithmetic coding has been removed from the free JPEG software.
+ (Since arithmetic coding provides only a marginal gain over the unpatented
+ Huffman mode, it is unlikely that very many implementations will support it.)
+ So far as we are aware, there are no patent restrictions on the remaining
+ code.
+ .
+ The IJG distribution formerly included code to read and write GIF files.
+ To avoid entanglement with the Unisys LZW patent, GIF reading support has
+ been removed altogether, and the GIF writer has been simplified to produce
+ "uncompressed GIFs".  This technique does not use the LZW algorithm; the
+ resulting GIF files are larger than usual, but are readable by all standard
+ GIF decoders.
+ .
+ We are required to state that
+     "The Graphics Interchange Format(c) is the Copyright property of
+     CompuServe Incorporated.  GIF(sm) is a Service Mark property of
+     CompuServe Incorporated."
+
+License: Info-ZIP
+ This is version 2005-Feb-10 of the Info-ZIP copyright and license.
+ The definitive version of this document should be available at
+ ftp://ftp.info-zip.org/pub/infozip/license.html indefinitely.
+ .
+ For the purposes of this copyright and license, "Info-ZIP" is defined as
+ the following set of individuals:
+ .
+    Mark Adler, John Bush, Karl Davis, Harald Denker, Jean-Michel Dubois,
+    Jean-loup Gailly, Hunter Goatley, Ed Gordon, Ian Gorman, Chris Herborth,
+    Dirk Haase, Greg Hartwig, Robert Heath, Jonathan Hudson, Paul Kienitz,
+    David Kirschbaum, Johnny Lee, Onno van der Linden, Igor Mandrichenko,
+    Steve P. Miller, Sergio Monesi, Keith Owens, George Petrov, Greg Roelofs,
+    Kai Uwe Rommel, Steve Salisbury, Dave Smith, Steven M. Schweda,
+    Christian Spieler, Cosmin Truta, Antoine Verheijen, Paul von Behren,
+    Rich Wales, Mike White
+ .
+ This software is provided "as is," without warranty of any kind, express
+ or implied.  In no event shall Info-ZIP or its contributors be held liable
+ for any direct, indirect, incidental, special or consequential damages
+ arising out of the use of or inability to use this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+     1. Redistributions of source code must retain the above copyright notice,
+        definition, disclaimer, and this list of conditions.
+ .
+     2. Redistributions in binary form (compiled executables) must reproduce
+        the above copyright notice, definition, disclaimer, and this list of
+        conditions in documentation and/or other materials provided with the
+        distribution.  The sole exception to this condition is redistribution
+        of a standard UnZipSFX binary (including SFXWiz) as part of a
+        self-extracting archive; that is permitted without inclusion of this
+        license, as long as the normal SFX banner has not been removed from
+        the binary or disabled.
+ .
+     3. Altered versions--including, but not limited to, ports to new operating
+        systems, existing ports with new graphical interfaces, and dynamic,
+        shared, or static library versions--must be plainly marked as such
+        and must not be misrepresented as being the original source.  Such
+        altered versions also must not be misrepresented as being Info-ZIP
+        releases--including, but not limited to, labeling of the altered
+        versions with the names "Info-ZIP" (or any variation thereof, including,
+        but not limited to, different capitalizations), "Pocket UnZip," "WiZ"
+        or "MacZip" without the explicit permission of Info-ZIP.  Such altered
+        versions are further prohibited from misrepresentative use of the
+        Zip-Bugs or Info-ZIP e-mail addresses or of the Info-ZIP URL(s).
+ .
+     4. Info-ZIP retains the right to use the names "Info-ZIP," "Zip," "UnZip,"
+        "UnZipSFX," "WiZ," "Pocket UnZip," "Pocket Zip," and "MacZip" for its
+        own source and binary releases.
+
+License: ITT
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: JasPer-2.0
+ JasPer License Version 2.0
+ .
+ Copyright (c) 2001-2006 Michael David Adams
+ Copyright (c) 1999-2000 Image Power, Inc.
+ Copyright (c) 1999-2000 The University of British Columbia
+ .
+ All rights reserved.
+ .
+ Permission is hereby granted, free of charge, to any person (the
+ "User") obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without restriction,
+ including without limitation the rights to use, copy, modify, merge,
+ publish, distribute, and/or sell copies of the Software, and to permit
+ persons to whom the Software is furnished to do so, subject to the
+ following conditions:
+ .
+ 1.  The above copyright notices and this permission notice (which
+ includes the disclaimer below) shall be included in all copies or
+ substantial portions of the Software.
+ .
+ 2.  The name of a copyright holder shall not be used to endorse or
+ promote products derived from the Software without specific prior
+ written permission.
+ .
+ THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS
+ LICENSE.  NO USE OF THE SOFTWARE IS AUTHORIZED HEREUNDER EXCEPT UNDER
+ THIS DISCLAIMER.  THE SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS
+ "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+ BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.  IN NO
+ EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL
+ INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING
+ FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+ NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+ WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.  NO ASSURANCES ARE
+ PROVIDED BY THE COPYRIGHT HOLDERS THAT THE SOFTWARE DOES NOT INFRINGE
+ THE PATENT OR OTHER INTELLECTUAL PROPERTY RIGHTS OF ANY OTHER ENTITY.
+ EACH COPYRIGHT HOLDER DISCLAIMS ANY LIABILITY TO THE USER FOR CLAIMS
+ BROUGHT BY ANY OTHER ENTITY BASED ON INFRINGEMENT OF INTELLECTUAL
+ PROPERTY RIGHTS OR OTHERWISE.  AS A CONDITION TO EXERCISING THE RIGHTS
+ GRANTED HEREUNDER, EACH USER HEREBY ASSUMES SOLE RESPONSIBILITY TO SECURE
+ ANY OTHER INTELLECTUAL PROPERTY RIGHTS NEEDED, IF ANY.  THE SOFTWARE
+ IS NOT FAULT-TOLERANT AND IS NOT INTENDED FOR USE IN MISSION-CRITICAL
+ SYSTEMS, SUCH AS THOSE USED IN THE OPERATION OF NUCLEAR FACILITIES,
+ AIRCRAFT NAVIGATION OR COMMUNICATION SYSTEMS, AIR TRAFFIC CONTROL
+ SYSTEMS, DIRECT LIFE SUPPORT MACHINES, OR WEAPONS SYSTEMS, IN WHICH
+ THE FAILURE OF THE SOFTWARE OR SYSTEM COULD LEAD DIRECTLY TO DEATH,
+ PERSONAL INJURY, OR SEVERE PHYSICAL OR ENVIRONMENTAL DAMAGE ("HIGH
+ RISK ACTIVITIES").  THE COPYRIGHT HOLDERS SPECIFICALLY DISCLAIM ANY
+ EXPRESS OR IMPLIED WARRANTY OF FITNESS FOR HIGH RISK ACTIVITIES.
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+ .
+ On Debian systems, the full text of the GNU Library General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/LGPL-2'.
+
+License: libpng
+ This copy of the libpng notices is provided for your convenience.  In case of
+ any discrepancy between this copy and the notices in the file png.h that is
+ included in the libpng distribution, the latter shall prevail.
+ .
+ COPYRIGHT NOTICE, DISCLAIMER, and LICENSE:
+ .
+ If you modify libpng you may insert additional notices immediately following
+ this sentence.
+ .
+ This code is released under the libpng license.
+ .
+ libpng versions 1.2.6, August 15, 2004, through 1.2.50, July 10, 2012, are
+ Copyright (c) 2004, 2006-2009 Glenn Randers-Pehrson, and are
+ distributed according to the same disclaimer and license as libpng-1.2.5
+ with the following individual added to the list of Contributing Authors
+ .
+    Cosmin Truta
+ .
+ libpng versions 1.0.7, July 1, 2000, through 1.2.5 - October 3, 2002, are
+ Copyright (c) 2000-2002 Glenn Randers-Pehrson, and are
+ distributed according to the same disclaimer and license as libpng-1.0.6
+ with the following individuals added to the list of Contributing Authors
+ .
+    Simon-Pierre Cadieux
+    Eric S. Raymond
+    Gilles Vollant
+ .
+ and with the following additions to the disclaimer:
+ .
+    There is no warranty against interference with your enjoyment of the
+    library or against infringement.  There is no warranty that our
+    efforts or the library will fulfill any of your particular purposes
+    or needs.  This library is provided with all faults, and the entire
+    risk of satisfactory quality, performance, accuracy, and effort is with
+    the user.
+ .
+ libpng versions 0.97, January 1998, through 1.0.6, March 20, 2000, are
+ Copyright (c) 1998, 1999 Glenn Randers-Pehrson, and are
+ distributed according to the same disclaimer and license as libpng-0.96,
+ with the following individuals added to the list of Contributing Authors:
+ .
+    Tom Lane
+    Glenn Randers-Pehrson
+    Willem van Schaik
+ .
+ libpng versions 0.89, June 1996, through 0.96, May 1997, are
+ Copyright (c) 1996, 1997 Andreas Dilger
+ Distributed according to the same disclaimer and license as libpng-0.88,
+ with the following individuals added to the list of Contributing Authors:
+ .
+    John Bowler
+    Kevin Bracey
+    Sam Bushell
+    Magnus Holmgren
+    Greg Roelofs
+    Tom Tanner
+ .
+ libpng versions 0.5, May 1995, through 0.88, January 1996, are
+ Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.
+ .
+ For the purposes of this copyright and license, "Contributing Authors"
+ is defined as the following set of individuals:
+ .
+    Andreas Dilger
+    Dave Martindale
+    Guy Eric Schalnat
+    Paul Schmidt
+    Tim Wegner
+ .
+ The PNG Reference Library is supplied "AS IS".  The Contributing Authors
+ and Group 42, Inc. disclaim all warranties, expressed or implied,
+ including, without limitation, the warranties of merchantability and of
+ fitness for any purpose.  The Contributing Authors and Group 42, Inc.
+ assume no liability for direct, indirect, incidental, special, exemplary,
+ or consequential damages, which may result from the use of the PNG
+ Reference Library, even if advised of the possibility of such damage.
+ .
+ Permission is hereby granted to use, copy, modify, and distribute this
+ source code, or portions hereof, for any purpose, without fee, subject
+ to the following restrictions:
+ .
+ 1. The origin of this source code must not be misrepresented.
+ .
+ 2. Altered versions must be plainly marked as such and must not
+    be misrepresented as being the original source.
+ .
+ 3. This Copyright notice may not be removed or altered from any
+    source or altered source distribution.
+ .
+ The Contributing Authors and Group 42, Inc. specifically permit, without
+ fee, and encourage the use of this source code as a component to
+ supporting the PNG file format in commercial products.  If you use this
+ source code in a product, acknowledgment is not required but would be
+ appreciated.
+ .
+ .
+ A "png_get_copyright" function is available, for convenient use in "about"
+ boxes and the like:
+ .
+    printf("%s",png_get_copyright(NULL));
+ .
+ Also, the PNG logo (in PNG format, of course) is supplied in the
+ files "pngbar.png" and "pngbar.jpg (88x31) and "pngnow.png" (98x31).
+ .
+ Libpng is OSI Certified Open Source Software.  OSI Certified Open Source is a
+ certification mark of the Open Source Initiative.
+ .
+ Glenn Randers-Pehrson
+ glennrp at users.sourceforge.net
+ July 10, 2012
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: PostgreSQL
+ PostgreSQL Database Management System
+ (formerly known as Postgres, then as Postgres95)
+ .
+ Portions Copyright (c) 1996-2006, PostgreSQL Global Development Group
+ .
+ Portions Copyright (c) 1994, The Regents of the University of California
+ .
+ Permission to use, copy, modify, and distribute this software and its
+ documentation for any purpose, without fee, and without a written agreement
+ is hereby granted, provided that the above copyright notice and this
+ paragraph and the following two paragraphs appear in all copies.
+ .
+ IN NO EVENT SHALL THE UNIVERSITY OF CALIFORNIA BE LIABLE TO ANY PARTY FOR
+ DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING
+ LOST PROFITS, ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS
+ DOCUMENTATION, EVEN IF THE UNIVERSITY OF CALIFORNIA HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ .
+ THE UNIVERSITY OF CALIFORNIA SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+ AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ ON AN "AS IS" BASIS, AND THE UNIVERSITY OF CALIFORNIA HAS NO OBLIGATIONS TO
+ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+
+License: Qhull
+ This software includes Qhull from C.B. Barber and The Geometry Center.
+ Qhull is copyrighted as noted above.  Qhull is free software and may
+ be obtained via http from www.qhull.org.  It may be freely copied, modified,
+ and redistributed under the following conditions:
+ .
+ 1. All copyright notices must remain intact in all files.
+ .
+ 2. A copy of this text file must be distributed along with any copies
+    of Qhull that you redistribute; this includes copies that you have
+    modified, or copies of programs or other software products that
+    include Qhull.
+ .
+ 3. If you modify Qhull, you must include a notice giving the
+    name of the person performing the modification, the date of
+    modification, and the reason for such modification.
+ .
+ 4. When distributing modified versions of Qhull, or other software
+    products that include Qhull, you must provide notice that the original
+    source code may be obtained as noted above.
+ .
+ 5. There is no warranty or other guarantee of fitness for Qhull, it is
+    provided solely "as is".  Bug reports or fixes may be sent to
+    qhull_bug@qhull.org; the authors may or may not act on them as
+    they desire.
+
+License: zlib
+ This software is provided 'as-is', without any express or implied
+ warranty.  In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+ 1. The origin of this software must not be misrepresented; you must not
+    claim that you wrote the original software. If you use this software
+    in a product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
+ 2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+

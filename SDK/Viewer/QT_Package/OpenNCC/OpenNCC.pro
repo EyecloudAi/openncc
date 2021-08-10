@@ -39,7 +39,8 @@ SOURCES += \
     ncc_sdk/obj_detection_demo_show.cpp \
     ncc_sdk/vehicle_license_plate_detection_barrier.cpp \
     utils.cpp \
-    widget.cpp
+    widget.cpp \
+    media/FormatThread.cpp
 
 HEADERS += \
     media/h26x2avi.h \
@@ -58,7 +59,8 @@ HEADERS += \
     ncc_sdk/sdk.h \
     ncc_sdk/sysinfo.h \
     utils.h \
-    widget.h
+    widget.h \
+    media/FormatThread.h
 
 FORMS += \
     my_class/add_blob.ui \

@@ -13,7 +13,7 @@
 #include <opencv2/imgproc/types_c.h>
 #include <opencv2/highgui/highgui_c.h>
 #include <QStringList>
-
+#include "widget.h"
 #include <QDebug>
 #define printf qDebug
 
@@ -23,7 +23,7 @@
 using namespace std;
 using namespace cv;
 extern QStringList valid_data_list;
-
+extern bool save_ai;
 typedef struct{
     int id;
     char type[100];
@@ -73,7 +73,7 @@ static int coordinate_is_valid(float x1, float y1, float x2, float y2)
     return 1;
 }
 
-void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps)
+void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,cv::VideoWriter videoWriter)
 {
 
     cv::Mat yuvImg;
@@ -209,5 +209,9 @@ void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int n
     //    cv::imshow("OpenNCC", showImage);
 
     cv::imshow(name, showImage);
+    if(save_ai)
+    {
+        videoWriter << showImage;
+    }
     cv::waitKey(1);
 }

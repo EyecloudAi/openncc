@@ -3,12 +3,15 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QDateTime>
-
+QString all_filename_;
+QString p_path_;
+QString time_1;
 Mpeg2Avi::Mpeg2Avi()
 {
     ofmtCtx_            = nullptr;
     outStream_          = nullptr;
     pkt_                = nullptr;
+    myformat_thread1 = new FormatThread;
 }
 
 bool Mpeg2Avi::initVideoCodec(const int codeType,int width,int height){
@@ -33,12 +36,13 @@ bool Mpeg2Avi::initVideoCodec(const int codeType,int width,int height){
             pPath = workDir;
         }
     }
-
+    p_path_=pPath;
     QDateTime currentDateTime =QDateTime::currentDateTime();
     QString currentDate =currentDateTime.toString("yyyy-MM-dd-hh-mm-ss-zzz");
+    time_1=currentDate;
     QString fileName = pPath + "/"
-            + currentDate + ".avi";
-
+            + currentDate + ".avi.1";
+    all_filename_=fileName;
     qInfo()<<"Save Avi: init video codec, fileName="<<fileName;
 
     avformat_alloc_output_context2(&ofmtCtx_,
@@ -150,5 +154,12 @@ bool Mpeg2Avi::endEncode(){
     if(ofmtCtx_){
         avformat_free_context(ofmtCtx_);
     }
+    QThread::sleep(2);
+    qDebug()<<"end encode";
+    myformat_thread1->openUrl(all_filename_);
+    QString output_filename = p_path_.append(QString("/")).append(time_1).append(QString(".avi"));
+    //qDebug()<<output_filename;
+    myformat_thread1->setOutFileName(output_filename);
+    myformat_thread1->start();
     return true;
 }

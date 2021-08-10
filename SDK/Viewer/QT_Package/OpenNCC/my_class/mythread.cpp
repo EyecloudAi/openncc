@@ -24,8 +24,8 @@
 #define printf qDebug
 #define MAX_STREAM_BUF_SIZE (10000000/8) // 10MB, for H.264 H.265
 
-
-extern void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnParm1,Network2Par *nnParm2, char *nnret, float min_score,int ftime,int RES,char* id,bool showstate,int flow_fps,int &first);
+QString save_path_="test";
+extern void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnParm1,Network2Par *nnParm2, char *nnret, float min_score,int ftime,int RES,char* id,bool showstate,int flow_fps,int &first,cv::VideoWriter videoWriter);
 extern float scale;
 extern float min_score;
 extern bool g_run;
@@ -40,7 +40,7 @@ bool two_net_model = true;
 extern long long T;
 char src[64];
 int first = 1;
-
+extern bool save_ai;
 int count = 0;
 
 Network1Par cnn1PrmSet =
@@ -83,17 +83,24 @@ MyThread::MyThread(QObject *parent) : QObject(parent)
 {
 
 }
-
+std::string qstr2str_(const QString qstr)
+{
+    QByteArray cdata = qstr.toLocal8Bit();
+    return std::string(cdata);
+}
 void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
 {
     first = 1;
     int continueReadedFailedCount = 0;
     if(two_net_model)
     {
-        qDebug()<<"test.....";
+        //qDebug()<<"test.....";
         two_net_model = 0;
-        //cv::destroyWindow(src);
-        //sdk_uninit();
+        if(cvGetWindowHandle(src))
+        {
+            cv::destroyWindow(src);
+        }
+        sdk_uninit();
         UninitDecoder();
     }
     int ret = loadFw("/Configuration/moviUsbBoot","/Configuration/fw/OpenNcc.mvcmd");
@@ -262,6 +269,20 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
             history_T_sum=0;
 
             streamrun=1;
+            //视频保存地址
+            QString save_path = save_path_;
+            save_path.append(".avi");
+            std::string outputVideoPath = qstr2str_(save_path);
+            //std::cout<<"save_path:"<<outputVideoPath<<std::endl;
+            cv::VideoWriter videoWriter;
+            cv::Size S = cv::Size((int)cameraCfg.camWidth/2,
+                                      (int)cameraCfg.camHeight/2);
+            //std::cout << "cameraCfg.camWidth:" << cameraCfg.camWidth << std::endl;
+            //std::cout << "cameraCfg.camHeight" << cameraCfg.camHeight << std::endl;
+            if(save_ai)
+            {
+                videoWriter.open(outputVideoPath,CV_FOURCC('M', 'J', 'P', 'G'),30.0,S,true);
+            }
             while(two_net_model)
             {
                 frameSpecOut hdr;
@@ -329,7 +350,7 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
                 {
 
                      maxReadSize  = MAX_FRAME_BUF_SIZE;
-                    if (read_jpg_data(recvImageData, &maxReadSize, 1) < 0)
+                    if (read_jpg_data(recvImageData, &maxReadSize, 0) < 0)
                     {
                         QThread::sleep(1);
                         continueReadedFailedCount++;
@@ -425,7 +446,7 @@ void MyThread::load_2net_model(int Video_type,int modeId,int h26x_type)
                     count++;
                     continue;
                 }
-                vehicle_license_plate_detection_barrier( pFrame , cameraCfg.camWidth, cameraCfg.camHeight, scale,src,true, &cnn1PrmSet,&cnn2PrmSet, metaData, min_score,ftime,RES,m_id,showstate,flow_fps,first);
+                vehicle_license_plate_detection_barrier( pFrame , cameraCfg.camWidth, cameraCfg.camHeight, scale,src,true, &cnn1PrmSet,&cnn2PrmSet, metaData, min_score,ftime,RES,m_id,showstate,flow_fps,first,videoWriter);
 
                 if(!cvGetWindowHandle(src)&&first==12)
                 {

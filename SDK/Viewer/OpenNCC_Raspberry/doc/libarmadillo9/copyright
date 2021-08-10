@@ -1,0 +1,30 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Armadillo
+Source: http://arma.sf.net
+Files-Excluded: mex_interface/*.mat
+ examples/lib_win64
+ examples/*_win64.*
+ *pdf
+
+Files: *
+Copyright: 2008-2017 Conrad Sanderson (http://conradsanderson.id.au)
+ 2008-2016 National ICT Australia (NICTA)
+ 2017      Arroyo Consortium
+ 2017      Data61, CSIRO
+License: Apache
+ This package is licensed under the Apache 2.0 License. On
+ Debian systems, the complete text of the Apache 2.0 License
+ can be found in `/usr/share/common-licenses/Apache-2.0'.
+ .
+ Upstream Author: Conrad Sanderson <conradsand ! ieee !org> (Change first `!' to `@', second one to `.')
+ Main developers:
+ - Conrad Sanderson - http://itee.uq.edu.au/~conrad/
+ - Ryan Curtin
+
+Files: debian/*
+Copyright: © 2009-2017, Kumar Appaiah <akumar@debian.org>
+License: GPL-2
+ The Debian packaging is © 2009-2017, Kumar Appaiah <akumar@debian.org>
+ and is licensed under the GNU General Public License version 2. On
+ Debian systems, the complete text of the GNU General Public License
+ can be found in `/usr/share/common-licenses/GPL-2'.

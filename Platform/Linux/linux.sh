@@ -108,7 +108,7 @@ else
 
 fi
 
-rm -rf Example/How_to/Python_demo
+#rm -rf Example/How_to/Python_demo
 
 echo "copy Viewer ...... "
 

@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "media2Avi.h"
-
+#include "FormatThread.h"
 class H26x2Avi : public Media2Avi
 {
 public:
@@ -18,6 +18,7 @@ public:
 private:
     BinaryWriter* bWriter_;
 
+    FormatThread *myformat_thread;
 };
 
 #endif // H26X2AVI_H

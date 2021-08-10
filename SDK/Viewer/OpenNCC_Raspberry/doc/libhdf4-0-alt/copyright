@@ -1,0 +1,261 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: HDF4
+Upstream-Contact: HDF Group <help@hdfgroup.org>
+Source: https://support.hdfgroup.org/ftp/HDF/HDF_Current/src/
+
+Files: *
+Copyright: 2006-2016, The HDF Group
+                      The Board of Trustees of the University of Illinois
+           1991-1992, Graphics Software Labs
+                1989, Michael Mauldin
+          1984, 1986, Sun Microsystems, Inc
+License: HDF4
+
+Files: bin/ltmain.sh
+Copyright: 1996-2001, 2003-2011, Free Software Foundation, Inc
+License: GPL-2+ with Libtool exception
+
+Files: hdf/src/hqueue.h
+ hdf/src/mcache.c
+ hdf/src/mcache.h
+Copyright: 1990-1991, 1993-1994, The Regents of the University of California
+License: BSD-3-clause
+
+Files: hdf/util/getopt.c
+ hdf/util/getopt1.c
+Copyright: 1987-1993, Free Software Foundation, Inc
+License: GPL-2+
+
+Files: mfhdf/*
+Copyright: 1993, UCAR/Unidata
+Comment: Regarding the NetCDF code included in HDF4.
+ NOTE:
+ .
+ Even if the original NetCDF copyright in 1993 was more restrictive, as it results
+ in the COPYRIGHT document enclosed in the 'mfhdf' directory, the NetCDF group
+ kindly agreed in July 2008 to re-release the old stuff embedded in the
+ HDF4 sources in the same terms currently used for the modern NetCDF library,
+ after 1996 which is the license enclosed above.
+ See the netcdf-copyright-statement file added to the Debian material
+ for a statement about that by the HDF4 team head. HDF4 will acknowledge the change
+ in a successive release, and this note will become supefluous at that time.
+ .
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Tue Jul  8 10:02:58 CEST 2008
+License: NetCDF
+
+Files: mfhdf/dumper/testfiles/vslongname.c
+ mfhdf/hdfimport/crtSDSfloats.c
+ mfhdf/hdfimport/gen_sds_floats.c
+ mfhdf/libsrc/hdfnctest.c
+ mfhdf/libsrc/mfdatainfo.c
+ mfhdf/test/gen_sds_szipped.c
+ mfhdf/test/hdfnctest.c
+ mfhdf/test/tattdatainfo.c
+ mfhdf/test/tattributes.c
+ mfhdf/test/tdatainfo.c
+ mfhdf/test/tdatasizes.c
+ mfhdf/test/tncunlim.c
+ mfhdf/test/tncvargetfill.c
+ mfhdf/test/tunlim.c
+ mfhdf/test/tutils.c
+Copyright: The HDF Group
+License: HDF4
+
+Files: mfhdf/libsrc/array.c
+ mfhdf/libsrc/attr.c
+ mfhdf/libsrc/cdf.c
+ mfhdf/libsrc/dim.c
+ mfhdf/libsrc/error.c
+ mfhdf/libsrc/error.h
+ mfhdf/libsrc/file.c
+ mfhdf/libsrc/globdef.c
+ mfhdf/libsrc/iarray.c
+ mfhdf/libsrc/local_nc.h
+ mfhdf/libsrc/putget.c
+ mfhdf/libsrc/putgetg.c
+ mfhdf/libsrc/sharray.c
+ mfhdf/libsrc/string.c
+ mfhdf/libsrc/var.c
+ mfhdf/test/cdftest.c
+Copyright: 1988, 1993, University Corporation for Atmospheric Research
+                       The HDF Group
+                       The Board of Trustees of the University of Illinois
+License: NetCDF and HDF4
+
+Files: mfhdf/ncgen/ncgentab.c
+ mfhdf/ncgen/ncgentab.h
+Copyright: 1984, 1989-1990, 2000-2006, Free Software Foundation, Inc
+License: GPL-2+ with Bison exception
+
+Files: debian/*
+Copyright: 1997-2001, Philippe Troin <phil@fifi.org>
+           2007-2011, Francesco Paolo Lovergine <frankie@debian.org>
+           2014-2015, Johan Van de Wauw <johan.vandewauw@gmail.com>
+License: GPL-2+
+
+License: HDF4
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted for any purpose (including commercial purposes)
+ provided that the following conditions are met:
+ .
+ 1. Redistributions of source code must retain the above copyright notice,
+    this list of conditions, and the following disclaimer.
+ .
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions, and the following disclaimer in the documentation
+    and/or materials provided with the distribution.
+ .
+ 3. In addition, redistributions of modified forms of the source or binary
+    code must carry prominent notices stating that the original code was
+    changed and the date of the change.
+ .
+ 4. All publications or advertising materials mentioning features or use of
+    this software are asked, but not required, to acknowledge that it was
+    developed by The HDF Group and by the National Center for Supercomputing
+    Applications at the University of Illinois at Urbana-Champaign and
+    credit the contributors.
+ .
+ 5. Neither the name of The HDF Group, the name of the University, nor the
+    name of any Contributor may be used to endorse or promote products derived
+    from this software without specific prior written permission from The HDF
+    Group, the University, or the Contributor, respectively.
+ .
+ DISCLAIMER:
+ THIS SOFTWARE IS PROVIDED BY THE HDF GROUP AND THE CONTRIBUTORS "AS IS"
+ WITH NO WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED.  In no event
+ shall The HDF Group or the Contributors be liable for any damages suffered
+ by the users arising out of the use of this software, even if advised of
+ the possibility of such damage.
+
+License: NetCDF
+ Portions of this software were developed by the Unidata Program at the
+ University Corporation for Atmospheric Research.
+ .
+ Access and use of this software shall impose the following obligations
+ and understandings on the user. The user is granted the right, without
+ any fee or cost, to use, copy, modify, alter, enhance and distribute
+ this software, and any derivative works thereof, and its supporting
+ documentation for any purpose whatsoever, provided that this entire
+ notice appears in all copies of the software, derivative works and
+ supporting documentation.  Further, UCAR requests that the user credit
+ UCAR/Unidata in any publications that result from the use of this
+ software or in any product that includes this software, although this
+ is not an obligation. The names UCAR and/or Unidata, however, may not
+ be used in any advertising or publicity to endorse or promote any
+ products or commercial entity unless specific written permission is
+ obtained from UCAR/Unidata. The user also understands that
+ UCAR/Unidata is not obligated to provide the user with any support,
+ consulting, training or assistance of any kind with regard to the use,
+ operation and performance of this software nor to provide the user
+ with any updates, revisions, new versions or "bug fixes."
+ .
+ THIS SOFTWARE IS PROVIDED BY UCAR/UNIDATA "AS IS" AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL UCAR/UNIDATA BE LIABLE FOR ANY SPECIAL,
+ INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING
+ FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+ NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+ WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
+
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+ .
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+ .
+   3. Neither the name of the product nor the names of its contributors may
+      be used to endorse or promote products derived from this software
+      without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the complete text of version 2 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+License: GPL-2+ with Bison exception
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ As a special exception, you may create a larger work that contains
+ part or all of the Bison parser skeleton and distribute that work
+ under terms of your choice, so long as that work isn't itself a
+ parser generator using the skeleton or a modified version thereof
+ as a parser skeleton.  Alternatively, if you modify or redistribute
+ the parser skeleton itself, you may (at your option) remove this
+ special exception, which will cause the skeleton and the resulting
+ Bison output files to be licensed under the GNU General Public
+ License without this special exception.
+ .
+ This special exception was added by the Free Software Foundation in
+ version 2.2 of Bison.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: GPL-2+ with Libtool exception
+ GNU Libtool is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ As a special exception to the GNU General Public License,
+ if you distribute this file as part of a program or library that
+ is built using GNU Libtool, you may include this file under the
+ same distribution terms that you use for the rest of that program.
+ .
+ GNU Libtool is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with GNU Libtool; see the file COPYING.  If not, a copy
+ can be downloaded from http://www.gnu.org/licenses/gpl.html,
+ or obtained by writing to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+

@@ -15,11 +15,11 @@
 #include <opencv2/imgproc/types_c.h>
 #include <opencv2/highgui/highgui_c.h>
 #include "sdk.h"
-
+#include "widget.h"
 #include "Fp16Convert.h"
 
 extern QStringList valid_data_list;
-
+extern bool save_ai;
 //#include<vector>
 using namespace std;
 using namespace cv;
@@ -40,7 +40,7 @@ static int coordinate_is_valid(float x1, float y1, float x2, float y2)
     return 1;
 }
 
-void  obj_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps)
+void  obj_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,cv::VideoWriter videoWriter)
 {
     cv::Mat yuvImg;
     yuvImg.create(h * 3 / 2, w, CV_8UC1);
@@ -171,5 +171,9 @@ void  obj_show_img_func(void *data, int w, int h, float scale, char *name, int n
 
     resize(outgoing_img,showImage,Size(outgoing_img.cols*scale,outgoing_img.rows*scale),0,0,INTER_LINEAR);
     cv::imshow(name, showImage);
+    if(save_ai)
+    {
+        videoWriter << showImage;
+    }
     cv::waitKey(1);
 }

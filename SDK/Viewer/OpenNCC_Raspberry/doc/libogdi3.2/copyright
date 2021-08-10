@@ -1,0 +1,226 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: OGDI
+Upstream-Contact: Frank Warmerdam et al. <warmerdam@pobox.com>
+Source: https://github.com/libogdi/ogdi
+ Embedded copies of 3rd party code are excluded from the repacked upstream
+ tarball.
+Files-Excluded: external/*
+ proj/*
+
+Files: *
+Copyright: 1995-1997, Logiciels et Applications Scientifiques (L.A.S.), Inc.
+License: OGDI-LAS
+
+Files: contrib/gdal/*
+ contrib/ogdi_import/ogdi_import.c
+ contrib/ogdi_info/ogdi_info.c
+Copyright: 1999-2000, Frank Warmerdam <warmerda@home.com>
+License: MIT
+
+Files: contrib/ogdi_import/dbfopen.c
+ contrib/ogdi_import/shapefil.h
+ contrib/ogdi_import/shpopen.c
+Copyright: 1999, Frank Warmerdam <warmerda@home.com>
+Comment:This software is available under the following "MIT Style" license,
+ or at the option of the licensee under the LGPL (see LICENSE.LGPL).  This
+ option is discussed in more detail in shapelib.html.
+License: MIT or LGPL-2.1+
+
+Files: ogdi/c-api/ecshash.c
+Copyright: 1991-1993, The Regents of the University of California
+                1994, Sun Microsystems, Inc.
+License: other-ecshash
+ See the file "license.terms" for information on usage and redistribution
+ of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+
+Files: ogdi/c-api/ecsregex.c
+Copyright: 1986, University of Toronto
+License: OGDI-TORONTO
+
+Files: ogdi/c-api/opendir.c
+ ogdi/c-api/opendir.h
+ ogdi/glutil/dirent.c
+Copyright: Michael Rendell
+License: public-domain
+ @(#)dir.c 1.4 87/11/06 Public Domain.
+ .
+ A public domain implementation of BSD directory routines for
+ MS-DOS.  Written by Michael Rendell ({uunet,utai}michael@garfield),
+
+Files: ogdi/c-api/ecs_capabilities.c
+ ogdi/driver/vrf/swq.c
+ ogdi/driver/vrf/swq.h
+Copyright: 2001, Information Interoperability Institute (3i)
+License: OGDI-3I
+
+Files: ogdi/c-api/makefile
+ ogdi/datum_driver/makefile
+ ogdi/driver/makefile
+ ogdi/examples/makefile
+ config/*
+ contrib/makefile
+ contrib/ogdi_import/makefile
+ contrib/ogdi_info/makefile
+Copyright: 1996-1997, 2001, Her Majesty the Queen in Right of Canada
+License: OGDI-QUEEN
+
+Files: vpflib/*
+Copyright: U.S. National Imagery and Mapping Agency
+License: VPFLIB
+
+Files: debian/*
+Copyright: 2007-2010, Francesco Paolo Lovergine <frankie@debian.org>
+License: GPL-2+
+
+License: OGDI-3I
+ Permission to use, copy, modify and distribute this software and
+ its documentation for any purpose and without fee is hereby granted,
+ provided that the above copyright notice appear in all copies, that
+ both the copyright notice and this permission notice appear in
+ supporting documentation, and that the name of 3i not be used
+ in advertising or publicity pertaining to distribution of the software
+ without specific, written prior permission.  3i makes no
+ representations about the suitability of this software for any purpose.
+ It is provided "as is" without express or implied warranty.
+
+License: OGDI-LAS
+ Permission to use, copy, modify and distribute this software and
+ its documentation for any purpose and without fee is hereby granted,
+ provided that the above copyright notice appear in all copies, that
+ both the copyright notice and this permission notice appear in
+ supporting documentation, and that the name of L.A.S. Inc not be used
+ in advertising or publicity pertaining to distribution of the software
+ without specific, written prior permission. L.A.S. Inc. makes no
+ representations about the suitability of this software for any purpose.
+ It is provided "as is" without express or implied warranty.
+
+License: OGDI-QUEEN
+ Permission to use, copy, modify and distribute this software and
+ its documentation for any purpose and without fee is hereby granted,
+ provided that the above copyright notice appear in all copies, that
+ both the copyright notice and this permission notice appear in
+ supporting documentation, and that the name of Her Majesty the Queen
+ in Right  of Canada not be used in advertising or publicity pertaining
+ to distribution of the software without specific, written prior
+ permission.  Her Majesty the Queen in Right of Canada makes no
+ representations about the suitability of this software for any purpose.
+ It is provided "as is" without express or implied warranty.
+
+License: OGDI-TORONTO
+ Permission is granted to anyone to use this software for any
+ purpose on any computer system, and to redistribute it freely,
+ subject to the following restrictions:
+ .
+ 1. The author is not responsible for the consequences of use of
+    this software, no matter how awful, even if they arise
+    from defects in it.
+ .
+ 2. The origin of this software must not be misrepresented, either
+    by explicit claim or by omission.
+ .
+ 3. Altered versions must be plainly marked as such, and must not
+    be misrepresented as being the original software.
+
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of this software and associated documentation files (the "Software"),
+ to deal in the Software without restriction, including without limitation
+ the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: GPL-2+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License can be found in `/usr/share/common-licenses/GPL-2'.
+
+License: LGPL-2.1+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation, either version 2.1 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the full text of the GNU Lesser General Public
+ License can be found in `/usr/share/common-licenses/LGPL-2.1'.
+
+License: VPFLIB
+    The vpflib library contains the public domain VPFVIEW C code included
+ with the Digital Chart of the World, Edition 1, which was pruned and ported
+ to work on "POSIX"-like systems.
+ .
+ NIMA's LICENSE Disclaimer of VPFVIEW C source code:
+ .
+ /**********************************************************************************
+ /*          U.S. National Imagery and Mapping Agency -- UNCLASSIFIED --
+  *
+  * VPFView 2.1 Distribution - Source Code Disclaimer:
+  *
+  *  1. The VPFView source code ("the software") is provided free of charge via the
+  * Internet by the National Imagery and Mapping Agency (NIMA) of the United States
+  * Department of Defense. Although NIMA makes no copyright claim under Title 17
+  * U.S.C.,NIMA claims copyrights in the source code under other legal regimes. NIMA
+  * hereby grants to each user of the software a license to use and distribute the
+  * software, and develop derivative works.
+  *
+  *  2. Warranty Disclaimer: The software was developed to meet only the internal
+  * requirements of the U.S. National Imagery and Mapping Agency. The software
+  * is provided "as is," and no warranty, express or implied, including but not
+  * limited to the implied warranties of merchantability and fitness for particular
+  * purpose or arising by statute or otherwise in law or from a course of dealing
+  * or usage in trade, is made by NIMA as to the accuracy and functioning of the
+  * software.
+  *
+  *  3. NIMA and its personnel are not required to provide technical support or general
+  * assistance with respect to the software.
+  *
+  *  4. Neither NIMA nor its personnel will be liable for any claims, losses, or
+  * damages arising from or connected with the use of the software. The user agrees
+  * to hold harmless the United States National Imagery and Mapping Agency. The user
+  * Is sole and exclusive remedy is to stop using the software.
+  *
+  *  5. NIMA requests that products developed using the software credit the source of
+  * the software with the following statement, "The product was developed using VPFView,
+  * a product of the National Imagery and Mapping Agency."
+  *
+  *  6. For any products developed using the software, NIMA requires a disclaimer that
+  * use of the software does not indicate endorsement or approval of the product by
+  * the Secretary of Defense or the National Imagery and Mapping Agency. Pursuant to
+  * the United States Code, 10 U.S.C. ß 2797, the name of the National Imagery and
+  * Mapping Agency, the initials "NIMA", the seal of the National Imagery and
+  * Mapping Agency, or any colorable imitation thereof shall not be used to imply
+  * approval, endorsement, or authorization of a product without prior written
+  * permission from United States Secretary of Defense.
+  *
+  */
+

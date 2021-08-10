@@ -14,7 +14,11 @@
 //#include <sys/time.h>
 #include<QElapsedTimer>
 
-
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/highgui/highgui_c.h>
 
 #include <QDebug>
 #define printf qDebug
@@ -37,7 +41,7 @@ extern "C" int gettimeofday(struct timeval *tp, void *tzp);
 /* 2. 人脸检测demo程序 */
 #define  DEMO_FACE_DETECTION  1
 
-#define APP_VERSION "NV02.101.82"
+#define APP_VERSION "NV02.101.83"
 
 #define  OPENCV_SHOW_SCALE    (0.8)    /* 显示缩放系数 */
 extern "C"  void os_sleep(int ms);
@@ -63,7 +67,7 @@ QList<long long> history_T;
 long long T;
 //struct timeval tpstart,tpend,tpend2;
 int count_ = 0;
-
+bool save_ai = false;
 
 #define MAX_FRAME_ROWS  2180
 #define MAX_FRAME_COLS  3872
@@ -87,12 +91,12 @@ extern int h26x_type;
 static Network1Par cam_info;
 
 
-extern void  fd_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps);
-extern void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps);
-extern void  obj_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps);
+extern void  fd_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,cv::VideoWriter videoWriter);
+extern void  cls_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,cv::VideoWriter videoWriter);
+extern void  obj_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,cv::VideoWriter videoWriter);
 //extern void  mask_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, CameraInfo *nnparm, char *nnret,float min_score);
 
-typedef void  (*analyzeMetedata)(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps);
+typedef void  (*analyzeMetedata)(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnparm, char *nnret,float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,cv::VideoWriter videoWriter);
 static analyzeMetedata fun;
 
 
@@ -293,7 +297,12 @@ void Widget::compare_coordinate(int a,int b){
         b = temp;
     }
 }
-
+std::string qstr2str(const QString qstr)
+{
+    QByteArray cdata = qstr.toLocal8Bit();
+    return std::string(cdata);
+}
+extern QString save_path_;
 void Widget::on_load_fw_btn_clicked()
 {
 
@@ -526,11 +535,26 @@ void Widget::on_load_fw_btn_clicked()
 
                 //TODO:jonzhao 数据获取放到子线程去，UI这里不应该死循环
 
+                //视频保存地址
+
+                QString save_path = ui->lineEditPath->text();
+                cv::VideoWriter videoWriter;
+                save_path.append(".avi");
+                std::string outputVideoPath = qstr2str(save_path);
+
+                cv::Size S = cv::Size((int)cameraCfg.camWidth/2,
+                                          (int)cameraCfg.camHeight/2);
+                //std::cout << "cameraCfg.camWidth:" << cameraCfg.camWidth << std::endl;
+                //std::cout << "cameraCfg.camHeight" << cameraCfg.camHeight << std::endl;
+                if(save_ai)
+                {
+                    videoWriter.open(outputVideoPath,CV_FOURCC('M', 'J', 'P', 'G'),30.0,S,true);
+                }
                 while(g_run)
                 {
                     get_log++;
 
-                    ret = PostProcessFrame(max_frame_buffer,MAX_FRAME_BUF_SIZE,min_score,scale,cvname);
+                    ret = PostProcessFrame(max_frame_buffer,MAX_FRAME_BUF_SIZE,min_score,scale,cvname,videoWriter);
 
                     switch (ret) {
                     case(2):
@@ -595,9 +619,73 @@ QString Widget::current_time()
 }
 
 
+typedef struct                       /**** BMP file header structure ****/
+{
+    unsigned int   bfSize;           /* Size of file */
+    unsigned short bfReserved1;      /* Reserved */
+    unsigned short bfReserved2;      /* ... */
+    unsigned int   bfOffBits;        /* Offset to bitmap data */
+} MyBITMAPFILEHEADER;
+
+typedef struct                       /**** BMP file info structure ****/
+{
+    unsigned int   biSize;           /* Size of info header */
+    int            biWidth;          /* Width of image */
+    int            biHeight;         /* Height of image */
+    unsigned short biPlanes;         /* Number of color planes */
+    unsigned short biBitCount;       /* Number of bits per pixel */
+    unsigned int   biCompression;    /* Type of compression to use */
+    unsigned int   biSizeImage;      /* Size of image data */
+    int            biXPelsPerMeter;  /* X pixels per meter */
+    int            biYPelsPerMeter;  /* Y pixels per meter */
+    unsigned int   biClrUsed;        /* Number of colors used */
+    unsigned int   biClrImportant;   /* Number of important colors */
+} MyBITMAPINFOHEADER;
+
+
+void MySaveBmp(const char *filename,unsigned char *rgbbuf,int width,int height)
+{
+    MyBITMAPFILEHEADER bfh;
+    MyBITMAPINFOHEADER bih;
+    /* Magic number for file. It does not fit in the header structure due to alignment requirements, so put it outside */
+    unsigned short bfType=0x4d42;
+    bfh.bfReserved1 = 0;
+    bfh.bfReserved2 = 0;
+    bfh.bfSize = 2+sizeof(MyBITMAPFILEHEADER) + sizeof(MyBITMAPINFOHEADER)+width*height*3;
+    bfh.bfOffBits = 0x36;
+
+    bih.biSize = sizeof(MyBITMAPINFOHEADER);
+    bih.biWidth = width;
+    bih.biHeight = height;
+    bih.biPlanes = 1;
+    bih.biBitCount = 24;
+    bih.biCompression = 0;
+    bih.biSizeImage = 0;
+    bih.biXPelsPerMeter = 5000;
+    bih.biYPelsPerMeter = 5000;
+    bih.biClrUsed = 0;
+    bih.biClrImportant = 0;
+
+    FILE *file = fopen(filename, "wb");
+    if (!file)
+    {
+        printf("Could not write file\n");
+        return;
+    }
+
+    /*Write headers*/
+    fwrite(&bfType,sizeof(bfType),1,file);
+    fwrite(&bfh,sizeof(bfh),1, file);
+    fwrite(&bih,sizeof(bih),1, file);
+
+    fwrite(rgbbuf,width*height*3,1,file);
+    fclose(file);
+    qDebug()<<"save bmp ok................";
+}
+
 int img_num = 0;
 bool save_img = false;
-int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scale,char* winhndl)
+int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scale,char* winhndl,cv::VideoWriter videoWriter)
 {
     static int continueReadedFailedCount = 0;
 
@@ -647,13 +735,27 @@ int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scal
 
         if(save_img)
         {
+            //TODO:save图片这部分应该做到一个线程去，可能文件过大不能让它卡死在这里
             img_num++;
-            img_name = QString("./%1/%2.yuv").arg(current_t).arg(img_num);
+            img_name = QString("./%1/%2.bmp").arg(current_t).arg(img_num);
             std::string str = img_name.toStdString();
             const char* ch = str.c_str();
-            cvtImg = fopen(ch,"w");
-            fwrite(pFrame+sizeof(frameSpecOut),1,size-sizeof(frameSpecOut),cvtImg);
-            fclose(cvtImg);
+            unsigned char *rgb24 = NULL;
+            //qDebug()<<"yuv420p to RGB24...............";
+            cv::Mat yuvImg;
+            yuvImg.create(cameraCfg.camHeight * 3 / 2, cameraCfg.camWidth, CV_8UC1);
+            cv::Mat outgoing_img;
+            /* YUV420P-->RGB */
+            yuvImg.data = (unsigned char*)(pFrame+sizeof(frameSpecOut));
+            cv::cvtColor(yuvImg, outgoing_img, CV_YUV2BGR_I420);
+            cv::flip(outgoing_img,yuvImg,0);
+            //qDebug()<<"save bmp...............";
+            MySaveBmp(ch,yuvImg.data,cameraCfg.camWidth,cameraCfg.camHeight);
+
+            //cvtImg = fopen(ch,"w");
+            //fwrite(pFrame+sizeof(frameSpecOut),1,size-sizeof(frameSpecOut),cvtImg);
+            //fclose(cvtImg);
+            save_img = false;
         }
         Postframe = pFrame+sizeof(frameSpecOut);
         break;
@@ -695,6 +797,10 @@ int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scal
         temp = (frameSpecOut *)max_stream_buffer;
         DecodeFrame((unsigned char *)(max_stream_buffer+sizeof(frameSpecOut)),size,(unsigned char *)pFrame,&w,&h,&pixfmt);
         Postframe = pFrame;
+
+
+
+
         Media2AviAgent::instance().encode(mvideo_type,
                                           w,
                                           h,
@@ -719,16 +825,7 @@ int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scal
             }
         }
         continueReadedFailedCount = 0;
-        if(save_img)
-        {
-            img_num++;
-            img_name = QString("./%1/%2.jpg").arg(current_t).arg(img_num);
-            std::string str = img_name.toStdString();
-            const char* ch = str.c_str();
-            cvtImg = fopen(ch,"w");
-            fwrite(max_stream_buffer+sizeof(frameSpecOut),1,size-sizeof(frameSpecOut),cvtImg);
-            fclose(cvtImg);
-        }
+
         QString model_name = tr("%1").arg(cameraCfg.moduleName);
         if (model_name == "ar0234")
         {
@@ -738,7 +835,36 @@ int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scal
         //        frameSpecOut* spec =(frameSpecOut*) max_stream_buffer;
         DecodeFrame((unsigned char *)(max_stream_buffer+sizeof(frameSpecOut)),size,(unsigned char *)pFrame,&w,&h,&pixfmt);
         Postframe = pFrame;
+        if(save_img)
+        {
+            //TODO:save图片这部分应该做到一个线程去，可能文件过大不能让它卡死在这里
+            img_num++;
+            img_name = QString("./%1/%2.jpg").arg(current_t).arg(img_num);
+            std::string str = img_name.toStdString();
+            //const char* ch = str.c_str();
+            //unsigned char *rgb24 = NULL;
+            //qDebug()<<"yuv420p to RGB24...............";
+            cv::Mat yuvImg;
+            yuvImg.create(cameraCfg.camHeight * 3 / 2, cameraCfg.camWidth, CV_8UC1);
+            cv::Mat outgoing_img;
+            /* YUV420P-->RGB */
+            yuvImg.data = (unsigned char*)(Postframe);
+            cv::cvtColor(yuvImg, outgoing_img, CV_YUV2BGR_I420);
+            //cv::flip(outgoing_img,yuvImg,0);
+            //qDebug()<<"save bmp...............";
+            //MySaveBmp(ch,yuvImg.data,cameraCfg.camWidth,cameraCfg.camHeight);
 
+            //cvtImg = fopen(ch,"w");
+            //fwrite(pFrame+sizeof(frameSpecOut),1,size-sizeof(frameSpecOut),cvtImg);
+            //fclose(cvtImg);
+            std::vector<int> compression_params;
+            compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+            compression_params.push_back(100);
+
+            cv::imwrite(str,outgoing_img,compression_params);
+            save_img = false;
+            qDebug()<<"save jpeg.....";
+        }
         Media2AviAgent::instance().encode(mvideo_type,
                                           w,
                                           h,
@@ -817,7 +943,7 @@ int Widget::PostProcessFrame(char* pFrame,int bufsize,float min_score,float scal
         count_++;
         return 2;
     }
-    fun(Postframe, cameraCfg.camWidth, cameraCfg.camHeight, scale,winhndl, true, &cam_info, metadata+sizeof(frameSpecOut)+OUTPUT_INDEX_SIZE,min_score,ftime,RES,m_id,showstate,flow_fps);
+    fun(Postframe, cameraCfg.camWidth, cameraCfg.camHeight, scale,winhndl, true, &cam_info, metadata+sizeof(frameSpecOut)+OUTPUT_INDEX_SIZE,min_score,ftime,RES,m_id,showstate,flow_fps,videoWriter);
 
     return 0;
 }
@@ -850,6 +976,7 @@ void Widget::h264_selected()
     if (ui->h264_stream->isChecked()){
         x26mode=ENCODE_H264_MODE;
         h26x_type=1;
+        ui->save_img->setVisible(false);
         ui->yuv_stream->setEnabled(false);
         ui->h265_stream->setEnabled(false);
         ui->mjpeg_stream->setEnabled(false);
@@ -864,6 +991,7 @@ void Widget::h264_selected()
 //        }
     }
     else {
+        ui->save_img->setVisible(true);
         ui->yuv_stream->setEnabled(true);
         ui->h265_stream->setEnabled(true);
         ui->mjpeg_stream->setEnabled(true);
@@ -875,11 +1003,13 @@ void Widget::h265_selected()
     if (ui->h265_stream->isChecked()){
         x26mode=ENCODE_H265_MODE;
         h26x_type=2;
+        ui->save_img->setVisible(false);
         ui->yuv_stream->setEnabled(false);
         ui->h264_stream->setEnabled(false);
         ui->mjpeg_stream->setEnabled(false);
     }
     else {
+        ui->save_img->setVisible(true);
         ui->yuv_stream->setEnabled(true);
         ui->h264_stream->setEnabled(true);
         ui->mjpeg_stream->setEnabled(true);
@@ -892,6 +1022,10 @@ void Widget::mjpeg_selected()
         ui->h264_stream->setEnabled(false);
         ui->h265_stream->setEnabled(false);
         ui->yuv_stream->setEnabled(false);
+        ui->saveAviCheckBox_->setChecked(false);
+        on_saveAviCheckBox__clicked();
+        ui->saveAviCheckBox_->setVisible(false);
+
 
 //        QString model_name = tr("%1").arg(cameraCfg.moduleName);
 //        if (model_name == "ar0234")
@@ -905,6 +1039,7 @@ void Widget::mjpeg_selected()
         ui->h264_stream->setEnabled(true);
         ui->h265_stream->setEnabled(true);
         ui->yuv_stream->setEnabled(true);
+        ui->saveAviCheckBox_->setVisible(true);
     }
 }
 
@@ -1084,7 +1219,7 @@ void Widget::on_two_net_model_clicked()
     else if (ui->mjpeg_stream->isChecked()){
         mvideo_type = JPEG;
     }
-
+    save_path_ = ui->lineEditPath->text();
     int modeId = ui->outflow_mode->currentIndex();
 
     emit start_2net_model(mvideo_type,modeId,h26x_type);
@@ -1281,5 +1416,29 @@ void Widget::on_yuv_stream_stateChanged(int arg1)
          qInfo()<<"yuv is not clicked";
         ui->saveAviCheckBox_->show();
        // ui->two_net_model->setEnabled(false);
+    }
+}
+
+void Widget::on_save_img_clicked()
+{
+    save_img = true;
+}
+
+void Widget::on_save_ai_clicked()
+{
+
+}
+
+void Widget::on_save_ai_stateChanged(int arg1)
+{
+    if(arg1 == Qt::CheckState::Checked)
+    {
+        save_ai = true;
+        qInfo()<<"save ai true";
+    }
+    else if(arg1 == Qt::CheckState::Unchecked)
+    {
+        save_ai = false;
+        qInfo()<<"save ai false";
     }
 }

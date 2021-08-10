@@ -87,7 +87,7 @@ void test2Net(){
 int main(int argc, char *argv[])
 {
 #ifdef Q_OS_WIN
-    SetUnhandledExceptionFilter(ExceptionFilter);
+
 #endif
     QApplication a(argc, argv);
 

@@ -72,22 +72,22 @@ void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float sc
     int firstModelOutputSize;
     int secondModelOutputSize;
 
-	/* 获取模型输出size */
+	/* Get model output size */
 	memcpy(outputSize, nnret, sizeof(outputSize));
 	firstModelOutputSize        = outputSize[0];
 	secondModelOutputSize   = outputSize[1];
 //	printf("oft %d %d\n",  outputSize[0],  outputSize[1]);
 
-    // 获取一级模型memdata偏移地址
+    // Get the primary model metadata offset address
 	uint16_t* detMetadata          = (uint16_t*)((char*)nnret +sizeof(outputSize)) ;
-    // 获取二级模型memdata偏移地址
+    // Get the secondary model metadata offset address
 	char * firstOutput  = (char*)nnret +sizeof(outputSize) + firstModelOutputSize;
 
 	/* YUV420P-->RGB */
 	yuvImg.data = (unsigned char*)data;
 	cv::cvtColor(yuvImg, outgoingImage, CV_YUV2BGR_I420);
 
-	/* 获取算法的fov */
+	/* Get FOV of algorithm */
 	oftX = nnParm1->startX;
 	oftY = nnParm1->startY;
 	disW = nnParm1->endX - nnParm1->startX;
@@ -110,9 +110,9 @@ void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float sc
 		x1 = f16Tof32(detMetadata[i*7+5]);
 		y1 = f16Tof32(detMetadata[i*7+6]);
 
-		/* 不处理无效数据，
-		 * 低于执行度，
-		 * 无效label的数据 */
+		/* Do not process invalid data，
+		 * Lower than execution，
+		 * Invalid label data */
         if(  (coordinate_is_valid(x0, y0, x1, y1) ==0 )\
             ||(conf<nnParm2->minConf)\
             ||(nnParm2->labelMask[label] == 0)
@@ -121,7 +121,7 @@ void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float sc
 			continue;
 		}
 
-        /* 画识别的框 */
+        /* Draw a recognized box */
         cv::Rect box;
         box.x = x0 * disW + oftX;
         box.y = y0 * disH  + oftY ;
@@ -133,7 +133,7 @@ void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float sc
 
         int regRet[88];
 
-        // 获取二级模型memdata
+        // Get secondary model metadata
         uint16_t* regMetadata = (uint16_t*)(firstOutput + secondModelOutputSize * i);
         //            printf("\n\nret:");
         for(int j=0;j<sizeof(regRet)/sizeof(regRet[0]);j++)
@@ -175,7 +175,7 @@ void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float sc
         cv::putText(outgoingImage, result, origin, cv::FONT_HERSHEY_COMPLEX, 1.1,  cv::Scalar(0, 0, 255), 2, 8, 0);
 	}
 
-	/* 算法有效区域 */
+	/* Effective region of algorithm */
 	if(nn_fov_show)
 	{
 		cv::Rect boxNN;
@@ -191,7 +191,7 @@ void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float sc
 	}
 
 	Mat showImage;
-	/* 缩放显示 */
+	/* Zoom display */
 	resize(outgoingImage,showImage,Size(outgoingImage.cols*scale,outgoingImage.rows*scale),0,0,INTER_LINEAR);
 	cv::imshow(name, showImage);
 	cv::waitKey(1);

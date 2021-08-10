@@ -71,7 +71,7 @@ Media2Avi* Media2AviAgent::initMedia(const int codeType, int w, int h){
     if(codeType == H26X){
         media = new H26x2Avi;
     }else if (codeType == JPEG) {
-        media = new H26x2Avi;
+        media = new Mpeg2Avi;
     }
 
     if(media){

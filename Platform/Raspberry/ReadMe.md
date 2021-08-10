@@ -19,7 +19,7 @@ you can also visit https://downloads.raspberrypi.org/raspios_armhf/images/raspio
 ## Install libusb,opencv and ffmpeg
 
 ```shell
-sudo apt-get install libopnecv-dev -y
+sudo apt-get install libopencv-dev -y
 
 sudo apt-get install libusb-dev -y
 
@@ -80,192 +80,9 @@ At the end of the run, you can see these directories.
 	│	└── QT_example
 ```
 
-# Run Example
-
-```shell
-# current directory:/home/pi/gitlab/openncc/Platform/Raspberry
-cd Example/How_to
-```
-
-```
-└── How_to
-	├── Capture_video
-	├── How_to_use_sdk
-	├── Load_a_model
-	├── Multiple_models
-	├── Python_demo
-```
-
-## 1.Capture_video
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Capture_video
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-**<font color="red">Note:You may come across problems that need keys</font>**
-
-```shell
-Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
-07:17:13 : sdk/sdk.cpp(667) need check key file ./fw/eyecloud.key from firm:./fw/flicRefApp.mvcmd pos 4
-07:17:13 : sdk/sdk.cpp(671) no find eyecloud key file and no support!
-load firmware error! return
-```
-
-At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
-
-copy key file to `bin/fw` like this.
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Capture_video/bin
-cp ~/eyecloud.key ./fw/
-```
-
- Now,you can run `Capturevideo`
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Capture_video
-sudo ./run.sh
-```
-
-## 2.How_to_use_sdk
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/How_to_use_sdk
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-**<font color="red">Note:You may come across problems that need keys</font>**
-
-```shell
-Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
-07:17:13 : sdk/sdk.cpp(667) need check key file ./fw/eyecloud.key from firm:./fw/flicRefApp.mvcmd pos 4
-07:17:13 : sdk/sdk.cpp(671) no find eyecloud key file and no support!
-load firmware error! return
-```
-
-At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
-
-copy key file to `bin/fw` like this.
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/How_to_use_sdk/bin 
-cp ~/eyecloud.key ./fw/
-```
-
- Now,you can run `OpenNCC`
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/How_to_use_sdk
-sudo ./run.sh
-```
-
-## 3.Load_a_model
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Load_a_model
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-**<font color="red">Note:You may come across problems that need keys</font>**
-
-```shell
-Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
-07:17:13 : sdk/sdk.cpp(667) need check key file ./fw/eyecloud.key from firm:./fw/flicRefApp.mvcmd pos 4
-07:17:13 : sdk/sdk.cpp(671) no find eyecloud key file and no support!
-load firmware error! return
-```
-
-At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
-
-copy key file to `bin/fw` like this.
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Load_a_model/bin
-cp ~/eyecloud.key ./fw/
-```
-
- Now,you can run `Openncc`
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Load_a_model
-sudo ./run.sh
-```
-
-## 4.Multiple_models
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Multiple_models
-./copy.sh
-./compile.sh
-sudo ./run.sh
-```
-
-**<font color="red">Note:You may come across problems that need keys</font>**
-
-```shell
-Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
-07:17:13 : sdk/sdk.cpp(667) need check key file ./fw/eyecloud.key from firm:./fw/flicRefApp.mvcmd pos 4
-07:17:13 : sdk/sdk.cpp(671) no find eyecloud key file and no support!
-load firmware error! return
-```
-
-At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
-
-copy key file to `bin/fw` like this.
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Multiple_models/bin
-cp ~/eyecloud.key ./fw/
-```
-
- Now,you can run `Openncc`
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Multiple_models
-sudo ./run.sh
-```
-
-## 5.Python_demo
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Python_demo
-./copy.sh
-sudo ./run.sh
-```
-
-**<font color="red">Note:You may come across problems that need keys</font>**
-
-```shell
-Firmvare version:MV02.101.17 Device SN:xxxxxxxxxxxxx
-07:17:13 : sdk/sdk.cpp(667) need check key file ./fw/eyecloud.key from firm:./fw/flicRefApp.mvcmd pos 4
-07:17:13 : sdk/sdk.cpp(671) no find eyecloud key file and no support!
-load firmware error! return
-```
-
-At this time, you need to send the SN number to `info@eyecloud.tech`, and we will generate a key file for you.
-
-copy key file to `fw` like this.
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Python_demo
-cp ~/eyecloud.key ./fw/
-```
-
- Now,you can run `Openncc`
-
-```shell
-# current directory:openncc/Platform/Raspberry/Example/How_to/Python_demo
-sudo ./run.sh
-```
-
 # Compilation
+
+ **If you want to compile QT yourself, you can do the following steps** 
 
 ## Install Qt5 on Raspberry Pi
 
@@ -398,7 +215,7 @@ download source code and build refer to https://github.com/probonopd/linuxdeploy
 sudo cp linuxdeployqt-pi /usr/local/bin/linuxdeployqt
 ```
 
-​	3. Package QT 
+3. Package QT 
 
 ```shell
 linuxdeployqt OpenNCC -appimage

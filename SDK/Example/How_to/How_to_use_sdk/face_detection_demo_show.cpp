@@ -86,7 +86,7 @@ void  fd_show_img_func(void *data, int w, int h, float scale, char *name, int nn
 	yuvImg.data = (unsigned char*)data;
 	cv::cvtColor(yuvImg, outgoing_img, CV_YUV2BGR_I420);
 
-	/* 获取算法的fov */
+	/* Get FOV of algorithm */
 	oft_x = nnparm->startX;
 	oft_y = nnparm->startY;
 	dis_w = nnparm->endX - nnparm->startX;
@@ -110,13 +110,13 @@ void  fd_show_img_func(void *data, int w, int h, float scale, char *name, int nn
 		y1 = f16Tof32(cls_ret[i*7+6]);
 	
 	//	printf("score:%.2f<->min:%.2f  rec:(%.3f,%.3f)<->(%.3f,%.3f) \n" ,score,min_fd_score,x0,y0,x1,y1);
-		/* 不显示无效数据或者概率太低的框 */
+		/* Boxes with invalid data or low probability are not displayed */
 		if( (coordinate_is_valid(x0, y0, x1, y1) ==0 )|| (score < min_fd_score))
 		{
 			continue;
 		}
 
-		/* 画识别的人脸框 */
+		/* Draw face frame for recognition */
 		cv::Rect box;
 		box.x = x0 * dis_w + oft_x;
 		box.y = y0 * dis_h + oft_y;
@@ -137,7 +137,7 @@ void  fd_show_img_func(void *data, int w, int h, float scale, char *name, int nn
 			
 	}
 
-	/* 算法有效区域 */
+	/* Effective region of algorithm */
 	if(nn_fov_show)
 	{
 		cv::Rect box_nn;
@@ -153,7 +153,7 @@ void  fd_show_img_func(void *data, int w, int h, float scale, char *name, int nn
 	}
 
 	Mat showImage;
-	/* 缩放显示 */
+	/* Zoom display */
 	resize(outgoing_img,showImage,Size(outgoing_img.cols*scale,outgoing_img.rows*scale),0,0,INTER_LINEAR);
 	cv::imshow(name, showImage);
 	cv::waitKey(1);
@@ -166,7 +166,7 @@ void face_detect_handle(cv::Mat& img,CameraInfo *nnparm, char *nnret)
 	uint16_t* cls_ret = (uint16_t*)nnret;
   
 
-	/* 获取算法的fov */
+	/* Get FOV of algorithm */
 	oft_x = nnparm->startX;
 	oft_y = nnparm->startY;
 	dis_w = nnparm->endX - nnparm->startX;
@@ -190,13 +190,13 @@ void face_detect_handle(cv::Mat& img,CameraInfo *nnparm, char *nnret)
 		y1 = f16Tof32(cls_ret[i*7+6]);
 	
 	//	printf("score:%.2f<->min:%.2f  rec:(%.3f,%.3f)<->(%.3f,%.3f) \n" ,score,min_fd_score,x0,y0,x1,y1);
-		/* 不显示无效数据或者概率太低的框 */
+		/* Boxes with invalid data or low probability are not displayed */
 		if( (coordinate_is_valid(x0, y0, x1, y1) ==0 )|| (score < min_fd_score))
 		{
 			continue;
 		}
 
-		/* 画识别的人脸框 */
+		/* Draw face recognition frame */
 		cv::Rect box;
 		box.x = x0 * dis_w + oft_x;
 		box.y = y0 * dis_h + oft_y;
@@ -213,7 +213,7 @@ void face_detect_handle(cv::Mat& img,CameraInfo *nnparm, char *nnret)
 		cv::putText(img, result, origin, cv::FONT_HERSHEY_COMPLEX, 1,  cv::Scalar(255, 255, 128), 1, 8, 0);
 	}  	
 	
-	/* 算法有效区域 */
+	/* Effective region of algorithm */
 		if(1)
 		{
 			cv::Rect box_nn;

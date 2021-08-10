@@ -2,159 +2,170 @@
 
 
 
+## R21.08.01
+
+- Update ReadMe in /Example.
+- Add new document.
+
+**OpenNCC Firmware MV02.101.21**
+
+- Fix crash of cascading the secondary model  .
+
+**OpenNCC Viewer NV02.101.83**
+
+- Add button to capture photo.
+- Add button to save video with AI result.
+
+
+
+
 ## R21.07.02
 
-1. Add English document.
-2. Associate to OpenNCC PaddlePaddle-OCR warehouse.
+- Add English document.
+
+- Associate to OpenNCC PaddlePaddle-OCR warehouse.
+
+
 
 ## R21.07.01
 
 Rebuild SDK：
 
-1. Add script to help user set up environment.
+- Add script to help user set up environment.
 
-2. Add new document.
+- Add new document.
 
 **OpenNCC Firmware MV02.101.21**
 
-1. Add SC200AI module
-
-
+- Add SC200AI module
 
 **OpenNCC Viewer NV02.101.82**
 
-1. Fix video streaming block in mode of calling second level model.
+- Fix video streaming block in mode of calling second level model.
 
-2. Fix  crash when close streaming window.
+- Fix  crash when close streaming window.
 
-   
+
 
 ## R21.04.01
 
-1. Fixed h.265 decode issue of AR0234 module on PC.
+- Fixed h.265 decode issue of AR0234 module on PC.
 
-2. Added video-saving function to OpenNCC Viewer on PC.( MJGEG and h.264/h.265 format）
+- Added video-saving function to OpenNCC Viewer on PC.( MJGEG and h.264/h.265 format）
 
-   
+
 
 ## R21.02.02
 
-1. add Manual exposure in opennccview
+- add Manual exposure in opennccview
 
-2. add vehicle License plate recognition of python3 in Public\Library\For_Python
+- add vehicle License plate recognition of python3 in Public\Library\For_Python
 
-3. add face recognize of python3 in Public\Library\For_Python
-
-**OpenNCC SDK SV02.103.04**
-
-​	no change
+- add face recognize of python3 in Public\Library\For_Python
 
 **OpenNCC Viewer NV02.101.15**
 
-1. add Manual exposure
-
-**OpenNCC Firmware MV02.101.14**
-
-​	no change
+- add Manual exposure
 
 Known issues:
 
-1: View for windows will collapsed when switch ai mode many times.
+- View for windows will collapsed when switch ai mode many times.
 
-2:AR0234 sensor exposed issue.
+
+- AR0234 sensor exposed issue.
 
 
 
 ## R21.02.01
 
-1.  and show in nccview
+- add show in nccview
 
-2. add fps show in nccview
-
-**OpenNCC SDK SV02.103.04**
-
-no change
+- add fps show in nccview
 
 **OpenNCC Viewer NV02.101.14**
 
-1. add fps show
+- add fps show
 
-2. add h265 show
+- add h265 show
 
 **OpenNCC Firmware MV02.101.14**
 
-1. fix some AP0234 bug
+- fix some AP0234 bug
 
 Known issues:
 
-1. View for windows will collapsed when switch ai mode many times.
+- View for windows will collapsed when switch ai mode many times.
 
-2. AR0234 sensor exposed issue.
+- AR0234 sensor exposed issue.
 
 
 
 ## R20.12.02
 
-1. Modified usb pid from F63B to F63D
+- Modified usb pid from F63B to F63D
 
-2. Resolve losted frame bug in firmware
+- Resolve losted frame bug in firmware
 
-3. Support [Alwaysai](https://www.alwaysai.co/),and add a howto demo
+- Support [Alwaysai](https://www.alwaysai.co/),and add a howto demo
 
 **OpenNCC SDK SV02.103.04**
 
-1. modify usb PID from 0xF63B to 0xF63D
+- modify usb PID from 0xF63B to 0xF63D
 
 **OpenNCC Viewer NV02.101.31:**
 
-​	update sdk.
+- update sdk
+
 
 **OpenNCC Firmware MV02.101.05:**
 
-1. modify firmware usb pid from F63B to F63D
+- modify firmware usb pid from F63B to F63D
 
-2. resolve losted frame bug in firmware
+- resolve losted frame bug in firmware
 
 Known issues:
 
-1.  View for windows will collapsed when switch ai mode many times.
+- View for windows will collapsed when switch ai mode many times.
 
-2. AR0234 sensor exposed issue.
+- AR0234 sensor exposed issue.
 
-3. It will been crashed just used ai mode “face-detection-retail-0004-fp16” when used AR0234 sensor.
+- It will been crashed just used ai mode “face-detection-retail-0004-fp16” when used AR0234 sensor.
 
 
 
 ## R20.12.01
 
-1. Updated to OpenVINO R20.03
-2. Support Raspberry Pi 3/4
+- Updated to OpenVINO R20.03
+
+- Support Raspberry Pi 3/4
 
 **OpenNCC SDK V02.103.3:**
 
-1. use the blob from openvino2020.3.194
+- use the blob from openvino2020.3.194
 
-2. test all examples by main()
+- test all examples by main()
 
-3. add query firmware version
+- add query firmware version
 
-4. add query device id
+- add query device id
 
-5. add sdk_init_ex for add param field inferenceACC
+- add sdk_init_ex for add param field inferenceACC
 
 **OpenNCC Viewer V1.3.0:**
 
-1. Add show FPS and add Accelerating inference
+- Add show FPS and add Accelerating inference
 
 **OpenNCC Firmware MV02.101.03:**
 
-1. Support AR0234 sensor @60fps
-2. Support OpenVINO R20.03
+- Support AR0234 sensor @60fps
+
+- Support OpenVINO R20.03
 
 Known issues:
 
-1. View for windows will collapsed when switch AI mode many times.
-2. AR0234 exposure issue
+- View for windows will collapsed when switch AI mode many times.
+
+- AR0234 exposure issue
 
 
 

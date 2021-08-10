@@ -16,7 +16,7 @@ You are welcome to contact us for your suggestions, and model request.
 
 ## Current Version
 
-**R21.07.02**
+**R21.08.01**
 
 ## Getting Started
 

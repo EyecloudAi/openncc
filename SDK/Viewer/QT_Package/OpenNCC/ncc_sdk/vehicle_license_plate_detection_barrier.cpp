@@ -16,13 +16,14 @@
 
 #include "sdk.h"
 #include "Fp16Convert.h"
+#include "widget.h"
 #include <QObject> // for Q_OS_WIN
 
 #include <QDebug>
 //#include<vector>
 using namespace std;
 using namespace cv;
-
+extern bool save_ai;
 static int coordinate_is_valid(float x1, float y1, float x2, float y2)
 {
     if((x1<0) || (x1>1))
@@ -59,7 +60,7 @@ Metadata Output Parsing:
       | |
       |---------------|
       #endif
-      void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnParm1,Network2Par *nnParm2, char *nnret, float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,int &first)
+      void  vehicle_license_plate_detection_barrier(void *data, int w, int h, float scale, char *name, int nn_fov_show, Network1Par *nnParm1,Network2Par *nnParm2, char *nnret, float min_score,int ftime,int RES,char *id,bool showstate,int flow_fps,int &first,cv::VideoWriter videoWriter)
 {
     cv::Mat yuvImg;
     yuvImg.create(h * 3 / 2, w, CV_8UC1);
@@ -242,6 +243,10 @@ Metadata Output Parsing:
 
     //printf("test236..................\n");
     cv::imshow(name, showImage);
+    if(save_ai)
+    {
+        videoWriter << showImage;
+    }
     first = 0;
 
 #ifdef Q_OS_WIN

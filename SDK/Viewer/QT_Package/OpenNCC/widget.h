@@ -18,7 +18,7 @@
 #include "my_class/del_blob.h"
 #include "sdk.h"
 #include "my_class/mythread.h"
-
+#include <opencv2/highgui/highgui.hpp>
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -101,8 +101,14 @@ private slots:
 
     void on_yuv_stream_stateChanged(int arg1);
 
+    void on_save_img_clicked();
+
+    void on_save_ai_clicked();
+
+    void on_save_ai_stateChanged(int arg1);
+
 private:
-    int PostProcessFrame(char* pFrame,int bufsize,float min_score,float scale,char* winhndl);
+    int PostProcessFrame(char* pFrame,int bufsize,float min_score,float scale,char* winhndl,cv::VideoWriter videoWriter);
 
 
 
