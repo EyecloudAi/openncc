@@ -1,5 +1,16 @@
 # OpenNCC SDK Release Note
 
+## R21.09.01
+
+- Add demo about OpenNCC-eMMC  
+- Add NVIDIA platform
+- Update Makefile to run script.
+
+**OpenNCC Firmware MV02.101.23**
+
+- Rename device name of windows driver .
+- Add cmd to update eMMC
+
 
 
 ## R21.08.01
@@ -7,7 +18,7 @@
 - Update ReadMe in /Example.
 - Add new document.
 
-**OpenNCC Firmware MV02.101.21**
+**OpenNCC Firmware MV02.101.22**
 
 - Fix crash of cascading the secondary model  .
 
