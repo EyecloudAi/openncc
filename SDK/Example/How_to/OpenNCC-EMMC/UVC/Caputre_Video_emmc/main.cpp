@@ -36,17 +36,12 @@ typedef void  (*analyzeMetedata)(void *data, int w, int h, float scale, char *na
 ///////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
-
-
-
-
     analyzeMetedata fun;
     
-	//uart 初始化
+	//uart initialization
     uart_init();
 
-    
-	//显示函数
+	//Specifying the display function
     fun = opencv_show_img_func;
 
     usleep(10);
@@ -55,7 +50,7 @@ int main(int argc, char* argv[])
 
     fd = open(argv[1],O_RDWR);
 
-    //查询摄像头视频格式，VIDIOC_ENUM_FMT
+    //Query camera video format，VIDIOC_ENUM_FMT
     printf("-------------\n");
     struct v4l2_fmtdesc fmtdesc;
 
@@ -70,7 +65,7 @@ int main(int argc, char* argv[])
         		(fmtdesc.pixelformat >> 8) & 0xFF,(fmtdesc.pixelformat >> 16) & 0xFF, (fmtdesc.pixelformat >> 24) & 0xFF,fmtdesc.description);
         fmtdesc.index++;
     }
-    //设置缓冲区管理方式
+    //Set the buffer management mode
     struct v4l2_requestbuffers reqbuf;
     reqbuf.count = 4;
     reqbuf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
@@ -82,7 +77,7 @@ int main(int argc, char* argv[])
 	    return false;
 	}
 
-    //将申请到的缓冲区映射到用户程序中，以便在用户程序访问，方便处理
+    //Map buffer to user program
     video_buf_t *framebuf;
     framebuf = (video_buf_t*)calloc(reqbuf.count,sizeof(video_buf_t));
     struct v4l2_buffer buf;
@@ -98,7 +93,7 @@ int main(int argc, char* argv[])
 			return false;
 		}
 
-		//mmap buffer
+		//map buffer
 		framebuf[i].length = buf.length;
 		framebuf[i].start = mmap(NULL, buf.length,
 								 PROT_READ | PROT_WRITE,
@@ -116,7 +111,7 @@ int main(int argc, char* argv[])
 		}
     }
 
-    //开始采集图像
+    //Start capturing images
     enum v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     if (ioctl(fd, VIDIOC_STREAMON, &type) == -1)
     {
@@ -126,10 +121,10 @@ int main(int argc, char* argv[])
 
     while(1)
     {
-    	/* 720P显示 */
+    	/* show as 720P */
     	float scale = 1.0*1280/1920;
 
-    	//获取和处理数据
+    	//Get and process data
         buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         buf.memory = V4L2_MEMORY_MMAP;
         if (ioctl(fd, VIDIOC_DQBUF, &buf) == -1)
@@ -139,11 +134,11 @@ int main(int argc, char* argv[])
             continue;
         }
 
-        /* 获取帧号 */
+        /* Get frame number */
         unsigned int *pSeqNo = (unsigned int *)framebuf[buf.index].start;
         printf("UVC SeqNo %d\n", *pSeqNo);
 
-        /* metadata解析和显示 */
+        /* analysis metadata */
        fun((void*)framebuf[buf.index].start , 1920, 1080,  scale, "demo_video", 0, NULL,NULL, 0, 0);
 
        //Do something，process frame data

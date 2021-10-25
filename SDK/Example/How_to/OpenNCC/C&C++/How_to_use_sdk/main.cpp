@@ -43,19 +43,19 @@ static CameraInfo cam_info =
 	-1,  //imageHeight                  
     -1,  //startX
 	-1,  //startY                 
-	-1,   //endX
-	-1,   //endY                  
-	0,  //inputDimWidth, if o,auto get from xml
-	0,   //inputDimHeight ,if o,auto get from xml               
+	-1,  //endX
+	-1,  //endY
+	0,   //inputDimWidth, if o,auto get from xml
+	0,   //inputDimHeight,if o,auto get from xml
 	IMG_FORMAT_BGR_PLANAR,      //IMAGE_FORMAT   
-	0,                    //meanValue
+	0,                          //meanValue
 	0,
 	0 ,
-	1,                         //stdValue
-    1,                           /*Turn on YUV420 output function*/
-    0,                           /*Turn on h26x coding function*/
-    0,                           /*Turn on MJPEG encoding*/
-	ENCODE_H264_MODE,            /* Use H264 encoding format */
+	1,                          //stdValue
+    1,                          /*Turn on YUV420 output function*/
+    0,                          /*Turn on h26x coding function*/
+    0,                          /*Turn on MJPEG encoding*/
+	ENCODE_H264_MODE,           /* Use H264 encoding format */
 };
 
 static void vscRead(void* param,void* data, int len)
@@ -70,7 +70,7 @@ static void vscRead(void* param,void* data, int len)
 
     switch (out->type)
     {
-        case( YUV420p) :
+        case(YUV420p) :
         {         
             char *yuv_data = (char *) data + sizeof(frameSpecOut);
             #if (DEMO_CLS!=0 || DEMO_FACE_DETECTION!=0)
@@ -78,9 +78,9 @@ static void vscRead(void* param,void* data, int len)
             show_update = 1;
             #endif
         }
-            break;
+        break;
 
-        case (H26X ):
+        case (H26X):
         {
             /* Get H26x video stream
             char *h265_data = (char *) data + sizeof(frameSpecOut);
@@ -101,7 +101,7 @@ static void vscRead(void* param,void* data, int len)
                 write(fd, h265_data, out->size);
 				*/
         }
-            break;
+        break;
 
         case (METEDATA) :
         {
@@ -125,7 +125,8 @@ static void vscRead(void* param,void* data, int len)
         #endif
         }
         break;
-        case (JPEG ):
+
+        case (JPEG):
         {
           char *jpeg_data = (char *) data + sizeof(frameSpecOut);
           if(out->seqNo %100 ==0)
@@ -156,7 +157,7 @@ int main_cb(void)
 	int ret;
 	 memset(metadata, 0, sizeof(metadata));
 
-    //1. 加载固件
+    //1. Load firmware
     load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
 		
 		printf("usb sersion:%d \n",get_usb_version());
@@ -405,7 +406,7 @@ int main_2net(void)
          }
 
          cnn2PrmSet.minConf        = 0.7;  // conf for first inputs
-         cnn2PrmSet.labelMask[2] = 1;     // car board label id = 2，car label id = 1, 只处理id=2
+         cnn2PrmSet.labelMask[2] = 1;      // car board label id = 2 car label id = 1, id=2
 
          /*name1: "data" , shape: [1x3x24x94] - An input image in following format [1xCxHxW]. Expected color order is BGR.*/
          cnn2PrmSet.inputDimWidth  = 94;
@@ -433,7 +434,7 @@ int main_2net(void)
 
     camera_video_out(YUV420p,VIDEO_OUT_CONTINUOUS);
 
-    //////////////////////////////////////////测试读取/////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
     char *recvImageData     = (char*) malloc(sizeof(frameSpecOut) + cameraCfg.camWidth * cameraCfg.camHeight * 3 / 2);
     int  meteDataSize  = 5*1024*1024;
     char *recvMetaData = (char*) malloc(meteDataSize);
@@ -604,8 +605,8 @@ const char* test_example[]=
 
 int main(int argc ,char *argv[])
 {
-		int nselect =0;    
-	  if (argc>1)
+    int nselect =0;
+	if (argc>1)
 	  	nselect=atoi(argv[1]);
 	printf("test example:%s \n",test_example[nselect]);  	
 	if  	(nselect == 0)

@@ -1,5 +1,19 @@
 # OpenNCC SDK Release Note
 
+## R21.10.01
+
+- Add demo about road segmentation model  
+- Add demo about yolo model
+- Update interface of encoding parameter setting.
+
+**OpenNCC Firmware MV02.101.24**
+
+- To support sc230AI
+
+- To support yolo
+
+  
+
 ## R21.09.01
 
 - Add demo about OpenNCC-eMMC  

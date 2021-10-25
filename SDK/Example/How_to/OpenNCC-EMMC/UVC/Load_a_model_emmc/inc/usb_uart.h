@@ -22,7 +22,7 @@ enum{
 #define MAX_UART_EP      (10)
 #define USB_UART_HDR     (0xabcd5a5a)
 #define UART_MAX_SIZE    (8*1024*1024)
-#define  MAX_UART_BLOCK_SIZE   (4000)
+#define MAX_UART_BLOCK_SIZE   (4000)
 
 
 typedef struct
@@ -39,13 +39,37 @@ typedef struct
 } UartCmd_t;
 
 typedef void(*uartCb)(unsigned char *data, int size);
+
+/**
+ * @brief Register uart device
+ */
 void registerUartCb(uartCb cb, unsigned int ep);
-int uart_write_data(int ep, unsigned char *data, int size);
+
+/**
+ * @brief Initialize uart channel
+ */
 void uart_init(void);
-void update_boot();
+
+/**
+ * @brief Update main application(firmware)
+ */
 void update_app();
+
+/**
+ * @brief Update first AI model
+ */
 void update_blob();
+
+/**
+ * @brief Update second AI model
+ */
 void update_blob2();
+
+/**
+ * @brief Control AI function
+ * @param status 0 disable
+ *               1 enable
+ */
 void AI_Run(int status);
 
 #ifdef __cplusplus

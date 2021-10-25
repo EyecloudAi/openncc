@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**R21.09.01**
+**R21.10.01**
 
 ## Getting Started
 

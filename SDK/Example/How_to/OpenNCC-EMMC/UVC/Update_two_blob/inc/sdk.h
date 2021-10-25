@@ -7,7 +7,6 @@
 
 //defien video frame type  for camera_video_out
 #define   YUV420p  2
-#define   RAW14   11
 
 #define   H26X     22
 #define   JPEG     23
@@ -93,11 +92,11 @@ typedef struct{
 	int endY;
 	int inputDimWidth;        
 	int inputDimHeight;       
-	IMAGE_FORMAT inputFormat; /* input image mode£¬only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
+	IMAGE_FORMAT inputFormat; /* input image mode only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
 	float meanValue[3];       /* inputFormat RGB:
-	                          ¡¡   R = (R-meanValue[0])/stdValue
-   ¡¡                              G = (G-meanValue[0])/stdValue
-          ¡¡                       B = (B-meanValue[0])/stdValue */
+	                               R = (R-meanValue[0])/stdValue
+                                   G = (G-meanValue[0])/stdValue
+                                   B = (B-meanValue[0])/stdValue */
 	float stdValue;
 	int   isOutputYUV;
 	int   isOutputH26X;
@@ -119,11 +118,11 @@ typedef struct{
 	int endY;
 	int inputDimWidth;        
 	int inputDimHeight;       
-	IMAGE_FORMAT inputFormat; /* input image mode£¬only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
+	IMAGE_FORMAT inputFormat; /* input image mode only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
 	float meanValue[3];       /* inputFormat RGB:
-	                          ¡¡   R = (R-meanValue[0])/stdValue
-   ¡¡                              G = (G-meanValue[0])/stdValue
-          ¡¡                       B = (B-meanValue[0])/stdValue */
+	                               R = (R-meanValue[0])/stdValue
+                                   G = (G-meanValue[0])/stdValue
+                                   B = (B-meanValue[0])/stdValue */
 	float stdValue;
 	int   isOutputYUV;
 	int   isOutputH26X;
@@ -146,11 +145,11 @@ typedef struct{
 
     int inputDimWidth;        
     int inputDimHeight;       
-    IMAGE_FORMAT inputFormat;   /* input image mode£¬only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
+    IMAGE_FORMAT inputFormat;   /* input image mode only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
     float meanValue[3];          /* inputFormat RGB:
-                              ¡¡   R = (R-meanValue[0])/stdValue
-   ¡¡                              G = (G-meanValue[0])/stdValue
-          ¡¡                       B = (B-meanValue[0])/stdValue */
+                                   R = (R-meanValue[0])/stdValue
+                                   G = (G-meanValue[0])/stdValue
+                                   B = (B-meanValue[0])/stdValue */
     float stdValue;
     char extInputs[MAX_EXTINPUT_SIZE];          /* second model input  */
     int   modelCascade;                 /*linked next model  for third model in future*/
@@ -177,51 +176,119 @@ typedef void (*vscRecvCb)(void* param,void *data, int len);
 
 void get_sdk_version( char* version);
 
-//load firmware and vsc init
+
+/**
+ * @brief Load firmware and initialize vsc
+ * @return
+ *      @retval 0  success
+ */
 int load_fw(const char* bootExe, const char* firmware );
 
+/**
+ * @brief Load firmware and initialize vsc according to pid
+ * @param pid
+ * @return
+ *      @retval 0  success
+ */
 int load_fwExt(const char* bootExe, const char* firmware,int pid);
 
-//sdk ini for single net model and one input
+
+/**
+ * @brief Sdk init for single net model and one input
+ * @return
+ *      @retval 0  success
+ */
 int sdk_init(vscRecvCb cb,void* param, const char *blob_path, CameraInfo * cam, int cam_Len);
 
-//sdk ini for single net model and one input which support inferenceACC
+/**
+ * @brief Sdk init for single net model and one input which support inferenceACC
+ * @return
+ *      @retval 0  success
+ */
 int sdk_init_ex(vscRecvCb cb,void* param, const char *blob_path, Network1Par * cam, int cam_Len);
 
-//support two network model or two inputs for single model
+
+/**
+ * @brief Support two network model or two inputs for single model
+ * @return
+ *      @retval 0  success
+ */
 int sdk_net2_init(vscRecvCb cb,void* param, const char *blob_path, Network1Par *par, int par_Len, const char *blob2_path, Network2Par *par2, int par2_Len);
 
-#ifdef DEPTH_3D 
-int sdk_init_ext( vscRecvCb cb,void* param, char *blob_path,char *blob1_path, CameraInfo * cam, int cam_Len);
-
-int read_ir_data(char* pbuf,int * size,int blocked);
-
-int read_depth_data(char* pbuf,int * size,int blocked);
-#endif
-
+/**
+ * @brief Uninit sdk
+ * @return
+ *      @retval 0  success
+ */
 void sdk_uninit(void);
 
 //add by duke 2020.2
-//return 20:usb2.0  11:usb1.1   30:usb3.0
+/**
+ * @brief Get usb version
+ * @return
+ *      @retval 11:usb1.1
+ *      @retval 20:usb2.0
+ *      @retval 30:usb3.0
+ */
 int get_usb_version(void);
 
+/**
+ * @brief
+ * @return
+ *      @retval 0  success
+ */
 int get_err_no();
 
+/**
+ * @brief
+ * @return
+ *      @retval 0  success
+ */
 int get_init_error(char* strErr,int size);
 
 //blocked:1 read until a packet received 0:if no packet ,return at once
+/**
+ * @brief Get yuv data
+ * @return
+ *      @retval 0  success
+ */
 int read_yuv_data(char* pbuf,int * size,int blocked);
 
+/**
+ * @brief Get h264 data
+ * @return
+ *      @retval 0  success
+ */
 int read_26x_data(char* pbuf,int * size,int blocked);
 
+/**
+ * @brief Get mjpeg data
+ * @return
+ *      @retval 0  success
+ */
 int read_jpg_data(char* pbuf,int * size,int blocked);
 
+/**
+ * @brief Get meta data
+ * @return
+ *      @retval 0  success
+ */
 int read_meta_data(char* pbuf,int * size,int blocked);
 
-//download image data to device for ai analysize
+
+/**
+ * @brief Download image data to device for ai analysis
+ * @return
+ *      @retval 0  success
+ */
 int down_image_data(const char *data, int len);
 //add end 
 
+/**
+ * @brief Get size of meta data
+ * @return
+ *      @retval 0  success
+ */
 int get_meta_size();
 
 #ifdef __cplusplus

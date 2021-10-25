@@ -93,11 +93,11 @@ typedef struct{
 	int endY;
 	int inputDimWidth;        
 	int inputDimHeight;       
-	IMAGE_FORMAT inputFormat; /* input image mode£¬only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
+	IMAGE_FORMAT inputFormat; /* input image mode only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
 	float meanValue[3];       /* inputFormat RGB:
-	                          ¡¡   R = (R-meanValue[0])/stdValue
-   ¡¡                              G = (G-meanValue[0])/stdValue
-          ¡¡                       B = (B-meanValue[0])/stdValue */
+	                             R = (R-meanValue[0])/stdValue
+                                 G = (G-meanValue[0])/stdValue
+                                 B = (B-meanValue[0])/stdValue */
 	float stdValue;
 	int   isOutputYUV;
 	int   isOutputH26X;
@@ -119,11 +119,11 @@ typedef struct{
 	int endY;
 	int inputDimWidth;        
 	int inputDimHeight;       
-	IMAGE_FORMAT inputFormat; /* input image mode£¬only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
+	IMAGE_FORMAT inputFormat; /* input image mode only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
 	float meanValue[3];       /* inputFormat RGB:
-	                          ¡¡   R = (R-meanValue[0])/stdValue
-   ¡¡                              G = (G-meanValue[0])/stdValue
-          ¡¡                       B = (B-meanValue[0])/stdValue */
+	                             R = (R-meanValue[0])/stdValue
+                                 G = (G-meanValue[0])/stdValue
+                                 B = (B-meanValue[0])/stdValue */
 	float stdValue;
 	int   isOutputYUV;
 	int   isOutputH26X;
@@ -146,13 +146,13 @@ typedef struct{
 
     int inputDimWidth;        
     int inputDimHeight;       
-    IMAGE_FORMAT inputFormat;   /* input image mode£¬only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
+    IMAGE_FORMAT inputFormat;   /* input image mode only RGB/RGB_PLANAR/BGR/BGR_PLANAR */
     float meanValue[3];          /* inputFormat RGB:
-                              ¡¡   R = (R-meanValue[0])/stdValue
-   ¡¡                              G = (G-meanValue[0])/stdValue
-          ¡¡                       B = (B-meanValue[0])/stdValue */
+                                   R = (R-meanValue[0])/stdValue
+                                   G = (G-meanValue[0])/stdValue
+                                   B = (B-meanValue[0])/stdValue */
     float stdValue;
-    char extInputs[MAX_EXTINPUT_SIZE];          /* second model input  */
+    char  extInputs[MAX_EXTINPUT_SIZE];          /* second model input  */
     int   modelCascade;                 /*linked next model  for third model in future*/
 } Network2Par;
 

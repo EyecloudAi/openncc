@@ -154,9 +154,8 @@ you'd better used this method,it
 int main_cb(void)
 {
 	int ret;
-	 memset(metadata, 0, sizeof(metadata));
+	memset(metadata, 0, sizeof(metadata));
 
-    //1. 加载固件
     load_fw(NULL,NULL);
 		
 		printf("usb sersion:%d \n",get_usb_version());
@@ -405,7 +404,7 @@ int main_2net(void)
          }
 
          cnn2PrmSet.minConf        = 0.7;  // conf for first inputs
-         cnn2PrmSet.labelMask[2] = 1;     // car board label id = 2，car label id = 1, 只处理id=2
+         cnn2PrmSet.labelMask[2] = 1;     // car board label id = 2 car label id = 1, id=2
 
          /*name1: "data" , shape: [1x3x24x94] - An input image in following format [1xCxHxW]. Expected color order is BGR.*/
          cnn2PrmSet.inputDimWidth  = 94;
@@ -433,7 +432,7 @@ int main_2net(void)
 
     camera_video_out(YUV420p,VIDEO_OUT_CONTINUOUS);
 
-    //////////////////////////////////////////测试读取/////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
     char *recvImageData     = (char*) malloc(sizeof(frameSpecOut) + cameraCfg.camWidth * cameraCfg.camHeight * 3 / 2);
     int  meteDataSize  = 5*1024*1024;
     char *recvMetaData = (char*) malloc(meteDataSize);
