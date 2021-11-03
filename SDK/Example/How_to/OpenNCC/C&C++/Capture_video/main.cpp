@@ -62,7 +62,7 @@ void *yuvThread(void *arg)
         {
             free(recv_data);
             //turn off yuv420p data output
-            camera_video_out(YUV420p,VIDEO_OUT_DISABLE );
+            camera_video_out(YUV420p,VIDEO_OUT_DISABLE);
             break;
         }
     }
@@ -123,11 +123,11 @@ void *jpegThread(void *arg)
         memcpy(&hdr, recv_data, sizeof(frameSpecOut));
 //        printf("hdr: type %d, seqNo %d, size %d\n", hdr.type, hdr.seqNo,hdr.size);
 
-        //gert jpeg data
+        //get jpeg data
         jpeg = (char*)recv_data + sizeof(frameSpecOut);
 
         //exit test
-        if(hdr.seqNo >= 700)
+        if(hdr.seqNo >= 70000)
         {
             free(recv_data);
 
@@ -184,9 +184,10 @@ void *h26xThread(void *arg)
         {
             fwrite((char*)h265_data, 1, hdr.size, fp);
         }
-
+	frameSpecOut* out = (frameSpecOut*)recv_data;
+	printf("seqNo:%d size:%d\n",out->seqNo,out->size);
         //exit test
-        if (hdr.seqNo >= 700)
+        if (hdr.seqNo >= 70000)
         {
             fclose(fp);
             free(recv_data);
@@ -259,6 +260,16 @@ int main(void)
     cam_info.mode         = ENCODE_H264_MODE;
     ret = sdk_init(NULL, NULL, (char*) NULL, &cam_info, sizeof(cam_info));
 
+#if 1
+	//set H26X bitrate
+	EncodePara_t info;
+	info.bitrate = 8000;
+	info.maxBitrate = 8000;
+	info.keyframeFreq = 30;
+	info.numBFrame = 0;
+	device_ctrl_set_bps(&info);
+#endif
+
     printf("xlink_init %d\n", ret);
     if (ret < 0)
         return -1;
@@ -289,7 +300,6 @@ int main(void)
     pthread_join(threadid_yuv, NULL);
     pthread_join(threadid_h26x, NULL);
     pthread_join(threadid_jpeg, NULL);
-
 
     printf("exit test main....\n");
     sdk_uninit();

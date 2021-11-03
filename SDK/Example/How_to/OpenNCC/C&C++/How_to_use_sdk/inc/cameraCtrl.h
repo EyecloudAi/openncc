@@ -1,3 +1,9 @@
+/**
+ * @file   cameraCtrl.h
+ * @author Zed
+ * @date   2021.10.18
+ * @modify 2021.11.3
+ */
 
 #ifndef _CAMERA_CONTROL_H
 #define _CAMERA_CONTROL_H
@@ -39,10 +45,10 @@ typedef struct
 {
   char     moduleName[16];
   int      camWidth;   // width
-  int      camHeight;  // heigth
+  int      camHeight;  // height
   int      camFps;     // fps
   int      AFmode;     // support AF or not 
-  int      maxEXP;     // max export time£¬unit us
+  int      maxEXP;     // max exposure time unit us
   int      minGain;    // min gain 
   int      maxGain;    // max gain
 } SensorModesConfig; // config structure
@@ -57,6 +63,15 @@ typedef struct  {
     uint8_t  batch_num[3];
     uint8_t  reserve[32];
 }Encrypt_t;
+
+typedef struct
+{
+	int    bitrate;      /// bit rate
+	int    maxBitrate;   /// Max bit rate
+	int    keyframeFreq; /// Step of i frame
+	int    numBFrame;    /// Number of B frame
+} EncodePara_t;
+
 
 typedef struct
 {
@@ -80,57 +95,132 @@ class  CameraSensor
 #ifdef __cplusplus
 extern "C" {
 #endif
-//get camera propety
+
+/**
+ * @brief Get camera supported resolution list
+ * @return
+ *      @retval 0  success
+ */
 int camera_control_get_features(SensorModesList* list);
 
-//get cam sensor info returne array of sensors
+/**
+ * @brief Get camera supported resolution list
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_get_sensorinfo(SensorModesConfig info[],int num);
 
-//set af mode
+/**
+ * @brief Set auto focus mode
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_af_mode(camera_ctrl_af_mode af_mode);
 
-//set lens pos
-int camera_control_lens_move(uint32_t lens_position);//1-100
+/**
+ * @brief Set lens position
+ * @param lens_position[1-100]
+ * @return
+ *      @retval 0 success
+ */
+int camera_control_lens_move(uint32_t lens_position);
 
-//triger af
+/**
+ * @brief Trigger auto focus
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_focus_trigger(void);
 
-//set camera expose mode
+/**
+ * @brief Set exposure mode
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_ae_mode(camera_ctrl_ae_mode flash_mode);
 
-//set expose value unit :us, <= 1/fps ¡£
+/**
+ * @brief Set exposure time
+ * @param exp_compensation [unit: us, Max value: 1/fps*1000*1000]
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_ae_set_exp( uint32_t exp_compensation);
 
-//set gai value
+/**
+ * @brief Set gain
+ * @param iso_val [Max value: get from SensorModesConfig]
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_ae_set_gain( uint32_t iso_val);
 
-//set WB
+/**
+ * @brief Set white balance mode
+ * @return
+ *      @retval 0 success
+ */
 int camera_control_awb_mode(camera_ctrl_awb_mode awb_mode);
 
+/**
+ * @brief Set video output type
+ * @return
+ *      @retval 0 success
+ */
 int camera_video_out(int video_type,camera_ctrl_video_out mode);
 
-//select camera sernsor
+/**
+ * @brief Select sensor and resolution
+ * @param sensorid [Range from 0 to SensorModesConfig.num]
+ * @return
+ *      @retval 0 success
+ */
 int camera_select_sensor(int sensorid);
 
-#ifdef DEPTH_3D 
-int camera_control_pwm_control(camera_ctrl_pwm_out mode);
-int camera_control_pwm_set(int value);
-int camera_control_alg_bf(char* buf, int len);
-int camera_control_alg_cal(char* buf, int len);
-int camera_control_get_temp(int* temp);
-#endif
+/**
+ * @brief Get firmware version
+ * @return
+ *      @retval 0 success
+ */
+int device_control_get_fw_version(char* fw,int len);
 
-int  device_control_get_fw_version(char* fw,int len);
-int  device_control_get_device_id(uint8_t* id,int size);
+/**
+ * @brief Get device serial number
+ * @return
+ *      @retval 0 success
+ */
+int device_control_get_device_id(uint8_t* id,int size);
 
-//return string id for export python
-void  camera_get_ncc_id(char* cpuid);
-void  camera_get_fw_version(char* fwversion);
+/**
+ * @brief String id for python
+ */
+void camera_get_ncc_id(char* cpuid);
 
-int  device_control_get_device_info(Encrypt_t* info);
-int  device_control_set_device_info(Encrypt_t* info);
+/**
+ * @brief Get firmware version for python
+ */
+void camera_get_fw_version(char* fwversion);
 
-int  camera_control_set_bps(int value);
+/**
+ * @brief Get hardware information
+ * @return
+ *      @retval 0 success
+ */
+int device_control_get_device_info(Encrypt_t* info);
+
+/**
+ * @brief set H26X parameter add 2021.11.3
+ * @return
+ *      @retval 0 success
+ */
+int device_ctrl_set_bps(EncodePara_t* info);
+
+/**
+ * @brief update emmc application add 2021.11.3
+ * @return
+ *      @retval 0 success
+ */
+int emmc_control_update_app();
 
 #ifdef __cplusplus
 }

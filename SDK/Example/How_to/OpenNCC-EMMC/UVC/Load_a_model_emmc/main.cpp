@@ -38,19 +38,19 @@ typedef void  (*analyzeMetedata)(void *data, int w, int h, float scale, char *na
 /* 第一级模型默认参数 */
 static Network1Par cnn1PrmSet =
 {
-    imageWidth:-1, imageHeight:-1,                     /* 动态获取 */
-    startX:-1, startY:-1,                              /* 根据获取的sensor分辨率设置 */
-    endX:-1,endY: -1,                                  /*  根据获取的sensor分辨率设置 */
-    inputDimWidth:-1, inputDimHeight:-1,               /* 根据获取的模型参数设置 */
-    inputFormat:IMG_FORMAT_BGR_PLANAR,                 /*  默认为BRG输入 */
+    imageWidth:-1, imageHeight:-1,                     /* dynamic get */
+    startX:-1, startY:-1,                              /* set according to resolution */
+    endX:-1,endY: -1,                                  /* set according to resolution */
+    inputDimWidth:-1, inputDimHeight:-1,               /* model input parameter */
+    inputFormat:IMG_FORMAT_BGR_PLANAR,                 /* format of image */
     meanValue:{0,0,0},
     stdValue:1,
-    isOutputYUV:1,                                     /*打开YUV420输出功能*/
-    isOutputH26X:1,                                    /*打开H26X编码功能*/
-    isOutputJPEG:1,                                    /*打开MJPEG编码功能*/
-    mode:ENCODE_H265_MODE,                             /* 使用H264编码格式 */
-    extInputs:{0},                                     /* model多输入，第二个输入参数 */
-    modelCascade:0 ,                                   /* 默认不级联下一级模型 */
+    isOutputYUV:1,                                     /* YUV420 enabled*/
+    isOutputH26X:1,                                    /* H26X enabled */
+    isOutputJPEG:1,                                    /* MJPEG enabled */
+    mode:ENCODE_H265_MODE,                             /* select H264 mode*/
+    extInputs:{0},                                     /* additional parameter inputs */
+    modelCascade:0 ,                                   /* cascade model enabled */
     inferenceACC:0,
 };
 
@@ -94,26 +94,6 @@ static void uartEp1Read(unsigned char * data, int len)
             memcpy(metadata, nn_ret, out->size<sizeof(metadata)?out->size:sizeof(metadata));
         }
         break;
-        case (JPEG ):
-        {
-            /* 获取JPEG视频流数据 */
-            char *jpeg_data = (char *) data + sizeof(frameSpecOut);
-            FILE *fp;
-			char src[64];
-			sprintf(src, "%d.jpeg", out->seqNo);
-            /* 获取H65视频流数据 */
-
-//			if(out->seqNo %120 ==0)
-//			{
-//				fp = fopen(src, "w+");
-//				if (fp != 0)
-//				{
-//					int size = fwrite((char*) jpeg_data, 1, out->size, fp);
-//					fclose(fp);
-//				}
-//			}
-        }
-        break;
 
         default:
             break;
@@ -122,10 +102,7 @@ static void uartEp1Read(unsigned char * data, int len)
 ///////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
-
-
     float conf=0.3;
-
 
     analyzeMetedata fun;
     
@@ -148,10 +125,9 @@ int main(int argc, char* argv[])
     usleep(10);
 
     int fd;
-
     fd = open(argv[1],O_RDWR);
 
-    //查询摄像头视频格式，VIDIOC_ENUM_FMT
+    //Query camera video format，VIDIOC_ENUM_FMT
     printf("-------------\n");
     struct v4l2_fmtdesc fmtdesc;
 
@@ -166,7 +142,7 @@ int main(int argc, char* argv[])
         		(fmtdesc.pixelformat >> 8) & 0xFF,(fmtdesc.pixelformat >> 16) & 0xFF, (fmtdesc.pixelformat >> 24) & 0xFF,fmtdesc.description);
         fmtdesc.index++;
     }
-    //设置缓冲区管理方式
+    //Set the buffer management mode
     struct v4l2_requestbuffers reqbuf;
     reqbuf.count = 4;
     reqbuf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
@@ -178,7 +154,7 @@ int main(int argc, char* argv[])
 	    return false;
 	}
 
-    //将申请到的缓冲区映射到用户程序中，以便在用户程序访问，方便处理
+    //Map buffer to user program
     video_buf_t *framebuf;
     framebuf = (video_buf_t*)calloc(reqbuf.count,sizeof(video_buf_t));
     struct v4l2_buffer buf;
@@ -212,7 +188,7 @@ int main(int argc, char* argv[])
 		}
     }
 
-    //开始采集图像
+    //Start capturing images
     enum v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     if (ioctl(fd, VIDIOC_STREAMON, &type) == -1)
     {
@@ -225,7 +201,7 @@ int main(int argc, char* argv[])
     	/* 720P显示 */
     	float scale = 1.0*1280/1920;
 
-    	//获取和处理数据
+    	//Get and process data
         buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         buf.memory = V4L2_MEMORY_MMAP;
         if (ioctl(fd, VIDIOC_DQBUF, &buf) == -1)
@@ -235,11 +211,11 @@ int main(int argc, char* argv[])
             continue;
         }
 
-        /* 获取帧号 */
+        /* Get frame number */
         unsigned int *pSeqNo = (unsigned int *)framebuf[buf.index].start;
         printf("UVC SeqNo %d\n", *pSeqNo);
 
-        /* metadata解析和显示 */
+        /* analysis metadata */
        fun((void*)framebuf[buf.index].start , 1920, 1080,  scale, "demo_video", 0, &cnn1PrmSet,NULL, metadata, conf);
 
        //Do something，process frame data

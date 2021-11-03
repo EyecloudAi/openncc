@@ -47,7 +47,7 @@ typedef int socklen_t;
 #define FALSE              0
 #define TRUE               1
 
-#define  _PACKED_			__attribute__((packed))   //单字节内存位对齐
+#define  _PACKED_			__attribute__((packed))   //Single byte memory bit alignment
 
 #endif
 
