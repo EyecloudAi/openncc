@@ -95,12 +95,12 @@ int num=0;
 
 float getDist_P2L(Point2f pointP, Point2f pointA, Point2f pointB)
 {
-    //求直线方程
+    //Calculate the equation of a line
     int A = 0, B = 0, C = 0;
     A = pointA.y - pointB.y;
     B = pointB.x - pointA.x;
     C = pointA.x*pointB.y - pointA.y*pointB.x;
-    //代入点到直线距离公式
+    //Plug the point coordinates into the formula
     float distance = 0;
     distance = ((float)abs(A*pointP.x + B*pointP.y + C)) / ((float)sqrtf(A*A + B*B));
     return distance;
@@ -119,12 +119,12 @@ void  segmentation_func(void *data, int w, int h, float scale, char *name, int n
     int firstModelOutputSize;
     int secondModelOutputSize;
 
-    /* 获取模型输出size */
+    /* Get size of output */
     memcpy(outputSize, nnret, sizeof(outputSize));
     firstModelOutputSize        = outputSize[0];
     secondModelOutputSize   = outputSize[1];
 
-    // 获取一级模型memdata偏移地址
+    //Get the metadata offset of the first level model
     uint16_t* detMetadata          = (uint16_t*)(nnret) ;
 
 	/* YUV420P-->RGB */
@@ -265,7 +265,7 @@ toppoint.x=topx/top.size();
 toppoint.y=topy/top.size();
 circle(maskImg,toppoint,2,Scalar(0,0,255),10);
 top.clear();
- //  line(maskImg, rect[2], rect[3], Scalar(255, 255, 255), 2, 8);  //绘制最小外接矩形每条边
+ //  line(maskImg, rect[2], rect[3], Scalar(255, 255, 255), 2, 8);  //Draws the minimum enclosing rectangle
 bottompoint.x=(rect[0].x+rect[1].x) /2;     
 bottompoint.y=(rect[0].y+rect[1].y) /2;     
 line(maskImg, toppoint, bottompoint, Scalar(255, 0, 0), 2, 5);
@@ -284,7 +284,6 @@ line(maskImg, toppoint, bottompoint, Scalar(255, 0, 0), 2, 5);
 outgoingImage = outgoingImage * blending + maskImg * (1 - blending);
 
 //	Mat showImage;
-	/* 缩放显示 */
 	cv::imshow(name, outgoingImage);
    
 	cv::waitKey(1);

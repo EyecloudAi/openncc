@@ -61,7 +61,7 @@ void  yolov5_show_img_func(void *data, int w, int h, float scale, char *name, in
     yuvImg.data = (unsigned char*)data;
     cv::cvtColor(yuvImg, outgoingImage, CV_YUV2BGR_I420);
 
-    /* 获取算法的fov */
+    /* Get the FOV of the algorithm */
     oftX = nnParm1->startX;
     oftY = nnParm1->startY;
     disW = nnParm1->endX - nnParm1->startX;
@@ -278,7 +278,7 @@ void  yolov5_show_img_func(void *data, int w, int h, float scale, char *name, in
     vector<Rect>().swap(origin_rect);
     vector<float>().swap(origin_rect_cof);
     vector<String>().swap(origin_rect_name);
-    /* 算法有效区域 */
+    /* Algorithmic effective region */
     if(nn_fov_show)
     {
         cv::Rect boxNN;
@@ -295,7 +295,6 @@ void  yolov5_show_img_func(void *data, int w, int h, float scale, char *name, in
 
 
     Mat showImage;
-    /* 缩放显示 */
     resize(outgoingImage,showImage,Size(outgoingImage.cols*scale,outgoingImage.rows*scale),0,0,INTER_LINEAR);
     cv::imshow(name, showImage);
     cv::waitKey(1);

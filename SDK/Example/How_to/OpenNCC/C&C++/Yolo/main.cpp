@@ -40,14 +40,14 @@ int main(void)
         0,  //inputDimWidth
         0,   //inputDimHeight                   /* <dim>300</dim>  <dim>300</dim> */
         IMG_FORMAT_BGR_PLANAR,      //IMAGE_FORMAT
-        0,                    //meanValue
+        0,                          //meanValue
         0,
         0 ,
-        1,                         //stdValue
-        1,                           /*打开YUV420输出功能*/
-        1,                           /*打开H26X编码功能*/
-        1,                           /*打开MJPEG编码功能*/
-        ENCODE_H264_MODE,            /* 使用H264编码格式 */
+        1,                           //stdValue
+        1,                           /*Turn on YUV420 output function*/
+        1,                           /*Turn on h26x coding function*/
+        1,                           /*Turn on MJPEG encoding*/
+        ENCODE_H264_MODE,            /* Use H264 encoding format */
         NULL,
         0,
         0
