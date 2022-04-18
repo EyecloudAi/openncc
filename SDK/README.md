@@ -1,5 +1,13 @@
 # OpenNCC SDK Release Note
 
+## R22.04.01
+
+**OpenNCC Firmware MV02.101.25**
+
+  - To support IMX334
+
+    
+
 ## R21.10.01
 
 - Add demo about road segmentation model  
