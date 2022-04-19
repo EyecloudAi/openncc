@@ -25,10 +25,9 @@ using namespace cv;
 
 #define  DEMO_FACE_DETECTION  1
 
-#define  OPENCV_SHOW_SCALE    (0.8)    /* factor for resize*/
 extern "C"  void os_sleep(int ms);
 static char metadata[1024*1024];
-static char yuv420p[sizeof(frameSpecOut)+1024*1024*10];
+static char yuv420p[sizeof(frameSpecOut)+3840*2160*2];
 static volatile int show_update = 0;
 
 extern void  obj_show_img_func(void *data, int w, int h, float scale, char *name, int nn_fov_show, CameraInfo *nnparm, char *nnret,float min_score);
@@ -58,156 +57,9 @@ static CameraInfo cam_info =
 	ENCODE_H264_MODE,           /* Use H264 encoding format */
 };
 
-static void vscRead(void* param,void* data, int len)
-{
-    static  struct timeval tv1, tv2;
-    static  int res_cnt = 0;
 
-    /* get media stream head*/
-    frameSpecOut *out = (frameSpecOut *)data;
-  //  if(JPEG == out->type)
-   //     printf("Meta:type:%d,size:%d,seqNo:%d\n", out->type, out->size, out->seqNo);
 
-    switch (out->type)
-    {
-        case(YUV420p) :
-        {         
-            char *yuv_data = (char *) data + sizeof(frameSpecOut);
-            #if (DEMO_CLS!=0 || DEMO_FACE_DETECTION!=0)
-            memcpy(yuv420p, yuv_data, out->size<sizeof(yuv420p)?out->size:sizeof(yuv420p));
-            show_update = 1;
-            #endif
-        }
-        break;
 
-        case (H26X):
-        {
-            /* Get H26x video stream
-            char *h265_data = (char *) data + sizeof(frameSpecOut);
-            if(fd ==0)
-            {
-                if (access(myfifo, F_OK) == -1)
-                {
-                    int res = mkfifo(myfifo, 0777);
-                    if (res != 0)
-                    {
-                        fprintf(stderr, "Could not create fifo %s\n", myfifo);
-                        exit(EXIT_FAILURE);
-                    }
-                }
-                fd = open(myfifo, O_RDWR);
-            }
-            if(fd)
-                write(fd, h265_data, out->size);
-				*/
-        }
-        break;
-
-        case (METEDATA) :
-        {
-//            printf("seqNo:%d, CNN runtime=%dms\n",out->seqNo, out->res[0]);
-            char *nn_ret = (char *) data + sizeof(frameSpecOut);
-            if (res_cnt == 0)
-            {
-                gettimeofday(&tv1, NULL);
-            }
-            res_cnt++;
-            if (res_cnt == 100)
-            {
-                gettimeofday(&tv2, NULL);
-                long int d = tv2.tv_sec * 1000000 + tv2.tv_usec - tv1.tv_sec * 1000000 - tv1.tv_usec;
-                printf("NCS2_FPS %.3f param:%s\n", (float) (100 * 1000000) / d,(char*)param);
-                res_cnt = 0;
-            }
-
-        #if (DEMO_CLS!=0 || DEMO_FACE_DETECTION!=0)
-            memcpy(metadata, nn_ret, out->size<sizeof(metadata)?out->size:sizeof(metadata));
-        #endif
-        }
-        break;
-
-        case (JPEG):
-        {
-          char *jpeg_data = (char *) data + sizeof(frameSpecOut);
-          if(out->seqNo %100 ==0)
-          {
-              char src[64];
-              FILE *fp;
-              sprintf(src, "seq_%d.jpeg", out->seqNo);
-              if((fp=fopen(src,"wb")) != NULL)
-              {
-                  fwrite(jpeg_data, out->size, 1, fp);
-                  fclose(fp);
-                  printf("save jpeg file %s \n",src);
-              }
-          }
-        }
-        break;
-
-        default:
-            break;
-    }
-}
-
-/*user call back method to get all data from ncc device,if you used in emb envir ,
-you'd better used this method,it 
- */
-int main_cb(void)
-{
-	int ret;
-	 memset(metadata, 0, sizeof(metadata));
-
-    //1. Load firmware
-    load_fw("./moviUsbBoot","./fw/OpenNcc.mvcmd");
-		
-		printf("usb sersion:%d \n",get_usb_version());
-		
-    SensorModesConfig cameraCfg;
-    SensorModesList   list;
-    camera_control_get_features(&list);
-    printf("list num:%d\n",list.num);
-    for(int i=0;i<list.num;i++)
-    {
-        SensorModesConfig features;
-        memcpy(&features, &list.mode[i], sizeof(features));
-        printf("[%d/%d]camera: %s, %dX%d@%dfps, AFmode:%d, maxEXP:%dus,gain[%d, %d]\n",i,list.num,
-                features.moduleName, features.camWidth, features.camHeight, features.camFps,
-                features.AFmode, features.maxEXP, features.minGain, features.maxGain);
-    }
-
-    int sensorModeId = 0; //1080P mode
-//    int sensorModeId = 1; //4K mode
-    camera_select_sensor(sensorModeId);
-    memcpy(&cameraCfg, &list.mode[sensorModeId], sizeof(cameraCfg));//select camera info
-
-    cam_info.imageWidth  = cameraCfg.camWidth;
-    cam_info.imageHeight = cameraCfg.camHeight;
-    cam_info.startX      = 0;
-    cam_info.startY      = 0;
-    cam_info.endX        = cameraCfg.camWidth;
-    cam_info.endY        = cameraCfg.camHeight;
-
-    ret = sdk_init(vscRead, (void*)"12345", (char*) "./blob/2020.3/face-detection-retail-0004/face-detection-retail-0004.blob", &cam_info, sizeof(cam_info));
-		printf("xlink_init %d\n", ret);
-
-    camera_video_out(YUV420p,VIDEO_OUT_CONTINUOUS);
-	/***************************demo test start********************************/
-	while(1)
-	{
-		char src[64];
-		float scale = OPENCV_SHOW_SCALE; 
-		if(show_update ==0)
-		{
-			os_sleep(1);
-			continue;
-		}
-
-		sprintf(src, "fd_demo_video_%dx%d@%dfps(scale:%d%%)", cameraCfg.camWidth, cameraCfg.camHeight, cameraCfg.camFps,(int)(100*scale));
-		fd_show_img_func(yuv420p , cameraCfg.camWidth, cameraCfg.camHeight, scale,src, true, &cam_info, (char*)metadata+OUTPUT_INDEX_SIZE);
-		show_update = 0;
-	}
-	/***************************test end********************************/
-}
 
 /***test one AI mode*****/
 extern void face_detect_handle(cv::Mat& img,CameraInfo *nnparm, char *nnret);
@@ -265,7 +117,7 @@ int main_1net(void)
 	while(g_run)
 	{
 		char src[64];
-		float scale = OPENCV_SHOW_SCALE; 
+		float scale = 960 * 1.0 / mode[sensorModeId].camWidth; 
 		int size= sizeof(yuv420p);
 		//if (read_yuv_data(yuv420p,&size,1)<0)
 		//if (read_jpg_data(yuv420p,&size,1)<0)
@@ -385,12 +237,15 @@ int main_2net(void)
     cnn1PrmSet.imageWidth  = cameraCfg.camWidth;
     cnn1PrmSet.imageHeight = cameraCfg.camHeight;
 
-		cnn1PrmSet.startX      = 0;
-		cnn1PrmSet.startY      = 0;
-		cnn1PrmSet.endX        = cameraCfg.camWidth;
-		cnn1PrmSet.endY        = cameraCfg.camHeight;
-		cnn1PrmSet.inputDimWidth  = 300;
-		cnn1PrmSet.inputDimHeight = 300;
+    cnn1PrmSet.startX      = 0;
+    cnn1PrmSet.startY      = 0;
+    cnn1PrmSet.endX        = cameraCfg.camWidth;
+    cnn1PrmSet.endY        = cameraCfg.camHeight;
+    cnn1PrmSet.inputDimWidth  = 300;
+    cnn1PrmSet.inputDimHeight = 300;
+
+    if(cameraCfg.camWidth > 1920)
+        cnn1PrmSet.inferenceACC = 0;
 
     cnn1PrmSet.modelCascade = 1;
 
@@ -614,9 +469,7 @@ int main(int argc ,char *argv[])
 	else  if  (nselect == 1)
 	  return main_2net();
 	else  if  (nselect == 2)
-	  return main_2input();
-	else  if  (nselect == 3)
-	  return main_cb();	  
+	  return main_2input();	  
 	else  
 		printf("no select example!\n");
 
