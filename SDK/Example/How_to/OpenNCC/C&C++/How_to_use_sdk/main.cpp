@@ -25,7 +25,6 @@ using namespace cv;
 
 #define  DEMO_FACE_DETECTION  1
 
-#define  OPENCV_SHOW_SCALE    (0.8)    /* factor for resize*/
 extern "C"  void os_sleep(int ms);
 static char metadata[1024*1024];
 static char yuv420p[sizeof(frameSpecOut)+3840*2160*2];
@@ -118,7 +117,7 @@ int main_1net(void)
 	while(g_run)
 	{
 		char src[64];
-		float scale = OPENCV_SHOW_SCALE; 
+		float scale = 960 * 1.0 / mode[sensorModeId].camWidth; 
 		int size= sizeof(yuv420p);
 		//if (read_yuv_data(yuv420p,&size,1)<0)
 		//if (read_jpg_data(yuv420p,&size,1)<0)
@@ -238,12 +237,15 @@ int main_2net(void)
     cnn1PrmSet.imageWidth  = cameraCfg.camWidth;
     cnn1PrmSet.imageHeight = cameraCfg.camHeight;
 
-		cnn1PrmSet.startX      = 0;
-		cnn1PrmSet.startY      = 0;
-		cnn1PrmSet.endX        = cameraCfg.camWidth;
-		cnn1PrmSet.endY        = cameraCfg.camHeight;
-		cnn1PrmSet.inputDimWidth  = 300;
-		cnn1PrmSet.inputDimHeight = 300;
+    cnn1PrmSet.startX      = 0;
+    cnn1PrmSet.startY      = 0;
+    cnn1PrmSet.endX        = cameraCfg.camWidth;
+    cnn1PrmSet.endY        = cameraCfg.camHeight;
+    cnn1PrmSet.inputDimWidth  = 300;
+    cnn1PrmSet.inputDimHeight = 300;
+
+    if(cameraCfg.camWidth > 1920)
+        cnn1PrmSet.inferenceACC = 0;
 
     cnn1PrmSet.modelCascade = 1;
 
