@@ -1,5 +1,15 @@
 # OpenNCC SDK Release Note
 
+## R22.08.01
+
+- Update usb-ma2x8x.mvcmd to be compatible with new SoM board.
+
+**OpenNCC Firmware MV02.101.26**
+
+  - Fix output 4k mjpeg crash
+
+
+
 ## R22.04.01
 
 **OpenNCC Firmware MV02.101.25**
