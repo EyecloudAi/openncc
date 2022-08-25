@@ -17,10 +17,6 @@
 
 [用户手册](https://gitee.com/eyecloud/openncc/blob/master/docs/WordPdf/ch/OpenNCC_UserManual_Ch.pdf)
 
-## Current Version
-
-**R21.10.01**
-
 ## Getting Started
 
 Please refer to <font color="red">**[docs/WordPdf](docs/WordPdf)/.../OpenNCC_Getting_Started.pdf**</font>
