@@ -1,0 +1,33 @@
+{
+        "CNN Info": {
+                "Para1": {
+                        "inputDimWidth": 300,
+                        "inputDimHeight": 300,  
+                        "inputFormat": 8,
+                        "meanValue": [0,0,0],
+                        "stdValue": 1,
+                        "isOutputYUV": 1,
+                        "isOutputH26X": 1,
+                        "isOutputJPEG": 1,
+                        "encodeMode": 0,
+                        "extInputs": [0],
+                        "modelCascade": 1,
+                        "inferenceACC": 1
+                },
+                "Para2": {
+                        "startXAdj": -5,
+                        "startYAdj": -5,
+                        "endXAdj": 5,
+                        "endYAdj": 5,
+                        "labelMask": [0,0,1],
+                        "minConf": 0.7,
+                        "inputDimWidth": 94,
+                        "inputDimHeight": 24,
+                        "inputFormat": 8,
+                        "meanValue": [0,0,0],
+                        "stdValue": 1,
+                        "extInputs": [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                        "modelCascade": 0
+               }
+        }
+}

@@ -1,5 +1,11 @@
 # OpenNCC SDK Release Note
 
+## R22.12.01
+
+-  Add cloud push of YOLO model data 
+
+
+
 ## R22.08.01
 
 - Update usb-ma2x8x.mvcmd to be compatible with new SoM board.
