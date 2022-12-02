@@ -13,13 +13,13 @@
 
 [技术文档](https://eyecloudai.github.io/openncc/ch)
 
-[UserManual](https://github.com/EyecloudAi/openncc/blob/master/docs/WordPdf/en/OpenNCC_UserManual_En.pdf)
+[UserManual](docs/ch/OpenNCC_UserManual_Ch.pdf)
 
-[用户手册](https://gitee.com/eyecloud/openncc/blob/master/docs/WordPdf/ch/OpenNCC_UserManual_Ch.pdf)
+[用户手册](docs/en/OpenNCC_UserManual_En.pdf)
 
 ## Getting Started
 
-Please refer to <font color="red">**[docs/WordPdf](docs/WordPdf)/.../OpenNCC_Getting_Started.pdf**</font>
+Please refer to <font color="red">**[docs](docs)/.../OpenNCC_Getting_Started.pdf**</font>
 
 ## Support
 
